@@ -11,10 +11,10 @@
 | Cuentas de GitHub  | Aisayan (aisayan68@mgial.com)  |
 | Género  | Peleas/Supervivencia |
 
-## 1. Cambios:
+## 1. CAMBIOS:
 Sirva este apartado como memoria a los cambios introducidos en el documento respecto a su primera entrega.
 
-## 2. Introducción:
+## 2. INTRODUCCIÓN:
 Este es el documento de diseño de Clash of Wands, videojuego desarrollado para varias plataformas pero pensado principalmente para PC. Este escrito tiene como objetivo principal mostrar e incluir todos los elementos artísticos y de diseño del videojuego para que sirva como carta de presentación e información.
 
 ### 2.1. Concepto del juego:
@@ -68,7 +68,29 @@ Por último añadir que el juego se verá desde una cámara cenital, alejada de 
 
 Todo el arte del juego será original, pero todas las tipografías que se utilicen serán correctamente acreditadas en la pestaña de créditos.
 
+![This is an image](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/IMG_8785.PNG)
+
+### 2.7. Alcance
+
+El objetivo principal es desarrollar un sistema de juego capaz de soportar multijugador en red. En primera instancia, se desarrollará el videojuego para ser funcional en multijugador local.
 
 
+## 3. MECÁNICAS DE JUEGO:
+En esta sección se detalla la jugabilidad, profundizando en los elementos principales de esta, como los mencionados en la introducción, detallando también que acciones puede hacer el jugador y cuáles no. También se mostrará la lista de equipamientos y personajes que el jugador podrá seleccionar, así como las diferencias entre estos. Finalmente, se explicarán los controles, movimiento y físicas.
+
+### 3.1. Jugabilidad
+
+#### 3.1.1 Escenario dinámico
+
+En Clash of Wands el escenario de combate es uno de los aspectos más relevantes del juego, bautizado como “escenario mutante”. Este se basa en un escenario dinámico que va cambiando a lo largo de cada batalla, haciendo que el jugador tenga que estar muy atento a estos cambios y saber cómo usarlos a su favor o evitar tenerlos en su contra. 
+Los principales elementos del escenario mutante son:
+
+_**- Suelo “ahora me ves”:**_ En cada escenario el suelo se encuentra dividido en “placas” de un tamaño o proporción determinadas. Cada una de estas placas tiene un número proyectado encima, el cual es un contador que indica el tiempo que queda hasta que esta placa desaparezca temporalmente, por lo que sí un jugador está sobre ella cuando el  contador llega a 0, este caerá y perderá el combate, es más fácil de comprender si se imaginan las “placas” como trampillas. Tras abrirse o desaparecer, y al pasar otra “unidad de tiempo” esta placa se volverá a cerrar y se proyectará un nuevo número encima de esta, repitiendo este ciclo en cada placa hasta que uno de los jugadores pierda el combate. Cabe destacar que será posible que más de una placa se abra a la vez, pero nunca un número de placas lo suficientemente alto para hacer que no sea posible recorrer el suelo en ningún momento.
+
+_**- Bloques mutables:**_ Durante el desarrollo de cada combate, aparecerán en el escenario unos “puntos de nexo” inicialmente neutros, pero que al pasar un jugador por encima de ellos generarán un obstáculo del color del jugador que lo ha atravesado primero. Este bloque podrá ser atravesada por el jugador del mismo color que el bloque, pero será letal para el del color contrario al entrar en contacto con ella, lo que hace aún más interesante el uso del escenario a favor y desplazarse por él de manera inteligente.
+
+_**- ¿Límites como portales?**_
+
+Todos estos elementos hacen que Clash of Wands sea una experiencia aún más interesante al aportar el uso del escenario como algo dinámico y no repetitivo que añade un elemento de estrategia y adaptación muy fresco.
 
 
