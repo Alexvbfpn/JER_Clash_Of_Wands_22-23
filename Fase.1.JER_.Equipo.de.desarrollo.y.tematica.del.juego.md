@@ -1,128 +1,19 @@
 
-
------
-
-![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.001.png)*Curso 2022-2023*
-
-UNIVERSIDAD REY JUAN CARLOS
-
-ESCUELA TÉCNICA SUPERIOR DE INGENIERÍA INFORMÁTICA
-
-(ETSII)
-
-![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.002.png)
-
-
-![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.003.png)
-
-
-
-**Game Document Design:**
-
-**Clash of Wands**
-
-
-GRADO EN DISEÑO Y DESARROLLO DE VIDEOJUEGOS 
-
-JUEGOS EN RED
-
-![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.004.png)
-
-
-
-**Equipo 06 :** Angry Mango**  
-
-**Integrantes:**
-
-*Aisayan Jiménez Viera* 
-
-*Victor Cabanillas Solis*
-
-*Alejandro Campbell Legarreta*
-
-*Javier Crespo Parra*
-
-***Profesores:** Eduardo García Pardo e Isidoro Hernán Losada*  
-
-## ÍNDICE:
-
-Añade encabezados (Formato > Estilos de párrafo) y aparecerán en el índice.
-
-
-
-1. **Cambios**
-
-2. **Introducción**
-    
-    2.1. Concepto del juego  
-  
-    2.2. Características principales 
-
-    2.3. Género 
-
-    2.4. Propósito y público objetivo
-
-    2.5. Jugabilidad 
-
-    2.6. Estilo Visual
-
-    2.7. Alcance 
-
-1. **Mecánicas de juego**
-
-`	`3.1. Jugabilidad 
-
-`	`3.2. Flujo de Juego 
-
-`	`3.3. Personajes 
-
-`		`3.3.1. Mago de Fuego
-
-`		`3.3.2. Mago de Aire
-
-`		`3.3.3. Mago de Electricidad
-
-`		`3.3.4. Mago de Agua
-
-`	`3.4. Movimiento y físicas 
-
-3.4.1. Interacciones entre elementos
-
-`		`3.4.2. Controles
-
-1. **Interfaces** 
-
-1. **Arte** 
-
-1. **Anexos**
-
-1. **Referencias**
-
-
-|Equipo 6: Angry Mango|||
-| :- | :-: | -: |
-
-
-JER. Fase 1: Equipo de desarrollo y temática del juego (GDD)
-
------
-
-
-**1. CAMBIOS**
+## 1. CAMBIOS
 
 Sirva este apartado como memoria a los cambios introducidos en el documento respecto a su primera entrega.
 
 
 
-**2. INTRODUCCIÓN**
+## 2. INTRODUCCIÓN
 
-`	`Este es el documento de diseño de *Clash of Wands*, videojuego desarrollado para varias plataformas pero pensado principalmente para PC. Este escrito tiene como objetivo principal mostrar e incluir todos los elementos artísticos y de diseño del videojuego para que sirva como carta de presentación e información.
+Este es el documento de diseño de *Clash of Wands*, videojuego desarrollado para varias plataformas pero pensado principalmente para PC. Este escrito tiene como objetivo principal mostrar e incluir todos los elementos artísticos y de diseño del videojuego para que sirva como carta de presentación e información.
 
-**2.1. Concepto del juego**
+### 2.1. Concepto del juego
 
 *Clash of Wands* es un videojuego multijugador competitivo en el que se controlará a un pequeño mago que, harto de estudiar y perder su tiempo en la escuela mágica, decide emplear sus poderes elementales en peleas callejeras a puño limpio, sino fuera porque él junto a sus contrincantes, harán uso de los elementos para conseguir la victoria y coronarse como el mago mas fuerte de todos.
 
-**2.2. Características principales**
+### 2.2. Características principales
 
 Los puntos fuertes del videojuego son los siguientes:
 
@@ -134,7 +25,7 @@ Los puntos fuertes del videojuego son los siguientes:
 
 - **Multijugador competitivo:** Está principalmente pensado para que te enfrentes a tus amigos y generar una competición sana entre jugadores.
 
-**2.3. Género**
+### 2.3. Género
 
 *Clash of Wands* supone la unión de dos géneros a partes iguales:
 
@@ -142,13 +33,13 @@ Los puntos fuertes del videojuego son los siguientes:
 
 - **Supervivencia:** No bastará únicamente con sobrevivir a los puñetazos de tu contrincante, sino que además deberás tener cuidado con las baldosas del ring que aleatoriamente irán cayendo junto al resto de trampas que se activen a lo largo del escenario.
 
-**2.4. Propósito y público objetivo**
+### 2.4. Propósito y público objetivo
 
-`	`En cuanto al propósito de *Clash of Wands,* como equipo de desarrollo lo que se trata de conseguir es que la gente tenga una herramienta más de ocio que poder emplear en su tiempo libre y así  poder entretenerse mientras pasan un buen rato en familia o con amigos.
+En cuanto al propósito de *Clash of Wands,* como equipo de desarrollo lo que se trata de conseguir es que la gente tenga una herramienta más de ocio que poder emplear en su tiempo libre y así  poder entretenerse mientras pasan un buen rato en familia o con amigos.
 
-`	`El público objetivo de *Clash of Wands* pretende recoger un amplio rango de edades al ser un juego apto para todos y el cual no requiere de tiempo extra para ser jugado más allá del que se quiera dedicar. Sus partidas cortas y rápidas, pero divertidas y frenéticas, lo convierten en un buen producto para gente joven y adultos, aunque no se descarta que los más mayores puedan estar interesados.
+El público objetivo de *Clash of Wands* pretende recoger un amplio rango de edades al ser un juego apto para todos y el cual no requiere de tiempo extra para ser jugado más allá del que se quiera dedicar. Sus partidas cortas y rápidas, pero divertidas y frenéticas, lo convierten en un buen producto para gente joven y adultos, aunque no se descarta que los más mayores puedan estar interesados.
 
-**2.5. Jugabilidad**
+### 2.5. Jugabilidad
 
 En cada partida de *Clash of Wands* se seleccionará un escenario para batirnos contra nuestro rival. En *Clash of Wands* este escenario cobra gran importancia ya que es un escenario cambiante en el que el jugador deberá estar atento para aprovechar estos cambios de escenario en su favor. 
 
@@ -159,7 +50,7 @@ Algunas de las características principales de la jugabilidad son las siguientes
 - **Escenario dinámico:** El escenario no es siempre igual durante toda la batalla, si no que algunos elementos se modifican en el transcurso de esta, por lo que hay que estar muy atento para poder usar estas a tu favor y que no te pille por sorpresa.
 - **Habilidad especial:** Cada equipamiento o personaje tiene una habilidad especial que el jugador puede usar cada cierto tiempo para poner la balanza hacia su lado.
 
-**2.6. Estilo visual**
+### 2.6. Estilo visual
 
 En Clash of Wands, todos los elementos del juego estarán hechos completamente en arte 2D, con un estilo similar al que se utiliza en la animación actual, con un sombreado Cell Shading y colores vivos y llamativos, puesto que estos serán muy importantes para el juego.
 
@@ -171,17 +62,17 @@ Todo el arte del juego será original, pero todas las tipografías que se utilic
 
 ![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.005.jpeg)
 
-**2.7. Alcance**
+### 2.7. Alcance
 
 El objetivo principal es desarrollar un sistema de juego capaz de soportar multijugador en red. En primera instancia, se desarrollará el videojuego para ser funcional en multijugador local.
 
-**3. MECÁNICAS DE JUEGO** 
+## 3. MECÁNICAS DE JUEGO
 
 En esta sección se detalla la jugabilidad, profundizando en los elementos principales de esta, como los mencionados en la introducción, detallando también que acciones puede hacer el jugador y cuáles no. También se mostrará la lista de equipamientos y personajes que el jugador podrá seleccionar, así como las diferencias entre estos. Finalmente, se explicarán los controles, movimiento y físicas.
 
-**3.1. Jugabilidad**
+### 3.1. Jugabilidad
 
-**3.1.1 Escenario dinámico**
+#### 3.1.1 Escenario dinámico
 
 En *Clash of Wands* el escenario de combate es uno de los aspectos más relevantes del juego, bautizado como “escenario mutante”. Este se basa en un escenario dinámico que va cambiando a lo largo de cada batalla, haciendo que el jugador tenga que estar muy atento a estos cambios y saber cómo usarlos a su favor o evitar tenerlos en su contra. 
 
@@ -195,7 +86,7 @@ Todos estos elementos hacen que *Clash of Wands* sea una experiencia aún más i
 
 
 
-**3.1.2. Posibilidades de los jugadores**
+#### 3.1.2. Posibilidades de los jugadores
 
 - **Variaciones de escenarios de batalla:** Los jugadores podrán elegir entre diferentes escenarios, los cuales, a pesar de coincidir  todos en sus dimensiones (proporción de ancho y alto) para que al menos el jugador pueda tener ese aspecto ya conocido (puesto que cambiar también las proporciones podría ser demasiado caótico y no tener un mínimo de elementos comunes), presentan las siguientes variaciones entre ellos:
   - **Secuencia, posición, forma y desplazamiento de los bloques:** En cada escenario habría una secuencia diferente de bloques, con diferentes formas y quizá con desplazamiento diferente (o sin desplazamiento) al de otros escenarios.
@@ -205,8 +96,7 @@ Todos estos elementos hacen que *Clash of Wands* sea una experiencia aún más i
 - **Puñetazo normal cuerpo a cuerpo\*:** Los jugadores también pueden pegar puñetazos normales (con un cooldown más bajo que las habilidades pero lo suficientemente alto para no poder soltarlos constantemente) los cuales hacen retroceder al rival ligeramente e impiden su movimiento durante un muy breve periodo de tiempo al impactar. Estos tendrán una pequeña área de golpeo, para facilitar así el hecho de conectar golpes.
 - **Nivela la balanza a tu favor al perder una batalla:** Al perder una batalla (***concepto explicado en el punto “3.2. Flujo de juego”***) el jugador tiene la posibilidad de cambiar su equipamiento (y con este la habilidad) para poder darle la vuelta a las tornas y pillar al rival por sorpresa teniendo una habilidad diferente a la de la anterior batalla.
 
-**3.1.3. Limitaciones del jugador**
-
+#### 3.1.3. Limitaciones del jugador
 Las limitaciones a un jugador en el gameplay pueden ser infinitas, tantas como se puedan pensar, pero en este apartado se enumeran y explican algunas de las que se podría pensar que deberían estar y el por qué de la ausencia de estas. 
 
 - **Mecánica de salto:**  Si las “placas” se abren, ¿no se debería poder saltarlas para así poder pasar entre huecos y evitarlas? Esta es una pregunta que se le podría venir a la cabeza a alguien al ver como va a ser el juego, pero se ha decidido no implementar esta mecánica para impulsar al jugador a anticiparse a los cambios del escenario e incluso usarlos a su favor, no simplemente poder saltarlos en el momento que se abran las placas. Además al ser un escenario tan dinámico se podría producir un cambio mientras el jugador esta en el aire, no pudiendo reaccionar y frustrando al jugador, lo cual no encaja con nuestro objetivo que es que el jugador tenga el control de su personaje en todo momento (excepto si otro jugador le golpea) para una experiencia de juego mejor. Otro motivo son las dificultades de implementación que podría acarrear con las colisiones, bloques etc. para algo no necesario en el juego.
@@ -214,12 +104,7 @@ Las limitaciones a un jugador en el gameplay pueden ser infinitas, tantas como s
 - **Eliminación directa mediante ataque:** ¿Por qué no puedo eliminar a mi oponente directamente de un puñetazo en lugar de tener que depender de aprovechar los peligros del escenario a mi favor? Como se mencionó en el punto 3.1.2. esto se hace para no caer en el mismo típico juego de combate y eliminación directa por golpes, queremos que el escenario mutante sea el punto central del juego sobre el que gira todo, tener que usar este a tu favor le da frescura y algo poco frecuente en videojuegos, esto no quiere decir que no dependas de ti mismo, es crucial que sepas usar el escenario a tu favor y eso depende de ti, de tu habilidad de anticipación y adaptación y de cómo usas las habilidades y puñetazos en el momento justo para que tu rival acabe eliminado por los peligros del escenario
 
 
-
-
-
-
-
-**3.2. Flujo de juego**
+### 3.2. Flujo de juego
 
 En este apartado se describe como es una partida normal de *Clash of Wands.* Desde que arranca el juego hasta que se termina una partida.
 
@@ -244,50 +129,47 @@ Por tanto, al comenzar la partida empezará el primer combate de la primera bata
 
 
 
-**3.3. Personajes**
-
-`	`En la sección “Personajes” se procederá a dar una explicación de la particularidad de cada uno de los magos existentes. Antes, es recomendable saber que el ataque en todos es el mismo:
-
-- Puñetazo: Golpea al enemigo para paralizarlo durante un breve periodo de tiempo (Cooldown estimado: 5 segundos, Tiempo de la parálisis en general: 1,5 segundos  )
-
+### 3.3. Personajes
+En la sección “Personajes” se procederá a dar una explicación de la particularidad de cada uno de los magos existentes. Antes, es recomendable saber que el ataque en todos es el mismo:
+- **Puñetazo:** Golpea al enemigo para paralizarlo durante un breve periodo de tiempo (Cooldown estimado: 5 segundos, Tiempo de la parálisis en general: 1,5 segundos  )
 Lo único que cambia con el elemento es el efecto que aplican.
 
-**3.3.1. Mago de Fuego**
+#### 3.3.1. Mago de Fuego
 
 Con ropajes color rojo y equipado con su par de puños, el mago de fuego viene a dar calor a la arena.
 
-- Puñetazo de fuego: Envía lejos al jugador enemigo en un potente puñetazo explosivo. 
+- **Puñetazo de fuego:** Envía lejos al jugador enemigo en un potente puñetazo explosivo. 
 
-**3.3.2. Mago de Aire**
+#### 3.3.2. Mago de Aire
 
 Con ropajes color verde y equipado con su par de puños, el mago de aire está preparado para enfrentarse a sus contrincantes.
 
-- Puñetazo de aire: Gira a tu alrededor para abofetear a tus enemigos. El giro al ser en área completa, el radio de este es más reducido. 
+- **Puñetazo de aire:** Gira a tu alrededor para abofetear a tus enemigos. El giro al ser en área completa, el radio de este es más reducido. 
 
-**3.3.3. Mago de Electricidad**
+#### 3.3.3. Mago de Electricidad
 
 Con ropajes color amarillo y equipado con su par de puños, el mago de electricidad te dejará paralizado, y no por sus poderes…
 
-- Puñetazo de electricidad: Paraliza durante más tiempo a tus enemigos (3 segundos)
+- **Puñetazo de electricidad:** Paraliza durante más tiempo a tus enemigos (3 segundos)
 
 
 
 
 
 
-**3.3.4. Mago de Agua**
+#### 3.3.4. Mago de Agua
 
 Con ropajes color azul y equipado con su par de puños, el mago de agua te ahogara entre sus fuertes brazos
 
-- Puñetazo de agua: Moja al enemigo con su puñetazo lo que ralentiza al enemigo durante unos segundos hasta que se seque
+- **Puñetazo de agua:** Moja al enemigo con su puñetazo lo que ralentiza al enemigo durante unos segundos hasta que se seque
 
 Para finalizar la sección de personajes, como se ha comentado al principio, los ataques de todos los mago a excepción del eléctrico (por su especialidad), paralizan a los enemigos tras ser ejecutados durante 1.5 segundos, por lo tanto, en el caso del mago de fuego, enviará volando a los enemigos y a continuación, el otro personaje estará paralizado durante 1.5 segundos.
 
 ![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.007.png)![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.008.png)![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.009.png)![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.010.png)
 
-**3.4. Movimiento y físicas**
+### 3.4. Movimiento y físicas
 
-**3.4.1. Interacciones entre elementos**
+#### 3.4.1. Interacciones entre elementos
 
 El juego se desarrolla sobre un plano y los jugadores se desplazan por él, a su vez el escenario presenta unos “bloques” de colores capaces de ser atravesados por jugadores del mismo color, provocando la muerte del resto de jugadores cuyo color no coincide.
 
@@ -300,7 +182,7 @@ Por tanto las colisiones que se producirán son las siguientes:
 - ***Personaje-Pared***
 - ***Personaje-Plataforma vacía***
 
-**3.4.2. Controles**
+#### 3.4.2. Controles
 
 Los controles principales son las teclas WASD para el movimiento usando el ratón para controlar la rotación y atacar. 
 
@@ -316,7 +198,7 @@ En modo local, el segundo jugador usará las flechas para moverse y para ambos j
 
 
 
-**4. INTERFACES**
+## 4. INTERFACES
 
 En este apartado se explicará el flujo de pantallas y el funcionamiento de las distintas interfaces del juego, acompañando las descripciones con imágenes para poder visualizar la información que se intenta transmitir.
 
@@ -345,9 +227,9 @@ Aquí se jugaría otra ronda de combates, y si ganase, en este caso, el jugador 
 En caso de ganar el azul, la victoria se disputaría en una nueva ronda de combates.
 
 
-**5. ARTE**
+## 5. ARTE
 
-` `Aquí se expondrá todo el arte realizado para el juego (la mayoría de este concept art y para nada definitivo) que se ha realizado a día 17/9/2022:
+En esta sección se expondrá todo el arte realizado para el juego (la mayoría de este concept art y para nada definitivo) que se ha realizado a día 17/9/2022:
 
 ![](Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.017.png)
 
