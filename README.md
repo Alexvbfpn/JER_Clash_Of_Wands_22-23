@@ -7,8 +7,8 @@
 |  :---:   |  :---:   |
 | Equipo / Estudio | Angry Mango  |
 | Integrantes  | Aisayan Jiménez Viera, Alejandro Campbell,  Javier Crespo, Victor Cabanillas Solis|
-| Correos Corporativos | a.jimenezv.2020@alumnos.urjc.es  |
-| Cuentas de GitHub  | Aisayan (aisayan68@mgial.com)  |
+| Correos Corporativos | a.jimenezv.2020@alumnos.urjc.es, v.cabanillas.2020@alumnos.urjc.es, j.crespop.2018@alumnos.urjc.es |
+| Cuentas de GitHub  | Aisayan (aisayan68@mgial.com) VictorCabanillas (javier.888.jcp@gmail.com) |
 | Género  | Peleas/Supervivencia |
 
 ## 1. CAMBIOS
