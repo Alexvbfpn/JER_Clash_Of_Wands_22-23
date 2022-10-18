@@ -1,4 +1,4 @@
-﻿ÍNDICE
+
 
 -----
 
@@ -44,7 +44,7 @@ JUEGOS EN RED
 
 ***Profesores:** Eduardo García Pardo e Isidoro Hernán Losada*  
 
-**ÍNDICE:**
+## ÍNDICE:
 
 Añade encabezados (Formato > Estilos de párrafo) y aparecerán en el índice.
 
@@ -52,21 +52,21 @@ Añade encabezados (Formato > Estilos de párrafo) y aparecerán en el índice.
 
 1. **Cambios**
 
-1. **Introducción**
-**
-`	`2.1. Concepto del juego  
+2. **Introducción**
+    
+    2.1. Concepto del juego  
+  
+    2.2. Características principales 
 
-`	`2.2. Características principales 
+    2.3. Género 
 
-`	`2.3. Género 
+    2.4. Propósito y público objetivo
 
-`	`2.4. Propósito y público objetivo
+    2.5. Jugabilidad 
 
-`	`2.5. Jugabilidad 
+    2.6. Estilo Visual
 
-`	`2.6. Estilo Visual
-
-2.7. Alcance 
+    2.7. Alcance 
 
 1. **Mecánicas de juego**
 
