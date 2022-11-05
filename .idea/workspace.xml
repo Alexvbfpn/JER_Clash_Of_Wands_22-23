@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="" />
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Sigo sin saber que se actualiza con el WorkSpace">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/phaser.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/game_Local.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/game_Local.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -20,12 +34,27 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Campb/OneDrive/Desktop/Universidad/2022-2023/Juegos en Red/Clash_Of_Wands/JER_Clash_Of_Wands_22-23",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23" />
+      <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23\juegoLocal" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23\juegoLocal" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -34,7 +63,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1667652837180</updated>
-      <workItem from="1667652838840" duration="24000" />
+      <workItem from="1667652838840" duration="666000" />
+      <workItem from="1667653548398" duration="1581000" />
     </task>
     <servers />
   </component>
@@ -51,5 +81,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Sigo sin saber que se actualiza con el WorkSpace" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sigo sin saber que se actualiza con el WorkSpace" />
   </component>
 </project>
