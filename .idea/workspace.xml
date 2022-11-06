@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Añadidas las clases de algunas escenas, un botón genérico para aprender a como hacer components y organización de documentos">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/scenes/match.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/game_Local.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/game_Local.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/game_Local.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/game.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/components/retroButtonStyle.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/scenes/mainMenu.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +67,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667652837180</updated>
       <workItem from="1667652838840" duration="666000" />
-      <workItem from="1667653548398" duration="12019000" />
+      <workItem from="1667653548398" duration="14566000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
