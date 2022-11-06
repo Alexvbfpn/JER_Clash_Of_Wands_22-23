@@ -1,6 +1,3 @@
-import {Phaser} from "../phaser";
-
-
 export class MainMenu extends Phaser.Scene
 {
     constructor()
@@ -10,7 +7,7 @@ export class MainMenu extends Phaser.Scene
 
     preload()
     {
-        this.load.image('mainMenu_Background', '../assets/img_mainMenu');
+        this.load.image('mainMenu_Background', '../assets/img_mainMenu.jpg');
     }
 
     create()
