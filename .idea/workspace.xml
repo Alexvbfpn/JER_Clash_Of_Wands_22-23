@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Añadidas las clases de algunas escenas, un botón genérico para aprender a como hacer components y organización de documentos">
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Botón en menu principal para pasar a siguiente pantalla">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/components/genericButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/components/playButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/scenes/mainMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667652837180</updated>
       <workItem from="1667652838840" duration="666000" />
-      <workItem from="1667653548398" duration="14566000" />
+      <workItem from="1667653548398" duration="22433000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
@@ -83,7 +85,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667750252481</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Botón en menu principal para pasar a siguiente pantalla">
+      <created>1667758167365</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667758167365</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Botón en menu principal para pasar a siguiente pantalla">
+      <created>1667758172895</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1667758172895</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -103,6 +119,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Sigo sin saber que se actualiza con el WorkSpace" />
     <MESSAGE value="Añadidas las clases de algunas escenas, un botón genérico para aprender a como hacer components y organización de documentos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadidas las clases de algunas escenas, un botón genérico para aprender a como hacer components y organización de documentos" />
+    <MESSAGE value="Botón en menu principal para pasar a siguiente pantalla" />
+    <option name="LAST_COMMIT_MESSAGE" value="Botón en menu principal para pasar a siguiente pantalla" />
   </component>
 </project>
