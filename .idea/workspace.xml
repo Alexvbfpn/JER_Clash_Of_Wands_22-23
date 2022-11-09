@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Botón en menu principal para pasar a siguiente pantalla">
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Configurado botón para cambiar a la siguiente escena en otro script de manera que para meterlo en varias escenas solo es necesario meterlo, y no repetir el código de la creación del botón en cada escena.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/components/genericButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/components/playButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/scenes/mainMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/components/playButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/components/playButton.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/game_Local.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1667652837180</updated>
       <workItem from="1667652838840" duration="666000" />
-      <workItem from="1667653548398" duration="22433000" />
+      <workItem from="1667653548398" duration="34941000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
@@ -99,7 +99,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667758172895</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Configurado botón para cambiar a la siguiente escena en otro script de manera que para meterlo en varias escenas solo es necesario meterlo, y no repetir el código de la creación del botón en cada escena.">
+      <created>1667766441045</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667766441045</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Configurado botón para cambiar a la siguiente escena en otro script de manera que para meterlo en varias escenas solo es necesario meterlo, y no repetir el código de la creación del botón en cada escena.">
+      <created>1667766448814</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667766448814</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,6 +134,7 @@
     <MESSAGE value="Sigo sin saber que se actualiza con el WorkSpace" />
     <MESSAGE value="Añadidas las clases de algunas escenas, un botón genérico para aprender a como hacer components y organización de documentos" />
     <MESSAGE value="Botón en menu principal para pasar a siguiente pantalla" />
-    <option name="LAST_COMMIT_MESSAGE" value="Botón en menu principal para pasar a siguiente pantalla" />
+    <MESSAGE value="Configurado botón para cambiar a la siguiente escena en otro script de manera que para meterlo en varias escenas solo es necesario meterlo, y no repetir el código de la creación del botón en cada escena." />
+    <option name="LAST_COMMIT_MESSAGE" value="Configurado botón para cambiar a la siguiente escena en otro script de manera que para meterlo en varias escenas solo es necesario meterlo, y no repetir el código de la creación del botón en cada escena." />
   </component>
 </project>

@@ -11,6 +11,10 @@ export class PlayButton {
     }
     create() //Añadimos el botón en la escena
     {
+        var scene = this.relatedScene.scene;
+        var button = this.playButton;
+        var dest = this.relatedDestination;
+
         //creamos el boton para la escena relativa en la que se le meta
         this.playButton = this.relatedScene.add.image(0, 0, 'playButton').setScale(1.5, 1.5);
         this.textPlayButton = this.relatedScene.add.image(0, 0, 'textPlayButton').setScale(1.5, 1.5);
@@ -24,9 +28,9 @@ export class PlayButton {
             yoyo: true,
             repeat: -1
         });
-        var scene = this.relatedScene.scene;
-        var button = this.playButton;
-        var dest = this.relatedDestination;
+        scene = this.relatedScene.scene;
+        button = this.playButton;
+        dest = this.relatedDestination;
 
         var container = this.relatedScene.add.container(950, 900, [this.playButton, this.textPlayButton]);
         container.setSize(this.playButton.width*1.5, this.textPlayButton.height*1.5);

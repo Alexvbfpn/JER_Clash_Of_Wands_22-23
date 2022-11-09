@@ -2,8 +2,9 @@ import {MainMenu} from './scenes/mainMenu.js';
 import {Match} from './scenes/match.js';
 
 var scenes = [];
-scenes.push(MainMenu)
 scenes.push(Match);
+scenes.push(MainMenu);
+
 
 var config = {
     type: Phaser.AUTO,
