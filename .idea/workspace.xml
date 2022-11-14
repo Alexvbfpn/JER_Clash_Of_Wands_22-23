@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Configurado botón para cambiar a la siguiente escena en otro script de manera que para meterlo en varias escenas solo es necesario meterlo, y no repetir el código de la creación del botón en cada escena.">
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Añadidos el ring y el suelo, pero no bien colocados, fase de testeo para esto actualmente. Hay que empezar a usar ramas, no tengo ni idea de como">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/components/floorTiles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/Ring.png" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/assets/Ring.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/components/playButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/components/playButton.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/game_Local.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/scenes/match.js" afterDir="false" />
@@ -19,8 +21,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -35,22 +37,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Campb/OneDrive/Desktop/Universidad/2022-2023/Juegos en Red/Clash_Of_Wands/JER_Clash_Of_Wands_22-23",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Campb/OneDrive/Desktop/Universidad/2022-2023/Juegos en Red/Clash_Of_Wands/JER_Clash_Of_Wands_22-23&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23" />
@@ -69,7 +71,8 @@
       <option name="presentableId" value="Default" />
       <updated>1667652837180</updated>
       <workItem from="1667652838840" duration="666000" />
-      <workItem from="1667653548398" duration="34941000" />
+      <workItem from="1667653548398" duration="37081000" />
+      <workItem from="1668276273479" duration="14675000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
@@ -135,6 +138,7 @@
     <MESSAGE value="Añadidas las clases de algunas escenas, un botón genérico para aprender a como hacer components y organización de documentos" />
     <MESSAGE value="Botón en menu principal para pasar a siguiente pantalla" />
     <MESSAGE value="Configurado botón para cambiar a la siguiente escena en otro script de manera que para meterlo en varias escenas solo es necesario meterlo, y no repetir el código de la creación del botón en cada escena." />
-    <option name="LAST_COMMIT_MESSAGE" value="Configurado botón para cambiar a la siguiente escena en otro script de manera que para meterlo en varias escenas solo es necesario meterlo, y no repetir el código de la creación del botón en cada escena." />
+    <MESSAGE value="Añadidos el ring y el suelo, pero no bien colocados, fase de testeo para esto actualmente. Hay que empezar a usar ramas, no tengo ni idea de como" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadidos el ring y el suelo, pero no bien colocados, fase de testeo para esto actualmente. Hay que empezar a usar ramas, no tengo ni idea de como" />
   </component>
 </project>

@@ -31,7 +31,6 @@ export class PlayButton {
         scene = this.relatedScene.scene;
         button = this.playButton;
         dest = this.relatedDestination;
-
         var container = this.relatedScene.add.container(950, 900, [this.playButton, this.textPlayButton]);
         container.setSize(this.playButton.width*1.5, this.textPlayButton.height*1.5);
         container.setInteractive();

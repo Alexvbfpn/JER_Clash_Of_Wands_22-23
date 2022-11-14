@@ -11,6 +11,10 @@ var config = {
     width: 1920,
     height: 1080,
     scene: scenes,
+    scale:
+        {
+            autoCenter: Phaser.Scale.CENTER_BOTH,
+        },
     physics:
         {
             default: 'arcade',
