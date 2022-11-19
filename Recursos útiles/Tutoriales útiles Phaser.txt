@@ -1,0 +1,42 @@
+---------------------COMUNICAR ENTRE ESCENAS---------------------------------
+https://blog.ourcade.co/posts/2020/phaser3-how-to-communicate-between-scenes/
+
+---------------------JUEGO MULTIJUGADOR--------------------------------------
+http://phaser.io/news/2021/06/multiplayer-space-invaders-tutorial-part-4
+
+---------------------MOVER SPRITE SEGÚN DONDE ESTÉ EL RATÓN------------------
+https://www.thepolyglotdeveloper.com/2020/09/include-touch-cursor-gesture-events-phaser-game/
+
+---------------------PUEDE SER ÚTIL PARA EL SUELO----------------------------
+https://www.emanueleferonato.com/2020/03/06/build-a-html5-game-like-a-life-of-logic-with-phaser-framework/
+
+https://www.emanueleferonato.com/2018/12/28/pure-javascript-class-to-handle-samegame-games-ready-to-communicate-with-your-favorite-html5-framework-phaser-3-example-included/
+
+---------------------OBJECT POOLING------------------------------------------
+En general ya es una técnica útil para que un juego no pete cargando cosas, pero en ese caso que además es online puede ser el doble de útil
+
+https://blog.ourcade.co/posts/2020/phaser-3-optimization-object-pool-class/
+
+---------------------USAR GITHUB Y JS PARA MANEJAR Y ACTUALIZAR CÓDIGO------------
+https://www.youtube.com/watch?v=z9xz-R4iuaU
+
+---------------------BOTONES HTML EN PHASER----------------------------------
+https://phasergames.com/html-buttons-in-phaser-3-form-ui-part-2/
+
+---------------------JUEGO MULTIJUGADOR GENERAL-----------------------------
+http://phaser.io/news/2019/06/creating-a-multiplayer-phaser-3-game-part-3
+
+---------------------REUTILIZAR ANIMACIONES----------------------------------
+http://phaser.io/news/2019/01/how-to-re-use-animations-tutorial
+
+---------------------EMISOR DE PARTÍCULAS DE PHASER------------------------
+http://phaser.io/news/2018/09/phaser-3-particle-editor
+
+---------------------CAMBIO DE PALETA DE COLORES DE PERSONAJE--------------
+http://phaser.io/news/2018/08/palette-swapping-example
+
+---------------------TUTORIAL DE JUEGO CON FUNCIONES SUPER ÚTILES----------
+http://browsergameshub.com/phaser3-lessons-and-code-pt1/
+
+---------------------CLASES PARA AHORRAR TIEMPO----------------------------
+https://phasergames.com/5-time-saving-phaser-classes/

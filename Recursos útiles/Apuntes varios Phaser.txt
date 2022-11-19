@@ -1,0 +1,14 @@
+Lo habitual para que el personaje se mueva es ir a la documentación y mirar como añadir un detector de eventos, aunque en el ejercicio de jemplo no es necsario
+- Phaser tiene un gestor de teclado incorporado y hay una función que viene muy bien para usarlo:
+	cursors = this.input.keyboard.createCursorKeys();
+Esto crea el objeto 'cursors' con cuatro propiedades: up, down, left y right. Por lo que se podría detectar si se pulsa la tecla izquierda con, por ejemplo:
+	cursors.left.isDown //en la función update
+
+	player.anims.play('left', true); //El booleano es para que ignore la llamada a reproducir la animación si ya se está reproduciendo
+
+Phaser.Physics.Arcade.Body.wasTouching.down //No se como pero, ES POSIBLE QUE ESTA FUNCIÓN NOS SEA MUY UTIL A LA HORA DE DETECTAR SI UN JUGADOR ESTÁ ENCIMA DE UNA PLACA CUANDO ESTA SE ABRA
+
+// BOTONES
+.setInteractive() //Al añadir un sprite hace que ste reaccione a las acciones del usuario
+this.buttonName.on('pointerover') 				//Hace que se pueda detectar y cambiar el boton cuando se pasa por encima
+this.buttonName.on('pointerout')                     //Lo mismo pero cuando deja de estar encima el ratón

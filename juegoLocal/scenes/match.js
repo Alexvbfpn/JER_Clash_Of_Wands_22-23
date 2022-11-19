@@ -37,7 +37,6 @@ export class Match extends Phaser.Scene
         this.playButton.create();
         this.floorTiles.create();
         var game = this.game;
-
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
         ring.on('drag', function (pointer, dragX, dragY) {
@@ -51,7 +50,6 @@ export class Match extends Phaser.Scene
     }
     update()
     {
-
         if (this.input.pointer1.isDown)
         {
             graphics.clear();
@@ -64,7 +62,7 @@ export class Match extends Phaser.Scene
                 if(this.floorTiles.tilesArray[i][j].value == 0)
                 {
                     //console.log("Hola" + this.tilesArray.some(value => 0));
-                    var newValue = Math.floor(Math.random()* (10 - 4) + 3);
+                    var newValue = Math.floor(Math.random()* (10 - 4) + 4);
                     //this.floorTiles.level[i][j] = newValue;
                     this.floorTiles.tilesArray[i][j].value = newValue;
                     this.floorTiles.tilesArray[i][j].tileText.text = this.floorTiles.tilesArray[i][j].value.toString();
@@ -72,11 +70,10 @@ export class Match extends Phaser.Scene
                     //console.log("Valor: " + this.tilesArray.value)
                 }
             }
-        }
+          }
 
         this.floorTiles.text.setText('Event.progress: ' + this.floorTiles.timedEvent.getProgress().toString().substr(0, 4)
             + '\nEvent.repeatCount: ' + this.floorTiles.timedEvent.repeatCount);
 
     }
-
 }
