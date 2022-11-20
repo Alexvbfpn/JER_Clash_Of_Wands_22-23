@@ -10,9 +10,9 @@ export class MainMenu extends Phaser.Scene
 
     preload()
     {
-        this.load.image('mainMenu_Background', 'assets/img_mainMenu2.jpg');
-        this.load.image('playButton', 'assets/play_button.png');
-        this.load.image('textPlayButton', 'assets/play_button_text.png');
+        this.load.image('mainMenu_Background', 'assets/img/img_mainMenu2.jpg');
+        this.load.image('playButton', 'assets/img/play_button.png');
+        this.load.image('textPlayButton', 'assets/img/play_button_text.png');
     }
 
     create()

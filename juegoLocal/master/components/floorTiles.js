@@ -30,7 +30,7 @@ export class FloorTiles {
 
     preload()
     {
-        this.relatedScene.load.spritesheet("tiles", "assets/sprite_PlacaM.PNG", {
+        this.relatedScene.load.spritesheet("tiles", "assets/img/sprite_PlacaM.PNG", {
             frameWidth: gameOptions.tileSize,
             frameHeight: gameOptions.tileSize
         });

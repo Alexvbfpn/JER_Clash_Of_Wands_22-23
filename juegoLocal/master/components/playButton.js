@@ -6,8 +6,8 @@ export class PlayButton {
 
     preload() //Cargariamos el sprite del botón
     {
-        this.relatedScene.load.image('playButton', 'assets/play_button.png');
-        this.relatedScene.load.image('textPlayButton', 'assets/play_button_text.png');
+        this.relatedScene.load.image('playButton', 'assets/img/play_button.png');
+        this.relatedScene.load.image('textPlayButton', 'assets/img/play_button_text.png');
     }
     create() //Añadimos el botón en la escena
     {

@@ -5,8 +5,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Colocados ring y suelo de manera correcta. Números puestos en el centro de las tiles (de manera manual, hay que cambiarlo), y prueba de cuenta atrás con 4 iteracciones.">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/Ring.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/img_characterSelector.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/img_combat.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/img_mainMenu.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/img_mainMenu2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/match_backgroundPublic.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/play_button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/play_button_text.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/sprite_Placa.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/sprite_PlacaM.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/retroButtonStyle.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/phaser.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/phaser.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/scenes/match.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/Ring.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/img_characterSelector.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/img_combat.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/img_mainMenu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/img_mainMenu2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/match_backgroundPublic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/play_button.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/play_button_text.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/sprite_Placa.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/assets/sprite_PlacaM.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/components/floorTiles.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/components/playButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/components/retroButtonStyle.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/game_Local.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/game_Local.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/phaser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/phaser.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/mainMenu.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/scenes/match.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +107,7 @@
       <workItem from="1667653548398" duration="37081000" />
       <workItem from="1668276273479" duration="24062000" />
       <workItem from="1668630496157" duration="600000" />
-      <workItem from="1668853181887" duration="3514000" />
+      <workItem from="1668853181887" duration="5318000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>

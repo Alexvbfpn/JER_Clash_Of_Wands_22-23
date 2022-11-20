@@ -21,11 +21,11 @@ export class Match extends Phaser.Scene
 
     preload()
     {
-        this.load.image('match_Background', 'assets/match_backgroundPublic.png');
+        this.load.image('match_Background', 'assets/img/match_backgroundPublic.png');
         this.playButton.preload();
-        this.load.image('tile', 'assets/sprite_Placa.PNG');
+        this.load.image('tile', 'assets/img/sprite_Placa.PNG');
         this.floorTiles.preload();
-        this.load.image('ring', 'assets/Ring.png');
+        this.load.image('ring', 'assets/img/Ring.png');
     }
 
     create()
@@ -33,19 +33,19 @@ export class Match extends Phaser.Scene
         text = this.floorTiles.text;
         scene = this.scene;
         this.add.image(960, 540, 'match_Background');
-        // this.add.image(360, 200, 'tile'); //En realidad en x es 281, porque Javi no sabe hacer cosas proporcionales
         this.playButton.create();
         this.floorTiles.create();
         var game = this.game;
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
+        /*
         ring.on('drag', function (pointer, dragX, dragY) {
 
             this.x = dragX;
             this.y = dragY;
 
         });
-
+        */
 
     }
     update()
