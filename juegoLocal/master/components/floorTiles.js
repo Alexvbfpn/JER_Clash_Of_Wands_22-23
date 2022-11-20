@@ -1,21 +1,28 @@
 let gameOptions = {
-    rows: 6,
-    columns: 6,
-    tileSize: 200,
+    rows: 4 / 2,
+    columns: 6 / 2,
+    tileSize: 200 * 2,
     initTilePosX: 362,
     initTilePosY: 188
 }
-let level = [
+let level2 = [
     [5, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0],
     [0, 0, 0, 0, 0, 0]
 ];
+
+let level22 = [
+    [5, 0, 0],
+    [0, 0, 0]
+];
+
+
 function onEvent()
 {
-    for(let i = 0; i < 4; i ++)
+    for(let i = 0; i < gameOptions.rows; i ++)
     {
-        for(let j = 0; j < 6; j ++)
+        for(let j = 0; j < gameOptions.columns; j ++)
         {
             this.tilesArray[i][j].value--;
             this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
@@ -24,8 +31,9 @@ function onEvent()
 }
 
 export class FloorTiles {
-    constructor(scene) {
+    constructor(scene, floorMode) {
         this.relatedScene = scene;
+        this.floorMode = floorMode;
     }
 
     preload()
@@ -34,6 +42,24 @@ export class FloorTiles {
             frameWidth: gameOptions.tileSize,
             frameHeight: gameOptions.tileSize
         });
+        this.relatedScene.load.spritesheet("openTiles", "assets/img/sprite_PlacaN.PNG", {
+            frameWidth: gameOptions.tileSize,
+            frameHeight: gameOptions.tileSize
+        });
+    }
+
+    createLevel()
+    {
+        var level = [];
+        for(let i = 0; i < gameOptions.rows; i++)
+        {
+            level[i] = [];
+            for(let j = 0; j < gameOptions.columns; j ++)
+            {
+                level[i][j] = Math.floor(Math.random()* (10 - 4) + 4);
+            }
+        }
+        return level;
     }
 
     create()
@@ -41,41 +67,61 @@ export class FloorTiles {
         this.tilesArray = [];
         this.text;
         this.timedEvent;
-        for(let i = 0; i < 4; i ++){
+        var level = this.createLevel();
+
+        for(let i = 0; i < gameOptions.rows; i ++){
             this.tilesArray[i] = [];
-            for(let j = 0; j < 6; j ++){
+            for(let j = 0; j < gameOptions.columns; j ++){
+                let openTile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
+                    i * gameOptions.tileSize + gameOptions.initTilePosY,
+                    'openTiles', level[i][j]).setScale(this.floorMode);
                 let tile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
                     i * gameOptions.tileSize + gameOptions.initTilePosY,
-                    'tiles', level[i][j]);
-                let text = this.relatedScene.add.text(tile.x + 50, tile.y, level[i][j].toString(), {
+                    'tiles', level[i][j]).setScale(this.floorMode);
+                let text = this.relatedScene.add.text(tile.x + gameOptions.tileSize/4, tile.y, level[i][j].toString(), {
                     font: (gameOptions.tileSize).toString() + "px Times",
                     fontWeight: "bold",
                     color: "black"
                 })
                 tile.setOrigin(0, 0);
+                openTile.setOrigin(0, 0);
                 this.tilesArray[i][j] = {
                     value: level[i][j],
-                    isFixed: level[i][j] == 0,
+                    isOpen: level[i][j] == 0,
                     sprite: tile,
                     tileText: text,
+                    openTileSprite: openTile
                 }
             }
         }
-        this.tilesArray[0][0].sprite.alpha = 0.5;
+        //this.tilesArray[0][0].sprite.alpha = 0.5;
 
-        this.timedEvent = this.relatedScene.time.addEvent({ delay: 2000, callback: onEvent, callbackScope: this, repeat: 4});
+        this.timedEvent = this.relatedScene.time.addEvent({ delay: 1500, callback: onEvent, callbackScope: this, loop: true});
 
         this.text = this.relatedScene.add.text(32, 32);
     }
 
-    onEvent()
+    update()
     {
-        for(let i = 0; i < 4; i ++)
+        for(let i = 0; i < gameOptions.rows; i ++)
         {
-            for(let j = 0; j < 6; j ++)
+            for(let j = 0; j < gameOptions.columns; j ++)
             {
-                this.tilesArray[i][j].value--;
+                if(this.tilesArray[i][j].value == 0)
+                {
+                    this.tilesArray[i][j].sprite.visible = false;
+                    this.tilesArray[i][j].tileText.visible = false;
+                }
+                if (this.tilesArray[i][j].value == -1)
+                {
+                    this.tilesArray[i][j].sprite.visible = true;
+                    this.tilesArray[i][j].tileText.visible = true;
+                    var newValue = Math.floor(Math.random()* (10 - 4) + 4);
+                    this.tilesArray[i][j].value = newValue;
+                    this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
+                }
             }
         }
     }
+
 }
