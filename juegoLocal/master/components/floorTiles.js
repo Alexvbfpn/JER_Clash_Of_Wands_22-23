@@ -1,7 +1,7 @@
 let gameOptions = {
-    rows: 4 / 2,
-    columns: 6 / 2,
-    tileSize: 200 * 2,
+    rows: 4,
+    columns: 6,
+    tileSize: 200,
     initTilePosX: 362,
     initTilePosY: 188
 }
@@ -50,6 +50,9 @@ export class FloorTiles {
 
     createLevel()
     {
+        gameOptions.rows /= this.floorMode;
+        gameOptions.columns /= this.floorMode;
+        gameOptions.tileSize *= this.floorMode;
         var level = [];
         for(let i = 0; i < gameOptions.rows; i++)
         {

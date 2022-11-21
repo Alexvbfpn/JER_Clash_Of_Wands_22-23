@@ -1,9 +1,6 @@
 import { PlayButton } from "../components/playButton.js";
 import { FloorTiles} from "../components/floorTiles.js";
 
-var scene;
-var text;
-
 export class Match extends Phaser.Scene
 {
 
