@@ -1,9 +1,6 @@
 import { PlayButton } from "../components/playButton.js";
 import { FloorTiles} from "../components/floorTiles.js";
 
-var scene;
-var text;
-
 export class Match extends Phaser.Scene
 {
 
@@ -13,7 +10,6 @@ export class Match extends Phaser.Scene
         this.playButton = new PlayButton(this, 'mainMenu');
         this.floorTiles = new FloorTiles(this, 2);
     }
-
 
 
     preload()
@@ -32,7 +28,6 @@ export class Match extends Phaser.Scene
         this.floorTiles.create();
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
-
     }
     update()
     {
