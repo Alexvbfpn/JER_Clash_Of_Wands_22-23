@@ -12,7 +12,6 @@ export class Match extends Phaser.Scene
     }
 
 
-
     preload()
     {
         this.load.image('match_Background', 'assets/img/match_backgroundPublic.png');
@@ -29,7 +28,6 @@ export class Match extends Phaser.Scene
         this.floorTiles.create();
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
-
     }
     update()
     {

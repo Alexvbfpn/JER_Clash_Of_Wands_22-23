@@ -1,28 +1,42 @@
 import {PlayButton} from "../components/playButton.js";
+import {Button} from "../components/button.js"
 
 export class MainMenu extends Phaser.Scene
 {
     constructor()
     {
         super({key: 'mainMenu'});
-        this.playButton = new PlayButton(this, 'match');
+        this.playButton = new Button(this, 'match');
+        this.creditsButton = new Button(this);
+        this.tutorialButton = new Button(this);
     }
 
     preload()
     {
-        this.load.image('mainMenu_Background', 'assets/img/img_mainMenu2.jpg');
-        this.load.image('playButton', 'assets/img/play_button.png');
-        this.load.image('textPlayButton', 'assets/img/play_button_text.png');
+        this.load.image('mainMenu_Background', 'assets/img/background_mainMenu.png');
+        this.playButton.preload();
+        this.load.image('play_button', 'assets/img/play_buttonDef.png');
+        this.creditsButton.preload();
+        this.tutorialButton.preload();
     }
 
     create()
     {
+        //Fondo
         this.add.image(960, 540, 'mainMenu_Background');
 
+        //Creamos la instancia de cada botón
+        this.playButton = new Button(this, 'match', 'playButton', 686, 757, 1.15, 1.40);
+        this.creditsButton = new Button(this, 'match', 'creditsButton', 1301, 757, 0.75, 1);
+        this.tutorialButton = new Button(this, 'match', 'tutorialButton', 73, 757, 0.75, 1);
 
-
+        //Llamamos al create de cada uno para que se cree y muestre en la escena
         this.playButton.create();
+        this.creditsButton.create();
+        this.tutorialButton.create();
+
         /*
+        //Animación del texto
         var play_button = this.add.image(0, 0, 'playButton').setScale(1.5, 1.5);
         var text_play_button = this.add.image(0, 0, 'textPlayButton').setScale(1.5, 1.5);
 
@@ -35,26 +49,6 @@ export class MainMenu extends Phaser.Scene
             repeat: -1
         });
 
-        var container = this.add.container(950, 900, [play_button, text_play_button]);
-        var scene = this.scene;
-
-        container.setSize(play_button.width*1.5, play_button.height*1.5);
-        container.setInteractive();
-
-
-        container.on('pointerover', function (){
-
-            play_button.setTint(0x44ff44);
-        });
-
-        container.on('pointerout', function (){
-
-            play_button.clearTint();
-        });
-        container.on('pointerdown', function (){
-
-            scene.start('match');
-        });
          */
     }
 }
