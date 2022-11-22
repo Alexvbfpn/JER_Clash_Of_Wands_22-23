@@ -2,8 +2,9 @@ import {MainMenu} from './scenes/mainMenu.js';
 import {Match} from './scenes/match.js';
 
 var scenes = [];
-scenes.push(Match);
 scenes.push(MainMenu);
+scenes.push(Match);
+
 
 
 var config = {
@@ -23,9 +24,10 @@ var config = {
             arcade:
                 {
                     gravity: {y: 300},
-                    debug: false
+                    debug: true
                 }
-        }
+        },
+    title: 'Clash of Wands'
     }
 
 var game = new Phaser.Game(config);

@@ -5,18 +5,6 @@ let gameOptions = {
     initTilePosX: 362,
     initTilePosY: 188
 }
-let level2 = [
-    [5, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0]
-];
-
-let level22 = [
-    [5, 0, 0],
-    [0, 0, 0]
-];
-
 
 function onEvent()
 {
@@ -70,8 +58,24 @@ export class FloorTiles {
         this.tilesArray = [];
         this.text;
         this.timedEvent;
-        var level = this.createLevel();
+        /*
+        var tileGroup = this.relatedScene.add.group({
+            key: 'tiles',
+            frameQuantity: gameOptions.rows * gameOptions.columns,
+            gridAlign:{
+                width: gameOptions.columns /this.floorMode,
+                height: gameOptions.rows/this.floorMode,
+                cellWidth: gameOptions.tileSize * this.floorMode,
+                cellHeight: gameOptions.tileSize * this.floorMode,
+                x: gameOptions.initTilePosX,
+                y: gameOptions.initTilePosY
+            },
 
+
+        });
+         */
+        var level = this.createLevel();
+        var group = this.relatedScene.add.group();
         for(let i = 0; i < gameOptions.rows; i ++){
             this.tilesArray[i] = [];
             for(let j = 0; j < gameOptions.columns; j ++){
@@ -95,6 +99,7 @@ export class FloorTiles {
                     tileText: text,
                     openTileSprite: openTile
                 }
+
             }
         }
         //this.tilesArray[0][0].sprite.alpha = 0.5;
