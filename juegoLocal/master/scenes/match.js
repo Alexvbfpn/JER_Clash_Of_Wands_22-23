@@ -2,6 +2,8 @@ import { PlayButton } from "../components/playButton.js";
 import { FloorTiles} from "../components/floorTiles.js";
 import {Player} from "../components/Player.js";
 
+
+var Player1Mov ;
 export class Match extends Phaser.Scene
 {
 
@@ -10,9 +12,9 @@ export class Match extends Phaser.Scene
         super({key: 'match'});
         this.playButton = new PlayButton(this, 'mainMenu');
         this.floorTiles = new FloorTiles(this, 2);
-        this.Player1=new Player(this,100,100);
-        this.Player2=new Player(this,500,500);
-        this.cursors=this.input.keyboard.createCursorKeys();
+        this.Player1=new Player(this,100,100,1);
+        this.Player2=new Player(this,500,500,2);
+
     }
 
 
@@ -27,6 +29,7 @@ export class Match extends Phaser.Scene
         this.load.image('playerSprite', 'assets/img/sprite_Placa.PNG');
         this.Player1.preload();
         this.Player2.preload();
+        this.cursors = this.input.keyboard.createCursorKeys();
     }
 
     create()
@@ -44,15 +47,10 @@ export class Match extends Phaser.Scene
         this.floorTiles.update();
         this.floorTiles.text.setText('Event.progress: ' + this.floorTiles.timedEvent.getProgress().toString().substring(0, 4)
             + '\nEvent.repeatCount: ' + this.floorTiles.timedEvent.repeatCount);
-        this.checkController();
-    }
 
-
-    checkController()
-    {
-
-    if(this.cursors.key('a')){this.Player1}
-
+        this.Player1.update();
+        this.Player2.update();
 
     }
+
 }
