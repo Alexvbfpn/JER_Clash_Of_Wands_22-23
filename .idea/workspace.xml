@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Responsive y cambio de escenario por parámetro (2 modos) implementado">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/button.js" afterDir="false" />
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
