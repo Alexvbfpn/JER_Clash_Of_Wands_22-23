@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Se crea una componente &quot;Laser&quot; que va a ser un obstaculo en el terreno de juego, por ahora: Aparece una barra que simula al laser y se hace girar">
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Se cambian las físicas de tipo &quot;Arcade&quot; a &quot;Matter&quot; para que las collider box también giren con el objeto">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/laserBallComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,22 +35,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/Documents/GitHub/JER_Clash_Of_Wands_22-23/juegoLocal/master/assets/img&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Usuario/WebstormProjects/TutorialPhaser",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario\Documents\GitHub\JER_Clash_Of_Wands_22-23\juegoLocal\master\assets\img" />
@@ -76,7 +76,7 @@
       <workItem from="1668853181887" duration="32788000" />
       <workItem from="1669158690259" duration="196000" />
       <workItem from="1669158904979" duration="76000" />
-      <workItem from="1669227618720" duration="13999000" />
+      <workItem from="1669227618720" duration="19890000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
@@ -148,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669302621360</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Se cambian las físicas de tipo &quot;Arcade&quot; a &quot;Matter&quot; para que las collider box también giren con el objeto">
+      <created>1669309759229</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669309759229</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +181,7 @@
     <MESSAGE value="Colocados ring y suelo de manera correcta. Números puestos en el centro de las tiles (de manera manual, hay que cambiarlo), y prueba de cuenta atrás con 4 iteracciones." />
     <MESSAGE value="Responsive y cambio de escenario por parámetro (2 modos) implementado" />
     <MESSAGE value="Se crea una componente &quot;Laser&quot; que va a ser un obstaculo en el terreno de juego, por ahora: Aparece una barra que simula al laser y se hace girar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se crea una componente &quot;Laser&quot; que va a ser un obstaculo en el terreno de juego, por ahora: Aparece una barra que simula al laser y se hace girar" />
+    <MESSAGE value="Se cambian las físicas de tipo &quot;Arcade&quot; a &quot;Matter&quot; para que las collider box también giren con el objeto" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se cambian las físicas de tipo &quot;Arcade&quot; a &quot;Matter&quot; para que las collider box también giren con el objeto" />
   </component>
 </project>

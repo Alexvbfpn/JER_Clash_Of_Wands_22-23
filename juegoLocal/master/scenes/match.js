@@ -2,6 +2,7 @@ import { PlayButton } from "../components/playButton.js";
 import { FloorTiles} from "../components/floorTiles.js";
 import { LaserObs} from "../components/laserComponent.js";
 
+
 export class Match extends Phaser.Scene
 {
 
@@ -13,6 +14,7 @@ export class Match extends Phaser.Scene
         this.playButton = new PlayButton(this, 'mainMenu');
         this.floorTiles = new FloorTiles(this, 2);
         this.laserComponent = new LaserObs(this);
+
     }
 
 
@@ -24,6 +26,7 @@ export class Match extends Phaser.Scene
         this.floorTiles.preload();
         this.laserComponent.preload();
         this.load.image('ring', 'assets/img/Ring.png');
+
     }
 
     create()
