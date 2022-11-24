@@ -10,9 +10,20 @@ export class LaserObs {
     }
 
     create() {
-        this.laser = this.relatedScene.physics.add.image(500,500,'laserPrueba');
-        this.laser.setAngularVelocity(40);
+        this.laser = this.relatedScene.matter.add.image(760,590,'laserPrueba');
+        this.laser.setAngularVelocity(0.03);
+        this.laser.setFriction(0, 0, 0);
+        this.laser.setMass(40000000); //Seteamos la masa a un número muy alto para evitar que se mueva al colisionar
+
+
+        //Codigo de prueba para comprobar las colisiones del laser
+        this.block2 = this.relatedScene.matter.add.image(500, 350, 'laserPrueba');
+        this.block2.setVelocity(1, 1);
+        this.block2.setBounce(1, 1);
+
+
     }
+
 
 
 
