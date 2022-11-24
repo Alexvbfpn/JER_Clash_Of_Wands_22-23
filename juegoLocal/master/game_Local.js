@@ -20,12 +20,16 @@ var config = {
         },
     physics:
         {
-            default: 'arcade',
-            arcade:
-                {
-                    gravity: {y: 0},
-                    debug: true
-                }
+            default: 'matter',
+            matter: {
+                debug: true,
+                gravity:
+                    {
+                        x: 0,
+                        y: 0,
+
+                    }
+            }
         },
     title: 'Clash of Wands'
     }

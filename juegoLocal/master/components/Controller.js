@@ -1,23 +1,31 @@
 export class Controller
 {
 
-    constructor(scene)
+    constructor(scene,UP,DOWN,LEFT,RIGHT)
     {
         this.relatedScene=scene;
-        this.WKey;
-        this.AKey;
-        this.SKey;
-        this.DKey;
-
-        this.up;
-        this.down;
-        this.right;
-        this.left;
+        this.actions=Phaser.input.keyboard.addKeys({ 'UP': UP, 'DOWN': DOWN,'LEFT':LEFT,'RIGHT':RIGHT });
+        /*
+        this.UP=Phaser.Input.Keyboard.KeyCodes.W;
+        this.DOWN=Phaser.Input.Keyboard.KeyCodes.S;
+        this.LEFT=Phaser.Input.Keyboard.KeyCodes.A;
+        this.RIGHT=Phaser.Input.Keyboard.KeyCodes.D;*/
     }
 
 Preload()
 {
 
+    /*createCursorKeys: function ()
+    {
+        return this.addKeys({
+            up: KeyCodes.UP,
+            down: KeyCodes.DOWN,
+            left: KeyCodes.LEFT,
+            right: KeyCodes.RIGHT,
+            space: KeyCodes.SPACE,
+            shift: KeyCodes.SHIFT
+        });
+    },*/
 
 
 
@@ -25,17 +33,7 @@ Preload()
 
 create()
 {
-
-    this.WKey=this.relatedScene.input.keyboard.addKey(Phaser.input.keyboard.keyCodes.W);
-    this.AKey=this.relatedScene.input.keyboard.addKey(Phaser.input.keyboard.keyCodes.A);
-    this.SKey=this.relatedScene.input.keyboard.addKey(Phaser.input.keyboard.keyCodes.S);
-    this.DKey=this.relatedScene.input.keyboard.addKey(Phaser.input.keyboard.keyCodes.D);
-
-    this.up=this.relatedScene.input.keyboard.addKey(Phaser.input.keyboard.keyCodes.UP);
-    this.down=this.relatedScene.input.keyboard.addKey(Phaser.input.keyboard.keyCodes.DOWN);
-    this.right=this.relatedScene.input.keyboard.addKey(Phaser.input.keyboard.keyCodes.RIGHT);
-    this.left=this.relatedScene.input.keyboard.addKey(Phaser.input.keyboard.keyCodes.LEFT);
-
+    //this.relatedScene.input.keyboard.addKeys({ 'up': Phaser.Input.Keyboard.KeyCodes.W, 'down': Phaser.Input.Keyboard.KeyCodes.S });
 }
 
 
