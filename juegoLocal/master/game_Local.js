@@ -1,6 +1,7 @@
 import {MainMenu} from './scenes/mainMenu.js';
 import {Match} from './scenes/match.js';
 
+
 var scenes = [];
 scenes.push(MainMenu);
 scenes.push(Match);
@@ -23,7 +24,7 @@ var config = {
             default: 'arcade',
             arcade:
                 {
-                    gravity: {y: 300},
+                    gravity: {y: 0},
                     debug: true
                 }
         },
@@ -31,3 +32,6 @@ var config = {
     }
 
 var game = new Phaser.Game(config);
+
+
+

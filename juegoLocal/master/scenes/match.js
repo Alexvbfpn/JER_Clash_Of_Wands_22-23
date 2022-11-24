@@ -1,14 +1,18 @@
 import { PlayButton } from "../components/playButton.js";
 import { FloorTiles} from "../components/floorTiles.js";
+import { LaserObs} from "../components/laserComponent.js";
 
 export class Match extends Phaser.Scene
 {
+
+
 
     constructor()
     {
         super({key: 'match'});
         this.playButton = new PlayButton(this, 'mainMenu');
         this.floorTiles = new FloorTiles(this, 2);
+        this.laserComponent = new LaserObs(this);
     }
 
 
@@ -18,6 +22,7 @@ export class Match extends Phaser.Scene
         this.playButton.preload();
         this.load.image('tile', 'assets/img/sprite_Placa.PNG');
         this.floorTiles.preload();
+        this.laserComponent.preload();
         this.load.image('ring', 'assets/img/Ring.png');
     }
 
@@ -26,6 +31,7 @@ export class Match extends Phaser.Scene
         this.add.image(960, 540, 'match_Background');
         this.playButton.create();
         this.floorTiles.create();
+        this.laserComponent.create();
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
     }
@@ -34,5 +40,6 @@ export class Match extends Phaser.Scene
         this.floorTiles.update();
         this.floorTiles.text.setText('Event.progress: ' + this.floorTiles.timedEvent.getProgress().toString().substring(0, 4)
             + '\nEvent.repeatCount: ' + this.floorTiles.timedEvent.repeatCount);
+
     }
 }

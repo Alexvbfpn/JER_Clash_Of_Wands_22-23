@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Responsive y cambio de escenario por parámetro (2 modos) implementado">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/button.js" afterDir="false" />
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Colocados ring y suelo de manera correcta. Números puestos en el centro de las tiles (de manera manual, hay que cambiarlo), y prueba de cuenta atrás con 4 iteracciones.">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/bola.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/dude.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/laserPrueba.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,24 +38,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Campb/OneDrive/Desktop/Universidad/2022-2023/Juegos en Red/Clash_Of_Wands/JER_Clash_Of_Wands_22-23&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/Usuario/Documents/GitHub/JER_Clash_Of_Wands_22-23/juegoLocal/master/assets/img",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\Documents\GitHub\JER_Clash_Of_Wands_22-23\juegoLocal\master\assets\img" />
       <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23" />
       <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23\juegoLocal" />
     </key>
@@ -77,6 +77,9 @@
       <workItem from="1668276273479" duration="24062000" />
       <workItem from="1668630496157" duration="600000" />
       <workItem from="1668853181887" duration="32788000" />
+      <workItem from="1669158690259" duration="196000" />
+      <workItem from="1669158904979" duration="76000" />
+      <workItem from="1669227618720" duration="8711000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
