@@ -11,11 +11,13 @@ export class Match extends Phaser.Scene
         super({key: 'match'});
         this.playButton = new PlayButton(this, 'mainMenu');
         this.floorTiles = new FloorTiles(this, 2);
-        this.Controller1=this.input.keyboard.addKeys({ 'UP': Phaser.Input.Keyboard.KeyCodes.W, 'DOWN': Phaser.Input.Keyboard.KeyCodes.S,'LEFT':Phaser.Input.Keyboard.KeyCodes.A,'RIGHT':Phaser.Input.Keyboard.KeyCodes.D });
+        //this.controller2=this.input.keyboard.addKey(Phaser.Input.keyboard.keyCodes.W)
+        this.Controller1=new Controller(this);
+        this.Controller2=new Controller(this);
             //new Controller(this,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W);
         //this.Controller2=new Controller(this,Phaser.input.keyboard.KeyCodes.UP,Phaser.input.keyboard.KeyCodes.DOWN,Phaser.input.keyboard.KeyCodes.LEFT,Phaser.input.keyboard.KeyCodes.RIGHT)
         this.Player1=new Player(this,100,100,1,this.Controller1);
-        this.Player2=new Player(this,500,500,2,);
+        this.Player2=new Player(this,500,500,2,this.Controller2);
 
     }
 
@@ -36,6 +38,9 @@ export class Match extends Phaser.Scene
 
     create()
     {
+        this.Controller1.create(Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.S,Phaser.Input.Keyboard.KeyCodes.A,Phaser.Input.Keyboard.KeyCodes.D)
+        this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.UP,Phaser.Input.Keyboard.KeyCodes.DOWN,Phaser.Input.Keyboard.KeyCodes.LEFT,Phaser.Input.Keyboard.KeyCodes.RIGHT)
+
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(960, 540, 'match_Background');
         this.playButton.create();

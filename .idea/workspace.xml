@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Controles">
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Avances en player">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/Controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -74,8 +73,7 @@
       <workItem from="1668276273479" duration="24062000" />
       <workItem from="1668630496157" duration="600000" />
       <workItem from="1668853181887" duration="32788000" />
-      <workItem from="1669211903973" duration="11422000" />
-      <workItem from="1669289243998" duration="12008000" />
+      <workItem from="1669377481184" duration="1894000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
@@ -140,14 +138,7 @@
       <option name="project" value="LOCAL" />
       <updated>1669027839291</updated>
     </task>
-    <task id="LOCAL-00010" summary="Controles">
-      <created>1669234168980</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1669234168980</updated>
-    </task>
-    <option name="localTasksCounter" value="11" />
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,7 +163,7 @@
     <MESSAGE value="Añadidos el ring y el suelo, pero no bien colocados, fase de testeo para esto actualmente. Hay que empezar a usar ramas, no tengo ni idea de como" />
     <MESSAGE value="Colocados ring y suelo de manera correcta. Números puestos en el centro de las tiles (de manera manual, hay que cambiarlo), y prueba de cuenta atrás con 4 iteracciones." />
     <MESSAGE value="Responsive y cambio de escenario por parámetro (2 modos) implementado" />
-    <MESSAGE value="Controles" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controles" />
+    <MESSAGE value="Avances en player" />
+    <option name="LAST_COMMIT_MESSAGE" value="Avances en player" />
   </component>
 </project>
