@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="El laser ahora aparece en la posición donde se generó la bola almacenada en el constructor como positionX y positionY">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/varaLaser.png" afterDir="false" />
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Se añaden los sprites al laser y ahora, cuando toca un tipo determinado de personaje (aplicado con bloques y malamente sin tener los personajes) cambia a su color">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/bolaMagica.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" afterDir="false" />
     </list>
@@ -162,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669377478812</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Se añaden los sprites al laser y ahora, cuando toca un tipo determinado de personaje (aplicado con bloques y malamente sin tener los personajes) cambia a su color">
+      <created>1669381076257</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669381076257</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +197,7 @@
     <MESSAGE value="Se crea una componente &quot;Laser&quot; que va a ser un obstaculo en el terreno de juego, por ahora: Aparece una barra que simula al laser y se hace girar" />
     <MESSAGE value="Se cambian las físicas de tipo &quot;Arcade&quot; a &quot;Matter&quot; para que las collider box también giren con el objeto" />
     <MESSAGE value="El laser ahora aparece en la posición donde se generó la bola almacenada en el constructor como positionX y positionY" />
-    <option name="LAST_COMMIT_MESSAGE" value="El laser ahora aparece en la posición donde se generó la bola almacenada en el constructor como positionX y positionY" />
+    <MESSAGE value="Se añaden los sprites al laser y ahora, cuando toca un tipo determinado de personaje (aplicado con bloques y malamente sin tener los personajes) cambia a su color" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se añaden los sprites al laser y ahora, cuando toca un tipo determinado de personaje (aplicado con bloques y malamente sin tener los personajes) cambia a su color" />
   </component>
 </project>

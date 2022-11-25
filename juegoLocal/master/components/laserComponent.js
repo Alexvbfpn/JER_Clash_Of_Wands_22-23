@@ -10,15 +10,25 @@ export class LaserObs {
 
     preload() {
         //Se precarga las imagenes en escena
-        this.relatedScene.load.image('varaLaser', 'assets/img/varaLaser.png');
-        this.relatedScene.load.image('bola', 'assets/img/bola.png');
+        this.relatedScene.load.image("varaLaser", 'assets/img/varaLaser.png');
+        this.relatedScene.load.spritesheet("bola", 'assets/img/bolaMagica.png',{ frameWidth: 32, frameHeight: 48 });
     }
 
     create() {
 
         //Se crea la bola en una posición determinada (posX y posY)
-        this.ball = this.relatedScene.matter.add.image(this.positionX = 1160, this.positionY = 590, 'bola');
-        this.ball.setScale(5,5);
+        this.ball = this.relatedScene.matter.add.sprite(this.positionX = 1160, this.positionY = 590, 'bola');
+
+        //Animación del sprite de la bola
+        this.relatedScene.anims.create({
+            key: 'move',
+            frameRate: 5,
+            frames: this.ball.anims.generateFrameNumbers('bola', { start: 0, end: 8 }),
+            repeat: -1
+        });
+        this.ball.anims.play('move');
+
+        //this.ball.setScale(5,5);
         this.ball.setMass(4000000);
 
         //Codigo de prueba para comprobar las colisiones del laser (Hace referencia al jugador 1 (Recoge el powerup))
