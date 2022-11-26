@@ -4,15 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Responsive y cambio de escenario por parámetro (2 modos) implementado">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/button.js" afterDir="false" />
+
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Controles">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/Punch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/Controller.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
+
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Se agrega la bola que sirve de powerup en laserComponent y cuya colisión hace que desaparezca y se genere el laser (arreglar posición de genración donde estaba la bola)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +48,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Campb/OneDrive/Desktop/Universidad/2022-2023/Juegos en Red/Clash_Of_Wands/JER_Clash_Of_Wands_22-23&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/WebstormProjects/TutorialPhaser&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -57,10 +60,12 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\Documents\GitHub\JER_Clash_Of_Wands_22-23\juegoLocal\master\assets\img" />
       <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23" />
       <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23\juegoLocal" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Aisayan\Documents\GitHub\JER_Clash_Of_Wands_22-23\juegoLocal\master\assets\img" />
       <recent name="C:\Users\Campb\OneDrive\Desktop\Universidad\2022-2023\Juegos en Red\Clash_Of_Wands\JER_Clash_Of_Wands_22-23\juegoLocal" />
     </key>
   </component>
@@ -77,6 +82,14 @@
       <workItem from="1668276273479" duration="24062000" />
       <workItem from="1668630496157" duration="600000" />
       <workItem from="1668853181887" duration="32788000" />
+
+      <workItem from="1669377481184" duration="5965000" />
+      <workItem from="1669455985034" duration="7127000" />
+
+      <workItem from="1669158690259" duration="196000" />
+      <workItem from="1669158904979" duration="76000" />
+      <workItem from="1669227618720" duration="19890000" />
+
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
@@ -141,7 +154,46 @@
       <option name="project" value="LOCAL" />
       <updated>1669027839291</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+
+    <task id="LOCAL-00010" summary="Controles terminados">
+      <created>1669379682987</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669379682987</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
+
+    <task id="LOCAL-00010" summary="Se crea una componente &quot;Laser&quot; que va a ser un obstaculo en el terreno de juego, por ahora: Aparece una barra que simula al laser y se hace girar">
+      <created>1669302621360</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669302621360</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Se cambian las físicas de tipo &quot;Arcade&quot; a &quot;Matter&quot; para que las collider box también giren con el objeto">
+      <created>1669309759229</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669309759229</updated>
+    </task>
+    <task id="LOCAL-00012" summary="El laser ahora aparece en la posición donde se generó la bola almacenada en el constructor como positionX y positionY">
+      <created>1669377478811</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669377478812</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Se añaden los sprites al laser y ahora, cuando toca un tipo determinado de personaje (aplicado con bloques y malamente sin tener los personajes) cambia a su color">
+      <created>1669381076257</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1669381076257</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +218,16 @@
     <MESSAGE value="Añadidos el ring y el suelo, pero no bien colocados, fase de testeo para esto actualmente. Hay que empezar a usar ramas, no tengo ni idea de como" />
     <MESSAGE value="Colocados ring y suelo de manera correcta. Números puestos en el centro de las tiles (de manera manual, hay que cambiarlo), y prueba de cuenta atrás con 4 iteracciones." />
     <MESSAGE value="Responsive y cambio de escenario por parámetro (2 modos) implementado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsive y cambio de escenario por parámetro (2 modos) implementado" />
+
+    <MESSAGE value="Avances en player" />
+    <MESSAGE value="Controles terminados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Controles terminados" />
+
+    <MESSAGE value="Se crea una componente &quot;Laser&quot; que va a ser un obstaculo en el terreno de juego, por ahora: Aparece una barra que simula al laser y se hace girar" />
+    <MESSAGE value="Se cambian las físicas de tipo &quot;Arcade&quot; a &quot;Matter&quot; para que las collider box también giren con el objeto" />
+    <MESSAGE value="El laser ahora aparece en la posición donde se generó la bola almacenada en el constructor como positionX y positionY" />
+    <MESSAGE value="Se añaden los sprites al laser y ahora, cuando toca un tipo determinado de personaje (aplicado con bloques y malamente sin tener los personajes) cambia a su color" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se añaden los sprites al laser y ahora, cuando toca un tipo determinado de personaje (aplicado con bloques y malamente sin tener los personajes) cambia a su color" />
+
   </component>
 </project>
