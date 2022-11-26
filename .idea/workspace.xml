@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Controles">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/Punch.js" afterDir="false" />
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Colisiones y colores inicio">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/img/PantalladeJuego/Spritesheets/SpritesheetFuego.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/PantalladeJuego/Spritesheets/SpritesheetFuego.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/img/PantalladeJuego/Spritesheets/SpritesheetRayo.PNG" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/PantalladeJuego/Spritesheets/SpritesheetRayo.PNG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/img/PantalladeJuego/Spritesheets/SpritesheetVerde.PNG" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/Controller.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/Controller.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
@@ -75,7 +78,7 @@
       <workItem from="1668630496157" duration="600000" />
       <workItem from="1668853181887" duration="32788000" />
       <workItem from="1669377481184" duration="5965000" />
-      <workItem from="1669455985034" duration="7127000" />
+      <workItem from="1669455985034" duration="15440000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
@@ -147,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669379682987</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Colisiones y colores inicio">
+      <created>1669464458300</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669464458300</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,6 +184,7 @@
     <MESSAGE value="Responsive y cambio de escenario por parámetro (2 modos) implementado" />
     <MESSAGE value="Avances en player" />
     <MESSAGE value="Controles terminados" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controles terminados" />
+    <MESSAGE value="Colisiones y colores inicio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Colisiones y colores inicio" />
   </component>
 </project>
