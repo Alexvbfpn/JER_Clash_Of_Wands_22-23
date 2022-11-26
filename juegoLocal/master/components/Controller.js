@@ -12,9 +12,9 @@ export class Controller
 
     }
 
-    create(UP,DOWN,LEFT,RIGHT)
+    create(UP,DOWN,LEFT,RIGHT,ATTACK)
     {
-        this.actions=this.relatedScene.input.keyboard.addKeys({ 'UP': UP, 'DOWN': DOWN,'LEFT':LEFT,'RIGHT':RIGHT });
+        this.actions=this.relatedScene.input.keyboard.addKeys({ 'UP': UP, 'DOWN': DOWN,'LEFT':LEFT,'RIGHT':RIGHT, 'ATTACK':ATTACK});
     }
 
 }
