@@ -51,6 +51,9 @@ export class FloorTiles {
 
     createLevel()
     {
+        gameOptions.rows = 4;
+        gameOptions.columns = 6;
+        gameOptions.tileSize = 200;
         gameOptions.rows /= this.floorMode;
         gameOptions.columns /= this.floorMode;
         gameOptions.tileSize *= this.floorMode;

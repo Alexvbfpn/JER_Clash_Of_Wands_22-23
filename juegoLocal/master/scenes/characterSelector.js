@@ -1,4 +1,6 @@
 import {Selector} from "../components/selector.js";
+import {RuneManager} from "../components/runeManager.js";
+
 var runes;
 var confirm_button;
 var characters2;
@@ -26,9 +28,8 @@ export class CharacterSelector extends Phaser.Scene
         //Fondo
         this.add.image(960, 540, 'characterSelector_Background');
         var scene = this.scene;
-        lightAgain = true;
 
-
+        //Añadimos los artworks de los personajes
         var characters1 = this.add.sprite(1, 290, 'characters');
         characters1.visible = false;
         characters1.setOrigin(0, 0);
@@ -39,6 +40,7 @@ export class CharacterSelector extends Phaser.Scene
         characters2.setOrigin(0, 0);
         characters2.setFlipX(false);
 
+        //Creamos los selectores de cada runa (cada una asociada al artwork correspondiente)
         this.water = new Selector(this, 'water', 1043, 257, 0, characters1,0, true, characters2);
         this.fire = new Selector(this, 'fire', 709, 27, 0, characters1, 1, true, characters2);
         this.wind = new Selector(this, 'wind', 709, 257, 0, characters1, 2, true, characters2);
@@ -50,44 +52,6 @@ export class CharacterSelector extends Phaser.Scene
         this.bolt.create();
 
         runes = [this.water, this.fire, this.wind, this.bolt]
-        /*
-        var water = this.add.sprite(1043, 257, 'water', 0);
-        water.setOrigin(0, 0);
-
-        var bolt = this.add.sprite(1043, 27, 'bolt', 0);
-        bolt.setOrigin(0, 0);
-
-        var fire = this.add.sprite(709, 27, 'fire', 0);
-        fire.setOrigin(0, 0);
-
-        var wind =
-            {
-                sprite: null,
-                frame: 2
-            }
-        wind.sprite = this.add.sprite(709, 257, 'wind', 0);
-        wind.sprite.setOrigin(0, 0);
-        wind.sprite.setInteractive();
-
-        var characters = this.add.sprite(1, 290, 'characters');
-        characters.visible = false;
-        characters.setOrigin(0, 0);
-        characters.setFlipX(true);
-        wind.sprite.on('pointerover', function (){
-
-            wind.sprite.setFrame(1);
-            characters.setFrame(wind.frame)
-            characters.visible = true;
-        })
-        wind.sprite.on('pointerout', function (){
-
-            wind.sprite.setFrame(0);
-            characters.visible = false;
-        })
-
-         */
-
-
 
         confirm_button = this.add.image(665, 825, 'confirm_button').setOrigin(0, 0);
         confirm_button.setInteractive()
@@ -97,8 +61,9 @@ export class CharacterSelector extends Phaser.Scene
         {
             if(runes[0].currentCharacter == characters2)
             {
-                scene.restart('match');
+                scene.start('match');
             }
+            console.log(runes.currentCharacter)
 
         });
 
@@ -111,6 +76,11 @@ export class CharacterSelector extends Phaser.Scene
 
             confirm_button.clearTint();
         });
+
+        this.runeManager = new RuneManager(this, runes, confirm_button, characters2);
+        this.runeManager.create();
+
+            /*
         for (let i = 0; i<4; i++)
         {
             runes[i].rune.sprite.on('pointerdown', function (){
@@ -170,11 +140,11 @@ export class CharacterSelector extends Phaser.Scene
                     runes[i].currentCharacter.visible = true;
                 }
 
-
-
                 lightAgain = true;
             })
         }
+
+             */
     }
     update()
     {
