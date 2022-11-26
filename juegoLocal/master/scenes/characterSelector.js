@@ -1,8 +1,6 @@
 import {Selector} from "../components/selector.js";
 var runes;
-var lastSelected;
 var confirm_button;
-var confirm_button2;
 var characters2;
 var lightAgain;
 var currentSelected;
@@ -99,7 +97,7 @@ export class CharacterSelector extends Phaser.Scene
         {
             if(runes[0].currentCharacter == characters2)
             {
-                scene.start('match');
+                scene.restart('match');
             }
 
         });
@@ -177,10 +175,6 @@ export class CharacterSelector extends Phaser.Scene
                 lightAgain = true;
             })
         }
-
-
-
-
     }
     update()
     {
