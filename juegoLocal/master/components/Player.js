@@ -114,7 +114,7 @@ export class Player
         if(this.playerNumber===1)
         {
             //console.log("Comprueba colision")
-            this.Collision.setOnCollideWith(this.relatedScene.Player2., pair => {
+            this.Collision.setOnCollideWith(this.relatedScene.Player2, pair => {
                 this.Attack();
             });
         }

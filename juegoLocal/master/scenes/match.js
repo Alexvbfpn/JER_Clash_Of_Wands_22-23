@@ -22,8 +22,8 @@ export class Match extends Phaser.Scene
         this.Controller2=new Controller(this);
             //new Controller(this,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W);
         //this.Controller2=new Controller(this,Phaser.input.keyboard.KeyCodes.UP,Phaser.input.keyboard.KeyCodes.DOWN,Phaser.input.keyboard.KeyCodes.LEFT,Phaser.input.keyboard.KeyCodes.RIGHT)
-        this.Player1=new Player(this,100,100,1,this.Controller1,'Rojo');
-        this.Player2=new Player(this,500,500,2,this.Controller2,'Azul');
+        this.Player1=new Player(this,100,100,1,this.Controller1,'Azul');
+        this.Player2=new Player(this,500,500,2,this.Controller2,'Rojo');
         this.laserComponent = new LaserObs(this);
 
 

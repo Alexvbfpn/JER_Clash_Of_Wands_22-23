@@ -32,73 +32,121 @@ export class LaserObs {
         this.ball.setMass(4000000);
 
         //Codigo de prueba para comprobar las colisiones del laser (Hace referencia al jugador 1 (Recoge el powerup))
+        /*
         this.block2 = this.relatedScene.matter.add.image(500, 350, 'varaLaser');
         this.block2.setVelocity(1.9, 1);
         this.block2.setBounce(1, 1);
         this.block2.setFriction(0, 0, 0);
         this.block2.playerType = 'Verde';
+        */
 
+        /*
         //Codigo de prueba para comprobar las colisiones del laser (Hace referencia al jugador 2 (Muere))
         this.block1 = this.relatedScene.matter.add.image(1100, 350, 'varaLaser');
         this.block1.setVelocity(0, 0.1);
         this.block1.setBounce(1, 1);
         this.block1.setFriction(0, 0, 0);
         this.block1.playerType = 'Rojo';
-
+        */
 
         console.log(this.positionX,this.ball.positionY);
 
         //Si colisiona la bola con el bloque de prueba, se ejecuta la función createLaser
-        this.ball.setOnCollideWith(this.block2, pair => {
+        this.ball.setOnCollideWith(this.relatedScene.Player1.player, pair => {
             this.ball.destroy();
-            this.createLaser();
+            this.createLaserP1();
         });
 
+        this.ball.setOnCollideWith(this.relatedScene.Player2.player, pair => {
+            this.ball.destroy();
+            this.createLaserP2();
+        });
+
+    }
+
+    //Función que hace desaparecer la bola con la colisión y que salga el laser en la posición que estaba la bola
+    createLaserP1()
+    {
+        this.laser = this.relatedScene.matter.add.image(this.positionX,this.positionY,'varaLaser', null, {isSensor: true});
+
+        //Para pintar el laser y evitar que colisione con él
+        if(this.relatedScene.Player1.type === 'Rojo'){
+            this.laser.tint = 0xFF4C3A; //Rojo
+        }
+        if(this.relatedScene.Player1.type === 'Azul'){
+            this.laser.tint = 0x3AF6FF; //Azul
+        }
+        if(this.relatedScene.Player1.type === 'Amarillo'){
+            this.laser.tint = 0xFBFB32 ; //Amarillo
+        }
+        if(this.relatedScene.Player1.type === 'Verde'){
+            this.laser.tint = 0x35FB55 ; //Verde
+        }
+
+        //console.log(this.ball.positionX,this.ball.positionY);
+
+        this.laser.setMass(40000000); //Seteamos la masa a un número muy alto para evitar que se mueva al colisionar
+        this.laser.setAngularVelocity(0.03);
+        this.laser.setFriction(0, 0, 0);
+
+
+        this.laser.setOnCollideWith(this.relatedScene.Player2.player, pair => {
+            console.log("Muere");
+            this.playerDieP2();
+        });
+    }
+
+    createLaserP2()
+    {
+        this.laser = this.relatedScene.matter.add.image(this.positionX,this.positionY,'varaLaser', null, {isSensor: true});
+
+        //Para pintar el laser y evitar que colisione con él (Cambiar block2 por player)
+
+
+        if(this.relatedScene.Player2.type === 'Rojo'){
+            this.laser.tint = 0xFF4C3A; //Rojo
+        }
+        if(this.relatedScene.Player2.type === 'Azul'){
+            console.log(this.relatedScene.Player2.type);
+            this.laser.tint = 0x3AF6FF; //Azul
+        }
+        if(this.relatedScene.Player2.type === 'Amarillo'){
+            this.laser.tint = 0xFBFB32 ; //Amarillo
+        }
+        if(this.relatedScene.Player2.type === 'Verde'){
+            this.laser.tint = 0x35FB55 ; //Verde
+        }
+
+        //console.log(this.ball.positionX,this.ball.positionY);
+        this.laser.setMass(40000000); //Seteamos la masa a un número muy alto para evitar que se mueva al colisionar
+        this.laser.setAngularVelocity(0.03);
+        this.laser.setFriction(0, 0, 0);
+
+        this.laser.setOnCollideWith(this.relatedScene.Player1.player, pair => {
+            console.log("Muere");
+            this.playerDieP1();
+        });
+    }
+
+    //La función hace que el jugador1 muera al tocar el laser si no le corresponde
+    playerDieP1()
+    {
+        //this.relatedScene.Player1.player.destroy();
+        this.relatedScene.Player1.posX = 500;
+        this.relatedScene.Player1.posY = 500;
+    }
+
+    //La función hace que el jugador2 muera al tocar el laser si no le corresponde
+    playerDieP2()
+    {
+        //this.relatedScene.Player2.player.destroy();
+        this.relatedScene.Player2.posX = 100;
+        this.relatedScene.Player2.posY = 100;
     }
 
     //Comprobación de colisiones
     checkCollisiom()
     {
         console.log("Colisiona");
-    }
-
-    //Función que hace desaparecer la bola con la colisión y que salga el laser en la posición que estaba la bola
-    createLaser()
-    {
-        this.laser = this.relatedScene.matter.add.image(this.positionX,this.positionY,'varaLaser', null, {isSensor: true});
-
-        //Para pintar el laser y evitar que colisione con él (Cambiar block2 por player)
-
-        if(this.block2.playerType === 'Rojo'){
-            this.laser.tint = 0xfe0000; //Rojo
-        }
-        if(this.block2.playerType === 'Azul'){
-            this.laser.tint = 0x4040FD; //Azul
-        }
-        if(this.block2.playerType === 'Amarillo'){
-            this.laser.tint = 0xFBFB32 ; //Amarillo
-        }
-        if(this.block2.playerType === 'Verde'){
-            this.laser.tint = 0x35FB55 ; //Verde
-        }
-
-
-        console.log(this.ball.positionX,this.ball.positionY);
-        this.laser.setMass(40000000); //Seteamos la masa a un número muy alto para evitar que se mueva al colisionar
-        this.laser.setAngularVelocity(0.03);
-        this.laser.setFriction(0, 0, 0);
-
-        //QUITAR ESTA LÍNEA DE PRUEBA
-        //this.block2.destroy();
-
-        this.laser.setOnCollideWith(this.block1, pair => {
-            this.playerDie();
-        });
-    }
-
-    //La función hace que el jugador muera al tocar el laser si no le corresponde
-    playerDie()
-    {
-        this.block1.destroy();
     }
 }
