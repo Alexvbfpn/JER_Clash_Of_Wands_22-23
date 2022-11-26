@@ -1,3 +1,5 @@
+var scene;
+
 export class LaserObs {
     constructor(scene,posX,posY,player) {
         this.relatedScene = scene;
@@ -52,6 +54,7 @@ export class LaserObs {
         console.log(this.positionX,this.ball.positionY);
 
         //Si colisiona la bola con el bloque de prueba, se ejecuta la función createLaser
+        scene = this.relatedScene.scene;
         this.ball.setOnCollideWith(this.relatedScene.Player1.player, pair => {
             this.ball.destroy();
             this.createLaserP1();
@@ -92,7 +95,10 @@ export class LaserObs {
 
         this.laser.setOnCollideWith(this.relatedScene.Player2.player, pair => {
             console.log("Muere");
-            this.playerDieP2();
+            //this.playerDieP2();
+
+            scene.start("match");
+            console.log("Cargando");
         });
     }
 
@@ -122,9 +128,12 @@ export class LaserObs {
         this.laser.setAngularVelocity(0.03);
         this.laser.setFriction(0, 0, 0);
 
+
         this.laser.setOnCollideWith(this.relatedScene.Player1.player, pair => {
             console.log("Muere");
-            this.playerDieP1();
+            //this.playerDieP1();
+            scene.start("match");
+            console.log("Cargando");
         });
     }
 
@@ -132,16 +141,14 @@ export class LaserObs {
     playerDieP1()
     {
         //this.relatedScene.Player1.player.destroy();
-        this.relatedScene.Player1.posX = 500;
-        this.relatedScene.Player1.posY = 500;
+        //this.relatedScene.restart();
     }
 
     //La función hace que el jugador2 muera al tocar el laser si no le corresponde
     playerDieP2()
     {
         //this.relatedScene.Player2.player.destroy();
-        this.relatedScene.Player2.posX = 100;
-        this.relatedScene.Player2.posY = 100;
+        //this.relatedScene.restart();
     }
 
     //Comprobación de colisiones
