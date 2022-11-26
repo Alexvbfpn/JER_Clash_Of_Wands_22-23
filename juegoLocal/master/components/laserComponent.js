@@ -11,7 +11,7 @@ export class LaserObs {
     preload() {
         //Se precarga las imagenes en escena
         this.relatedScene.load.image("varaLaser", 'assets/img/varaLaser.png');
-        this.relatedScene.load.spritesheet("bola", 'assets/img/bolaMagica.png',{ frameWidth: 32, frameHeight: 48 });
+        this.relatedScene.load.spritesheet("bola", 'assets/img/bolaMagica.png',{ frameWidth: 46, frameHeight: 46 });
     }
 
     create() {
@@ -22,7 +22,7 @@ export class LaserObs {
         //Animación del sprite de la bola
         this.relatedScene.anims.create({
             key: 'move',
-            frameRate: 5,
+            frameRate: 15,
             frames: this.ball.anims.generateFrameNumbers('bola', { start: 0, end: 8 }),
             repeat: -1
         });
@@ -36,7 +36,7 @@ export class LaserObs {
         this.block2.setVelocity(1.9, 1);
         this.block2.setBounce(1, 1);
         this.block2.setFriction(0, 0, 0);
-        this.block2.playerType = 'Azul';
+        this.block2.playerType = 'Verde';
 
         //Codigo de prueba para comprobar las colisiones del laser (Hace referencia al jugador 2 (Muere))
         this.block1 = this.relatedScene.matter.add.image(1100, 350, 'varaLaser');
@@ -50,6 +50,7 @@ export class LaserObs {
 
         //Si colisiona la bola con el bloque de prueba, se ejecuta la función createLaser
         this.ball.setOnCollideWith(this.block2, pair => {
+            this.ball.destroy();
             this.createLaser();
         });
 
@@ -64,8 +65,7 @@ export class LaserObs {
     //Función que hace desaparecer la bola con la colisión y que salga el laser en la posición que estaba la bola
     createLaser()
     {
-        this.ball.destroy();
-        this.laser = this.relatedScene.matter.add.image(this.positionX,this.positionY,'varaLaser');
+        this.laser = this.relatedScene.matter.add.image(this.positionX,this.positionY,'varaLaser', null, {isSensor: true});
 
         //Para pintar el laser y evitar que colisione con él (Cambiar block2 por player)
 
@@ -89,7 +89,7 @@ export class LaserObs {
         this.laser.setFriction(0, 0, 0);
 
         //QUITAR ESTA LÍNEA DE PRUEBA
-        this.block2.destroy();
+        //this.block2.destroy();
 
         this.laser.setOnCollideWith(this.block1, pair => {
             this.playerDie();

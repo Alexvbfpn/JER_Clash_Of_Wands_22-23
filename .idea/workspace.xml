@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Se añaden los sprites al laser y ahora, cuando toca un tipo determinado de personaje (aplicado con bloques y malamente sin tener los personajes) cambia a su color">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/bolaMagica.png" afterDir="false" />
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Se agrega la bola que sirve de powerup en laserComponent y cuya colisión hace que desaparezca y se genere el laser (arreglar posición de genración donde estaba la bola)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/laserComponent.js" afterDir="false" />
     </list>
