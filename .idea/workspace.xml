@@ -4,15 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Responsive y cambio de escenario por parámetro (2 modos) implementado">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/button.js" afterDir="false" />
+    <list default="true" id="0dbae4a6-7f89-47ab-919b-bf34c9af4c8f" name="Changes" comment="Ultima actualización selector">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/playButton.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +134,28 @@
       <option name="project" value="LOCAL" />
       <updated>1669027839291</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Fuente tiles añadida">
+      <created>1669290657070</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669290657070</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Selector de personajes terminado y problema con fuente de las tiles solucionado">
+      <created>1669415551008</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669415551008</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Ultima actualización selector">
+      <created>1669472794859</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669472794859</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +180,9 @@
     <MESSAGE value="Añadidos el ring y el suelo, pero no bien colocados, fase de testeo para esto actualmente. Hay que empezar a usar ramas, no tengo ni idea de como" />
     <MESSAGE value="Colocados ring y suelo de manera correcta. Números puestos en el centro de las tiles (de manera manual, hay que cambiarlo), y prueba de cuenta atrás con 4 iteracciones." />
     <MESSAGE value="Responsive y cambio de escenario por parámetro (2 modos) implementado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Responsive y cambio de escenario por parámetro (2 modos) implementado" />
+    <MESSAGE value="Fuente tiles añadida" />
+    <MESSAGE value="Selector de personajes terminado y problema con fuente de las tiles solucionado" />
+    <MESSAGE value="Ultima actualización selector" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ultima actualización selector" />
   </component>
 </project>

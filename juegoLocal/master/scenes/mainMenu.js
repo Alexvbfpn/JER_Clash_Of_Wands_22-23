@@ -1,12 +1,10 @@
-import {PlayButton} from "../components/playButton.js";
 import {Button} from "../components/button.js"
-
 export class MainMenu extends Phaser.Scene
 {
     constructor()
     {
         super({key: 'mainMenu'});
-        this.playButton = new Button(this, 'match');
+        this.playButton = new Button(this);
         this.creditsButton = new Button(this);
         this.tutorialButton = new Button(this);
     }
@@ -26,9 +24,9 @@ export class MainMenu extends Phaser.Scene
         this.add.image(960, 540, 'mainMenu_Background');
 
         //Creamos la instancia de cada botón
-        this.playButton = new Button(this, 'match', 'playButton', 686, 757, 1.15, 1.40);
-        this.creditsButton = new Button(this, 'match', 'creditsButton', 1301, 757, 0.75, 1);
-        this.tutorialButton = new Button(this, 'match', 'tutorialButton', 73, 757, 0.75, 1);
+        this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40);
+        this.creditsButton = new Button(this, 'characterSelector', 'creditsButton', 1301, 757, 0.75, 1);
+        this.tutorialButton = new Button(this, 'characterSelector', 'tutorialButton', 73, 757, 0.75, 1);
 
         //Llamamos al create de cada uno para que se cree y muestre en la escena
         this.playButton.create();
@@ -51,4 +49,5 @@ export class MainMenu extends Phaser.Scene
 
          */
     }
+
 }
