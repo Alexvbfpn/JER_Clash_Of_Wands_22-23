@@ -1,6 +1,7 @@
 import {MainMenu} from './scenes/mainMenu.js';
 import {Match} from './scenes/match.js';
 
+
 var scenes = [];
 scenes.push(MainMenu);
 scenes.push(Match);
@@ -23,15 +24,18 @@ var config = {
             default: 'matter',
             matter: {
                 debug: true,
-                gravity:
-                    {
-                        x: 0,
-                        y: 0,
 
-                    }
+                gravity: {
+                    x: 0,
+                    y: 0
+
+                }
             }
         },
     title: 'Clash of Wands'
     }
 
 var game = new Phaser.Game(config);
+
+
+
