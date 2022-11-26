@@ -4,62 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dbae4a6-7f89-47ab-919b-bf34c9af4c8f" name="Changes" comment="Fuente tiles añadida">
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/components/selector.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/characterSelector.js" afterDir="false" />
+    <list default="true" id="0dbae4a6-7f89-47ab-919b-bf34c9af4c8f" name="Changes" comment="Ultima actualización selector">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/PressStart2P-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/0.Pantalla de Inicio/IMG_9402.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/0.Pantalla de Inicio/Pantalla de Inicio.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/1.Menú Principal/Botón Créditos .PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/1.Menú Principal/Botón Jugar.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/1.Menú Principal/Botón Tutorial.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/1.Menú Principal/Logo Provisional.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/1.Menú Principal/Pantalla de Inicio 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/1.Menú Principal/Pantalla de Inicio 2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/1.Menú Principal/Pantalla de Inicio 3.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/10.Pantalla de Carga/Fondo Negro.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/10.Pantalla de Carga/Guante de Boxeo.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/10.Pantalla de Carga/Icono Carga.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/2.Pantalla Tutorial/Botón Atrás.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/4.Pantalla Online-Local/Logo Provisional.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/4.Pantalla Online-Local/Pantalla de Inicio 1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/4.Pantalla Online-Local/Pantalla de Inicio 2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/4.Pantalla Online-Local/Pantalla de Inicio 3.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/Agua.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/Boton Confirmar.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/Dimensones de todos los simbolos (168x224).PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/Fondo.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/Fuego.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/IMG_9431.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/IMG_9436.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/IMG_9437.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/PosAgua.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/PosFuego.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/PosRayo.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/PosViento.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/Rayo.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/5.Selector de Personajes/Viento.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Baldosa Abierta 1.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Baldosa Abierta 2.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Baldosa Abierta 3.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Baldosa Abierta 4.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Baldosa.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Boton Pausa.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Publico Variado.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Varita Laser Grises.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Sprites Únicos/Varita Laser Roja.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Spritesheets/Bola Magica.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/6.Pantalla de Juego/Spritesheets/Público.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/z. Otros/Foto de Grupo.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/z. Otros/Insignia.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/Arte/z. Otros/Personajes.PNG" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/assets/img/background_mainMenu.png" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/background_mainMenu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/mainMenu.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -195,7 +141,21 @@
       <option name="project" value="LOCAL" />
       <updated>1669290657070</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Selector de personajes terminado y problema con fuente de las tiles solucionado">
+      <created>1669415551008</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1669415551008</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Ultima actualización selector">
+      <created>1669472794859</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1669472794859</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,6 +181,8 @@
     <MESSAGE value="Colocados ring y suelo de manera correcta. Números puestos en el centro de las tiles (de manera manual, hay que cambiarlo), y prueba de cuenta atrás con 4 iteracciones." />
     <MESSAGE value="Responsive y cambio de escenario por parámetro (2 modos) implementado" />
     <MESSAGE value="Fuente tiles añadida" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fuente tiles añadida" />
+    <MESSAGE value="Selector de personajes terminado y problema con fuente de las tiles solucionado" />
+    <MESSAGE value="Ultima actualización selector" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ultima actualización selector" />
   </component>
 </project>
