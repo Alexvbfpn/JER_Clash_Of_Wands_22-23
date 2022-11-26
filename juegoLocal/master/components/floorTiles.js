@@ -38,6 +38,9 @@ export class FloorTiles {
 
     createLevel()
     {
+        gameOptions.rows = 4;
+        gameOptions.columns = 6;
+        gameOptions.tileSize = 200;
         gameOptions.rows /= this.floorMode;
         gameOptions.columns /= this.floorMode;
         gameOptions.tileSize *= this.floorMode;
@@ -81,10 +84,15 @@ export class FloorTiles {
             for(let j = 0; j < gameOptions.columns; j ++){
                 let openTile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
                     i * gameOptions.tileSize + gameOptions.initTilePosY,
-                    'openTiles', level[i][j]).setScale(this.floorMode);
+                    'openTiles', level[i][j]);
+                openTile.setScale(1);
+                openTile.setScale(this.floorMode)
+                //openTile.setScale(this.floorMode);
                 let tile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
                     i * gameOptions.tileSize + gameOptions.initTilePosY,
-                    'tiles', level[i][j]).setScale(this.floorMode);
+                    'tiles', level[i][j]);
+                tile.setScale(1);
+                tile.setScale(this.floorMode);
                 let text = this.relatedScene.add.text(tile.x + gameOptions.tileSize/4, tile.y, level[i][j].toString(), {
                     font: (gameOptions.tileSize).toString() + "px Times",
                     fontWeight: "bold",
