@@ -1,5 +1,10 @@
 var scene;
 
+//Destruir laser
+function onEvent(){
+    this.laser.destroy();
+}
+
 export class LaserObs {
     constructor(scene,posX,posY,player) {
         this.relatedScene = scene;
@@ -8,18 +13,21 @@ export class LaserObs {
         this.positionY = posY; //Variable en el constructor para almacenar la posición en Y
         this.playerType = player;
         this.ball;
+        this.timesUp //Control del tiempo del laser
     }
 
     preload() {
         //Se precarga las imagenes en escena
         this.relatedScene.load.image("varaLaser", 'assets/img/varaLaser.png');
         this.relatedScene.load.spritesheet("bola", 'assets/img/bolaMagica.png',{ frameWidth: 46, frameHeight: 46 });
+        this.relatedScene.load.audio("laserSound", 'assets/sound/laserSound.ogg');
     }
 
     create() {
 
         //Se crea la bola en una posición determinada (posX y posY)
         this.ball = this.relatedScene.matter.add.sprite(this.positionX = 1160, this.positionY = 590, 'bola');
+        this.laserS = this.relatedScene.sound.add("laserSound");
 
         //Animación del sprite de la bola
         this.relatedScene.anims.create({
@@ -58,11 +66,17 @@ export class LaserObs {
         this.ball.setOnCollideWith(this.relatedScene.Player1.player, pair => {
             this.ball.destroy();
             this.createLaserP1();
+            //Sonido del laser
+            this.laserS.play();
+            this.laserS.volume = 0.1;
         });
 
         this.ball.setOnCollideWith(this.relatedScene.Player2.player, pair => {
             this.ball.destroy();
             this.createLaserP2();
+            //Sonido del laser
+            this.laserS.play();
+            this.laserS.volume = 0.1;
         });
 
     }
@@ -100,6 +114,9 @@ export class LaserObs {
             scene.start("match");
             console.log("Cargando");
         });
+
+        this.timesUp = this.relatedScene.time.addEvent({ delay: 6000, callback: onEvent, callbackScope: this, loop: false});
+
     }
 
     createLaserP2()
@@ -135,6 +152,8 @@ export class LaserObs {
             scene.start("match");
             console.log("Cargando");
         });
+
+        this.timesUp = this.relatedScene.time.addEvent({ delay: 6000, callback: onEvent, callbackScope: this, loop: false});
     }
 
     //La función hace que el jugador1 muera al tocar el laser si no le corresponde
@@ -150,6 +169,8 @@ export class LaserObs {
         //this.relatedScene.Player2.player.destroy();
         //this.relatedScene.restart();
     }
+
+
 
     //Comprobación de colisiones
     checkCollisiom()
