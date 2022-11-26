@@ -4,8 +4,6 @@ import {RuneManager} from "../components/runeManager.js";
 var runes;
 var confirm_button;
 var characters2;
-var lightAgain;
-var currentSelected;
 export class CharacterSelector extends Phaser.Scene
 {
     constructor()
