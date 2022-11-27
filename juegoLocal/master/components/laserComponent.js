@@ -41,24 +41,6 @@ export class LaserObs {
         //this.ball.setScale(5,5);
         this.ball.setMass(4000000);
 
-        //Codigo de prueba para comprobar las colisiones del laser (Hace referencia al jugador 1 (Recoge el powerup))
-        /*
-        this.block2 = this.relatedScene.matter.add.image(500, 350, 'varaLaser');
-        this.block2.setVelocity(1.9, 1);
-        this.block2.setBounce(1, 1);
-        this.block2.setFriction(0, 0, 0);
-        this.block2.playerType = 'Verde';
-        */
-
-        /*
-        //Codigo de prueba para comprobar las colisiones del laser (Hace referencia al jugador 2 (Muere))
-        this.block1 = this.relatedScene.matter.add.image(1100, 350, 'varaLaser');
-        this.block1.setVelocity(0, 0.1);
-        this.block1.setBounce(1, 1);
-        this.block1.setFriction(0, 0, 0);
-        this.block1.playerType = 'Rojo';
-        */
-
         console.log(this.positionX,this.ball.positionY);
 
         //Si colisiona la bola con el bloque de prueba, se ejecuta la función createLaser
@@ -110,8 +92,9 @@ export class LaserObs {
         this.laser.setOnCollideWith(this.relatedScene.Player2.player, pair => {
             console.log("Muere");
             //this.playerDieP2();
-
-            scene.start("match");
+            this.relatedScene.dataObj.player1Data.points++;
+            this.laserS.stop();
+            scene.restart();
             console.log("Cargando");
         });
 
@@ -148,27 +131,15 @@ export class LaserObs {
 
         this.laser.setOnCollideWith(this.relatedScene.Player1.player, pair => {
             console.log("Muere");
-            //this.playerDieP1();
-            scene.start("match");
+            this.relatedScene.dataObj.player2Data.points++;
+            this.laserS.stop();
+            scene.restart();
             console.log("Cargando");
         });
 
         this.timesUp = this.relatedScene.time.addEvent({ delay: 6000, callback: onEvent, callbackScope: this, loop: false});
     }
 
-    //La función hace que el jugador1 muera al tocar el laser si no le corresponde
-    playerDieP1()
-    {
-        //this.relatedScene.Player1.player.destroy();
-        //this.relatedScene.restart();
-    }
-
-    //La función hace que el jugador2 muera al tocar el laser si no le corresponde
-    playerDieP2()
-    {
-        //this.relatedScene.Player2.player.destroy();
-        //this.relatedScene.restart();
-    }
 
 
 
