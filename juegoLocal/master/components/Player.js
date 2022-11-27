@@ -2,17 +2,16 @@ import {Controller} from "../components/Controller.js";
 
 function Cooldown()
 {
-
     this.attackCooldown=true;
-
 }
-function DeletePunch()
+function deletePunch()
 {
     console.log("Desactiva");
     this.Collision.visible=false;
-    //this.Collision.setActive(false);
-    //this.Collision.destroy();
-
+}
+function stopThrust(PlayerC)
+{
+    PlayerC.player.thrust(0);
 }
 export class Player
 {
@@ -27,6 +26,7 @@ export class Player
         this.Controller=Controller;
         this.type=type;
         this.attackCooldown=true;
+        this.canAttack=false;
     }
 
     preload()
@@ -49,8 +49,8 @@ export class Player
             frameHeight: 124
         });
         this.relatedScene.load.spritesheet("Collision", "assets/img/play_button.PNG", {
-            frameWidth: 100,
-            frameHeight: 50
+            frameWidth: 150,
+            frameHeight: 100
         });
     }
 
@@ -60,7 +60,7 @@ export class Player
             this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
 
         //this.Collision= this.relatedScene.matter.add.sprite(this.player.x,this.player.y,'Collision');
-        this.Collision= this.relatedScene.matter.add.sprite(this.player.x+100,this.player.y+100,'Collision',null, {isSensor:true});
+        this.Collision= this.relatedScene.matter.add.sprite(this.player.x+100,this.player.y+100,'Collision',null, {isSensor:true, onCollideAxtiveCakkback});
         //this.Collision.parent=this.player;
         //this.Collision.setActive(false);
         this.Collision.visible=false;
@@ -93,27 +93,13 @@ export class Player
         this.player.setFrictionAir(0.1);
         this.player.setMass(50);
         this.player.setFixedRotation();
-
-        if(this.playerNumber===1)
-        {
-            //console.log("Comprueba colision")
-            this.Collision.setOnCollideWith(this.relatedScene.Player2, pair => {
-                this.Attack();
-            });
-        }
-        if(this.playerNumber===2)
-        {
-            this.Collision.setOnCollideWith(this.relatedScene.Player1, pair => {
-                this.Attack();
-            });
-        }
     }
 
     update()
     {
-
-        this.Collision.setX(this.player.x+100);
-        this.Collision.setY(this.player.y);
+        this.calculateRotation()
+        //this.Collision.setX(this.player.x+100);
+        //this.Collision.setY(this.player.y);
         this.Collision.rotation=this.player.rotation;
 
                if (this.Controller.actions.UP.isDown)
@@ -136,11 +122,13 @@ export class Player
 
                if (this.Controller.actions.LEFT.isDown)
                {
-                   this.player.x -= 10;
+                   this.player.thrustLeft(-0.16);
+                   //this.player.x -= 10;
                }
                else if (this.Controller.actions.RIGHT.isDown)
                {
-                   this.player.x += 10;
+                   this.player.thrustRight(-0.16);
+                   //this.player.x += 10;
                }
 
                if (this.Controller.actions.ROTATEL.isDown)
@@ -151,6 +139,7 @@ export class Player
                else if (this.Controller.actions.ROTATER.isDown)
                {
                     this.player.setAngularVelocity(0.08);
+
                }
                else
                {
@@ -162,23 +151,49 @@ export class Player
                {
                    this.attackCooldown=false;
                    this.relatedScene.time.addEvent({ delay: 1000, callback: Cooldown, callbackScope: this, loop: false});
-
+                   this.checkCollision();
                    this.Collision.visible=true;
-                   this.Collision.rotation=this.player.rotation;
-                   this.relatedScene.time.addEvent({ delay: 200, callback: DeletePunch, callbackScope: this, loop: false});
-
+                   this.relatedScene.time.addEvent({ delay: 200, callback: deletePunch, callbackScope: this, loop: false});
                }
-
-
-
     }
 
     Attack(PlayerC)
     {
-
         console.log("Ataque");
-        //this.Collision.destroy();
+        var vector = new Phaser.Math.Vector2(this.player.x,this.player.y);
+        var vector2 = new Phaser.Math.Vector2(1,1);
+        //PlayerC.player.applyForceFrom(vector,vector2);
+        PlayerC.player.setPosition(PlayerC.player.applyForceFrom(vector,vector2).x, PlayerC.player.applyForceFrom(vector,vector2).y);
+        //this.relatedScene.time.delayedCall(200,stopThrust,PlayerC,this)
+    }
+    calculateRotation()
+    {
+        const vx =this.player.x + Math.cos(this.player.rotation) * 50;
+        const vy =this.player.y + Math.sin(this.player.rotation) * 50;
+        this.Collision.setPosition(vx,vy);
+    }
+    checkCollision()
+    {
+        //this.Collision.setCallback();
+        //this.Collision.setCollisionCallback();
+        //this.Collision.setOnCollideActive();
+        //this.Collision.setOnCollideEnd();
 
+        if(this.playerNumber===1)
+        {
+            this.Collision.setOnCollideWith(this.relatedScene.Player2, pair => {
+                //this.Attack(this.relatedScene.Player2);
+                this.relatedScene.Player2.player.thrust(-0.5);
+            });
+            this.Collision.onCollideActiveCallback()
+        }
+        if(this.playerNumber===2)
+        {
+            this.Collision.setOnCollideWith(this.relatedScene.Player1, pair => {
+                //this.Attack(this.relatedScene.Player1);
+                this.relatedScene.Player1.player.thrust(-0.5);
+            });
+        }
     }
 
 

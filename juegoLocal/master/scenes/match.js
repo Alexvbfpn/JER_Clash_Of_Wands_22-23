@@ -53,7 +53,22 @@ export class Match extends Phaser.Scene
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
 
-            //console.log("Comprueba colision")
+       /*     //console.log("Comprueba colision")
+        this.Player2.player.setOnCollideActive(this.Player1.Collision, pair => {
+            this.Player1.Attack(this.Player2);
+        });
+        this.Player1.player.setOnCollideActive(this.Player2.Collision, pair => {
+            this.Player2.Attack(this.Player1);
+        });
+
+        this.Player2.player.setOnCollideEnd(this.Player1.Collision, pair => {
+            this.Player1.Attack(this.Player2);
+        });
+        this.Player1.player.setOnCollideEnd(this.Player2.Collision, pair => {
+            this.Player2.Attack(this.Player1);
+        });*/
+
+
             this.Player2.player.setOnCollideWith(this.Player1.Collision, pair => {
                 this.Player1.Attack(this.Player2);
             });
