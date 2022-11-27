@@ -14,12 +14,17 @@ export class Button {
         this.relatedScene.load.image('playButton', 'assets/img/play_buttonDef.png');
         this.relatedScene.load.image('tutorialButton', 'assets/img/tutorial_buttonDef.png');
         this.relatedScene.load.image('creditsButton', 'assets/img/credits_buttonDef.png');
+        this.relatedScene.load.audio("onB", 'assets/sound/encimaBoton.wav');
+        this.relatedScene.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
     }
 
     create() //Añadimos el botón en la escena
     {
         var scene = this.relatedScene.scene;
         var dest = this.relatedDestination;
+        var clickS = this.relatedScene.sound.add("pulsarB");
+        var onS = this.relatedScene.sound.add("onB");
+
 
         //creamos el boton para la escena relativa en la que se le meta
         this.button = this.relatedScene.add.image(0, 0, this.spriteButtonName);
@@ -46,20 +51,28 @@ export class Button {
         var regularScale = this.buttonScale;
         var maxScale = this.maxScale;
 
+
+        //this.onS.play();
+        //this.onS.volume = 0.1;
+
         container.on('pointerover', function (){
 
             container.setScale(maxScale, maxScale);
             //playButton.setTint(0x44ff44);
+            onS.play();
         });
 
         container.on('pointerout', function (){
 
             container.setScale(regularScale, regularScale);
             //playButton.clearTint();
+
         });
         container.on('pointerdown', function (){
 
+            clickS.play();
             scene.start(dest);
+
         });
 
     }
