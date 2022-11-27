@@ -18,8 +18,8 @@ export class Match extends Phaser.Scene
         this.Controller1=new Controller(this);
         this.Controller2=new Controller(this);
 
-        this.Player1=new Player(this,100,100,1,this.Controller1,'Azul');
-        this.Player2=new Player(this,500,500,2,this.Controller2,'Rojo');
+        this.Player1=new Player(this,100,100,1,this.Controller1);
+        this.Player2=new Player(this,500,500,2,this.Controller2);
 
         this.laserComponent = new LaserObs(this);
 
@@ -76,6 +76,9 @@ export class Match extends Phaser.Scene
         pepeP2.create();
 
         this.floorTiles.create();
+
+        this.Player1.type = this.dataObj.player1Data.type;
+        this.Player2.type = this.dataObj.player2Data.type;
 
         this.Player1.create();
         this.Player2.create();

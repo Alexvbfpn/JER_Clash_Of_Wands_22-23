@@ -19,14 +19,14 @@ export class CharacterSelector extends Phaser.Scene
                 player1Data:
                     {
                         type: null,
-                        points: 2,
+                        points: 0,
                         wins: 0
                     },
                 player2Data:
                     {
                         type: null,
 
-                        points: 3,
+                        points: 0,
 
                         wins: 0
                     }
