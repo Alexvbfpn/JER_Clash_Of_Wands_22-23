@@ -19,6 +19,10 @@ export class Match extends Phaser.Scene
         this.Player1=new Player(this,100,100,1,this.Controller1,'Azul');
         this.Player2=new Player(this,500,500,2,this.Controller2,'Rojo');
 
+        this.laserComponent = new LaserObs(this);
+
+
+
     }
 
 

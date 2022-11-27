@@ -93,6 +93,22 @@ export class Player
         this.player.setFrictionAir(0.1);
         this.player.setMass(50);
         this.player.setFixedRotation();
+
+
+        if(this.playerNumber===1)
+        {
+            //console.log("Comprueba colision")
+            this.Collision.setOnCollideWith(this.relatedScene.Player2, pair => {
+                this.Attack();
+            });
+        }
+        if(this.playerNumber===2)
+        {
+            this.Collision.setOnCollideWith(this.relatedScene.Player1, pair => {
+                this.Attack();
+            });
+        }
+
     }
 
     update()
