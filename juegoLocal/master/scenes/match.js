@@ -4,7 +4,7 @@ var currentPoints = 1;
 
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
-
+import {LaserObs} from "../components/laserComponent.js";
 export class Match extends Phaser.Scene
 {
     constructor()
@@ -15,11 +15,9 @@ export class Match extends Phaser.Scene
         this.ikerP1 = new PointsPerson(this, 135, 201, 'iker',1);
         this.ikerP2 = new PointsPerson(this, 1686, 201, 'iker2',1);
 
-        //this.controller2=this.input.keyboard.addKey(Phaser.Input.keyboard.keyCodes.W)
         this.Controller1=new Controller(this);
         this.Controller2=new Controller(this);
-            //new Controller(this,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W);
-        //this.Controller2=new Controller(this,Phaser.input.keyboard.KeyCodes.UP,Phaser.input.keyboard.KeyCodes.DOWN,Phaser.input.keyboard.KeyCodes.LEFT,Phaser.input.keyboard.KeyCodes.RIGHT)
+
         this.Player1=new Player(this,100,100,1,this.Controller1,'Azul');
         this.Player2=new Player(this,500,500,2,this.Controller2,'Rojo');
 
@@ -44,6 +42,7 @@ export class Match extends Phaser.Scene
         this.load.image('playerSprite', 'assets/img/sprite_Placa.PNG');
         this.Player1.preload();
         this.Player2.preload();
+        this.laserComponent.preload();
         this.cursors = this.input.keyboard.createCursorKeys();
 
     }
@@ -55,7 +54,6 @@ export class Match extends Phaser.Scene
 
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(960, 540, 'match_Background');
-
 
         console.log(this.dataObj.player1Data.points);
 
@@ -81,6 +79,7 @@ export class Match extends Phaser.Scene
 
         this.Player1.create();
         this.Player2.create();
+        this.laserComponent.create();
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
 
@@ -88,30 +87,12 @@ export class Match extends Phaser.Scene
         console.log("Tipo player 2: " + this.dataObj.player2Data.type);
 
 
-
-
-       /*     //console.log("Comprueba colision")
-        this.Player2.player.setOnCollideActive(this.Player1.Collision, pair => {
+        this.Player2.player.setOnCollideWith(this.Player1.Collision, pair => {
             this.Player1.Attack(this.Player2);
         });
-        this.Player1.player.setOnCollideActive(this.Player2.Collision, pair => {
+        this.Player1.player.setOnCollideWith(this.Player2.Collision, pair => {
             this.Player2.Attack(this.Player1);
         });
-
-        this.Player2.player.setOnCollideEnd(this.Player1.Collision, pair => {
-            this.Player1.Attack(this.Player2);
-        });
-        this.Player1.player.setOnCollideEnd(this.Player2.Collision, pair => {
-            this.Player2.Attack(this.Player1);
-        });*/
-
-
-            this.Player2.player.setOnCollideWith(this.Player1.Collision, pair => {
-                this.Player1.Attack(this.Player2);
-            });
-            this.Player1.player.setOnCollideWith(this.Player2.Collision, pair => {
-                this.Player2.Attack(this.Player1);
-            });
 
             //console.log(this.Player1.type)
             //console.log(this.Player2.type)
@@ -120,7 +101,6 @@ export class Match extends Phaser.Scene
     update()
     {
         this.floorTiles.update();
-
         //this.iker.currentPoints = this.dataObj.currentPoints;
         this.ikerP1.update();
         this.ikerP2.update();
