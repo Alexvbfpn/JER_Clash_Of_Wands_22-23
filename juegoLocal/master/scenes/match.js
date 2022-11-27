@@ -1,4 +1,4 @@
-import { PlayButton } from "../components/playButton.js";
+
 import { FloorTiles} from "../components/floorTiles.js";
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
@@ -9,7 +9,6 @@ export class Match extends Phaser.Scene
     constructor()
     {
         super({key: 'match'});
-        this.playButton = new PlayButton(this, 'mainMenu');
         this.floorTiles = new FloorTiles(this, 2);
         //this.controller2=this.input.keyboard.addKey(Phaser.Input.keyboard.keyCodes.W)
         this.Controller1=new Controller(this);
@@ -29,8 +28,6 @@ export class Match extends Phaser.Scene
     preload()
     {
         this.load.image('match_Background', 'assets/img/match_backgroundPublic.png');
-        this.playButton.preload();
-        this.load.image('tile', 'assets/img/sprite_Placa.PNG');
         this.floorTiles.preload();
         this.load.image('ring', 'assets/img/Ring.png');
 
@@ -49,7 +46,7 @@ export class Match extends Phaser.Scene
 
         this.matter.world.setBounds(0, 0, 1920, 1080);
         this.add.image(960, 540, 'match_Background');
-        this.playButton.create();
+
         this.floorTiles.create();
 
         this.Player1.create();
@@ -87,11 +84,13 @@ export class Match extends Phaser.Scene
     update()
     {
         this.floorTiles.update();
+
         this.floorTiles.text.setText('Event.progress: ' + this.floorTiles.timedEvent.getProgress().toString().substring(0, 4)
             + '\nEvent.repeatCount: ' + this.floorTiles.timedEvent.repeatCount);
 
         this.Player1.update();
         this.Player2.update();
+
 
     }
 

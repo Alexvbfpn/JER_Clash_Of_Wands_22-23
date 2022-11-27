@@ -18,6 +18,19 @@ function onEvent()
     }
 }
 
+function firstCharge()
+{
+    for(let i = 0; i < gameOptions.rows; i ++)
+    {
+        for(let j = 0; j < gameOptions.columns; j ++)
+        {
+            //this.tilesArray[i][j].value--;
+            this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
+            this.tilesArray[i][j].tileText.visible = true;
+        }
+    }
+}
+
 export class FloorTiles {
     constructor(scene, floorMode) {
         this.relatedScene = scene;
@@ -47,7 +60,7 @@ export class FloorTiles {
             level[i] = [];
             for(let j = 0; j < gameOptions.columns; j ++)
             {
-                level[i][j] = Math.floor(Math.random()* (10 - 4) + 4);
+                level[i][j] = Math.floor(Math.random()* (9 - 4) + 4);
             }
         }
         return level;
@@ -56,56 +69,58 @@ export class FloorTiles {
     create()
     {
         this.tilesArray = [];
-        this.text;
         this.timedEvent;
-        /*
-        var tileGroup = this.relatedScene.add.group({
-            key: 'tiles',
-            frameQuantity: gameOptions.rows * gameOptions.columns,
-            gridAlign:{
-                width: gameOptions.columns /this.floorMode,
-                height: gameOptions.rows/this.floorMode,
-                cellWidth: gameOptions.tileSize * this.floorMode,
-                cellHeight: gameOptions.tileSize * this.floorMode,
-                x: gameOptions.initTilePosX,
-                y: gameOptions.initTilePosY
-            },
+        this.firstEvent;
 
-
-        });
-         */
         var level = this.createLevel();
-        var group = this.relatedScene.add.group();
+
         for(let i = 0; i < gameOptions.rows; i ++){
             this.tilesArray[i] = [];
             for(let j = 0; j < gameOptions.columns; j ++){
-                let openTile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
-                    i * gameOptions.tileSize + gameOptions.initTilePosY,
+                let openTile = this.relatedScene.add.sprite(0,
+                    0,
                     'openTiles', level[i][j]).setScale(this.floorMode);
-                let tile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
-                    i * gameOptions.tileSize + gameOptions.initTilePosY,
+                let tile = this.relatedScene.add.sprite(0,
+                    0,
                     'tiles', level[i][j]).setScale(this.floorMode);
-                let text = this.relatedScene.add.text(tile.x + gameOptions.tileSize/4, tile.y, level[i][j].toString(), {
-                    font: (gameOptions.tileSize).toString() + "px Times",
-                    fontWeight: "bold",
-                    color: "black"
-                })
+
+                let text = this.relatedScene.add.text(0, 0, level[i][j].toString(), {
+                    fontFamily: 'tilesFont',
+                    font: (gameOptions.tileSize-50).toString() + "px tilesFont",
+                    //fontWeight: "bold",
+                    color: '#32023a'
+                });
+
+                let container = this.relatedScene.add.container(j * gameOptions.tileSize + gameOptions.initTilePosX,
+                    i * gameOptions.tileSize + gameOptions.initTilePosY);
+                container.add(openTile);
+                container.add(tile);
+                container.add(text);
                 tile.setOrigin(0, 0);
                 openTile.setOrigin(0, 0);
+                text.setOrigin(-0.35, -0.05);
+                if (j ==0 && i == 0) {
+                    let graphics = this.relatedScene.add.graphics();
+                    graphics.lineStyle(5, 0xff0000);
+                    graphics.strokeRectShape(container.getBounds());
+                }
                 this.tilesArray[i][j] = {
                     value: level[i][j],
                     isOpen: level[i][j] == 0,
                     sprite: tile,
                     tileText: text,
-                    openTileSprite: openTile
+                    openTileSprite: openTile,
+                    container: container,
                 }
+                this.tilesArray[i][j].tileText.visible = false;
+                this.tilesArray[i][j].value++;
+                //this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
 
             }
         }
         //this.tilesArray[0][0].sprite.alpha = 0.5;
-
+        this.firstEvent = this.relatedScene.time.addEvent({ delay: 75, callback: firstCharge, callbackScope: this, loop: false});
         this.timedEvent = this.relatedScene.time.addEvent({ delay: 1500, callback: onEvent, callbackScope: this, loop: true});
-
         this.text = this.relatedScene.add.text(32, 32);
     }
 
