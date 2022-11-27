@@ -43,7 +43,19 @@ export class FloorTiles {
             frameWidth: gameOptions.tileSize,
             frameHeight: gameOptions.tileSize
         });
-        this.relatedScene.load.spritesheet("openTiles", "assets/img/sprite_PlacaN.PNG", {
+        this.relatedScene.load.spritesheet("openTiles0", "assets/img/sprite_PlacaN.PNG", {
+            frameWidth: gameOptions.tileSize,
+            frameHeight: gameOptions.tileSize
+        });
+        this.relatedScene.load.spritesheet("openTiles1", "assets/img/match/sprite_placaN1.PNG", {
+            frameWidth: gameOptions.tileSize,
+            frameHeight: gameOptions.tileSize
+        });
+        this.relatedScene.load.spritesheet("openTiles2", "assets/img/match/sprite_placaN2.PNG", {
+            frameWidth: gameOptions.tileSize,
+            frameHeight: gameOptions.tileSize
+        });
+        this.relatedScene.load.spritesheet("openTiles3", "assets/img/match/sprite_placaN3.PNG", {
             frameWidth: gameOptions.tileSize,
             frameHeight: gameOptions.tileSize
         });
@@ -51,6 +63,9 @@ export class FloorTiles {
 
     createLevel()
     {
+        gameOptions.rows = 4;
+        gameOptions.columns = 6;
+        gameOptions.tileSize = 200;
         gameOptions.rows /= this.floorMode;
         gameOptions.columns /= this.floorMode;
         gameOptions.tileSize *= this.floorMode;
@@ -77,9 +92,11 @@ export class FloorTiles {
         for(let i = 0; i < gameOptions.rows; i ++){
             this.tilesArray[i] = [];
             for(let j = 0; j < gameOptions.columns; j ++){
+                let randomTile = Math.floor(Math.random()* (4));
+                console.log(randomTile);
                 let openTile = this.relatedScene.add.sprite(0,
                     0,
-                    'openTiles', level[i][j]).setScale(this.floorMode);
+                    'openTiles' + randomTile, level[i][j]).setScale(this.floorMode);
                 let tile = this.relatedScene.add.sprite(0,
                     0,
                     'tiles', level[i][j]).setScale(this.floorMode);
@@ -99,11 +116,10 @@ export class FloorTiles {
                 tile.setOrigin(0, 0);
                 openTile.setOrigin(0, 0);
                 text.setOrigin(-0.35, -0.05);
-                if (j ==0 && i == 0) {
-                    let graphics = this.relatedScene.add.graphics();
-                    graphics.lineStyle(5, 0xff0000);
-                    graphics.strokeRectShape(container.getBounds());
-                }
+                let graphics = this.relatedScene.add.graphics();
+                graphics.lineStyle(5, 0xff0000);
+                graphics.strokeRectShape(container.getBounds());
+
                 this.tilesArray[i][j] = {
                     value: level[i][j],
                     isOpen: level[i][j] == 0,

@@ -1,16 +1,16 @@
 var player1;
 var character;
 export class Selector {
-    constructor(scene, elementName, x, y, runeFrame, characters1, characterFrame, flip, characters2) {
+    constructor(scene, elementName, x, y, runeFrame, characters1, characterFrame, flip, player_type) {
         this.relatedScene = scene;
         this.element = elementName;
         this.x = x;
         this.y = y;
         this.runeFrame = runeFrame;
         this.characters1 = characters1;
-        this.characters2 = characters2;
         this.characterFrame = characterFrame;
         this.flip = flip;
+        this.player_type = player_type;
         this.rune;
         this.currentCharacter;
     }
@@ -49,6 +49,7 @@ export class Selector {
                 sprite: null,
                 frame: this.runeFrame,
                 isSelected: false,
+                color: this.player_type,
                 highLightRune(runes)
                 {
 
@@ -83,47 +84,8 @@ export class Selector {
         rune.sprite.setOrigin(0, 0);
         rune.sprite.setInteractive();
 
-        var chaFrame = this.characterFrame;
         this.currentCharacter = this.characters1;
         character = this.currentCharacter;
-        /*
-        rune.sprite.on('pointerover', function (){
-            if(rune.isSelected == false) {
-                rune.sprite.setFrame(1);
-                character.setFrame(chaFrame)
-                character.visible = true;
-            }
-        });
-*/
-/*
-        rune.sprite.on('pointerout', function (){
-            if(!rune.isSelected) {
-                rune.sprite.setFrame(0);
-                character.visible = false;
-            }
-        });
-
-
-
-        rune.sprite.on('pointerdown', function (){
-            if(rune.isSelected == false)
-            {
-                rune.sprite.setFrame(1);
-                character.setFrame(chaFrame)
-                character.visible = true;
-            } else if (rune.isSelected == true)
-            {
-                rune.sprite.setFrame(0);
-                character.visible = false;
-            }
-
-            rune.isSelected = !rune.isSelected;
-            console.log(rune.isSelected)
-        })
-
-
- */
-
     }
 
     update()

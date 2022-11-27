@@ -7,8 +7,6 @@ scenes.push(MainMenu);
 scenes.push(CharacterSelector);
 scenes.push(Match);
 
-
-
 var config = {
 
     type: Phaser.AUTO,
