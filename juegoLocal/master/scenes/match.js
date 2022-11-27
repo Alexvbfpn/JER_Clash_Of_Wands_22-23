@@ -2,6 +2,7 @@ import { PlayButton } from "../components/playButton.js";
 import { FloorTiles} from "../components/floorTiles.js";
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
+import {LaserObs} from "../components/laserComponent.js";
 
 export class Match extends Phaser.Scene
 {
@@ -38,6 +39,7 @@ export class Match extends Phaser.Scene
         this.Player1.preload();
         this.Player2.preload();
         this.cursors = this.input.keyboard.createCursorKeys();
+        this.laserComponent.preload();
 
 
     }
@@ -54,6 +56,7 @@ export class Match extends Phaser.Scene
 
         this.Player1.create();
         this.Player2.create();
+        this.laserComponent.create();
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
 

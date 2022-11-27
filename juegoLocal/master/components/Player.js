@@ -60,7 +60,7 @@ export class Player
             this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
 
         //this.Collision= this.relatedScene.matter.add.sprite(this.player.x,this.player.y,'Collision');
-        this.Collision= this.relatedScene.matter.add.sprite(this.player.x+100,this.player.y+100,'Collision',null, {isSensor:true, onCollideAxtiveCakkback});
+        this.Collision= this.relatedScene.matter.add.sprite(this.player.x+100,this.player.y+100,'Collision',null, {isSensor:true});
         //this.Collision.parent=this.player;
         //this.Collision.setActive(false);
         this.Collision.visible=false;
