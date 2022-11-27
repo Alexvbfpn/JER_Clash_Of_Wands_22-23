@@ -2,12 +2,9 @@ import {MainMenu} from './scenes/mainMenu.js';
 import {Match} from './scenes/match.js';
 import {CharacterSelector} from './scenes/characterSelector.js';
 var scenes = [];
-scenes.push(Match);
 scenes.push(MainMenu);
 scenes.push(CharacterSelector);
-
-
-
+scenes.push(Match);
 
 var config = {
 

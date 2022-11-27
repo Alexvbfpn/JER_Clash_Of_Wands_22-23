@@ -1,7 +1,7 @@
 var player1;
 var character;
 export class Selector {
-    constructor(scene, elementName, x, y, runeFrame, characters1, characterFrame, flip, characters2) {
+    constructor(scene, elementName, x, y, runeFrame, characters1, characterFrame, flip, player_type) {
         this.relatedScene = scene;
         this.element = elementName;
         this.x = x;
@@ -10,6 +10,7 @@ export class Selector {
         this.characters1 = characters1;
         this.characterFrame = characterFrame;
         this.flip = flip;
+        this.player_type = player_type;
         this.rune;
         this.currentCharacter;
     }
@@ -48,6 +49,7 @@ export class Selector {
                 sprite: null,
                 frame: this.runeFrame,
                 isSelected: false,
+                color: this.player_type,
                 highLightRune(runes)
                 {
 

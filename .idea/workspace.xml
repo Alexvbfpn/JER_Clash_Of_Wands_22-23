@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dbae4a6-7f89-47ab-919b-bf34c9af4c8f" name="Changes" comment="Contador de puntos parcial para 1 jugador implementado">
+    <list default="true" id="0dbae4a6-7f89-47ab-919b-bf34c9af4c8f" name="Changes" comment="Datos de players entre escenas implementado y relacionado con los scorers de cada player">
+      <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/match/match_backgroundPublic.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/floorTiles.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/pointsPerson.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/pointsPerson.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/runeManager.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/runeManager.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/selector.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/selector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/characterSelector.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/characterSelector.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +79,7 @@
       <workItem from="1668630496157" duration="600000" />
       <workItem from="1668853181887" duration="32788000" />
       <workItem from="1669475170843" duration="6076000" />
-      <workItem from="1669491471609" duration="5699000" />
+      <workItem from="1669491471609" duration="16547000" />
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">
       <created>1667655164166</created>
@@ -165,7 +172,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669497592337</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Open Tiles con monstruo (o no) aleatorias">
+      <created>1669498572580</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1669498572580</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -194,6 +208,8 @@
     <MESSAGE value="Selector de personajes terminado y problema con fuente de las tiles solucionado" />
     <MESSAGE value="Ultima actualización selector" />
     <MESSAGE value="Contador de puntos parcial para 1 jugador implementado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Contador de puntos parcial para 1 jugador implementado" />
+    <MESSAGE value="Open Tiles con monstruo (o no) aleatorias" />
+    <MESSAGE value="Datos de players entre escenas implementado y relacionado con los scorers de cada player" />
+    <option name="LAST_COMMIT_MESSAGE" value="Datos de players entre escenas implementado y relacionado con los scorers de cada player" />
   </component>
 </project>

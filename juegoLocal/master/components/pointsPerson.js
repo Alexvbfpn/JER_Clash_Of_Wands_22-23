@@ -2,7 +2,7 @@
 var currentPoints;
 export class PointsPerson
 {
-    constructor(scene,posX,posY,name, posterNumber)
+    constructor(scene,posX,posY,name, posterNumber, relativePlayer)
     {
         this.relatedScene = scene;
         this.posX=posX;
@@ -12,6 +12,7 @@ export class PointsPerson
         this.person;
         this.currentPoints = 0;
         this.isActive;
+        this.relativePlayer = relativePlayer;
 
     }
 
@@ -29,41 +30,58 @@ export class PointsPerson
             frameWidth: 102,
             frameHeight: 105
         });
+        //Separamos los scorers del p2
+        this.relatedScene.load.spritesheet('iker2', 'assets/img/match/spriteSheet_OnePoint.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
+        this.relatedScene.load.spritesheet('carva2', 'assets/img/match/spriteSheet_TwoPoints.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
+        this.relatedScene.load.spritesheet('pepe2', 'assets/img/match/spriteSheet_ThreePoints.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
 
     }
 
     create()
     {
-        this.person = this.relatedScene.add.sprite(this.posX, this.posY, this.name, 0);
+        this.person = this.relatedScene.add.sprite(this.posX, this.posY, this.name, 0).setOrigin(0, 0);
         this.isActive = false;
 
 
         this.relatedScene.anims.create({
-            key: this.name + 'show',
+            key: this.name + this.relativePlayer + 'show',
             frames: this.person.anims.generateFrameNumbers(this.name, { frames: [ 0, 1, 2, 3] }),
             frameRate: 12,
         });
         this.relatedScene.anims.create({
-            key: this.name + 'hide',
+            key: this.name + this.relativePlayer + 'hide',
             frames: this.person.anims.generateFrameNumbers(this.name, { frames: [ 4, 5, 6, 7] }),
             frameRate: 12,
         });
         var person = this.person;
         var name = this.name;
-        currentPoints = this.currentPoints;
+        //currentPoints = this.currentPoints;
+        currentPoints = this.relativePlayer.points;
+
         var isActive = this.isActive;
         var posterNumber = this.posterNumber;
+        var relativePlayer = this.relativePlayer;
+
 
         this.relatedScene.input.on('pointerdown', function () {
-            if (currentPoints === posterNumber) {
-                person.play(name + 'show');
+            if (relativePlayer.points === posterNumber) {
+                person.play(name + relativePlayer + 'show');
                 isActive = true;
             }
         }, this);
 
         this.relatedScene.input.on('pointerup', function() {
             if(isActive) {
-                person.play(name + 'hide');
+                person.play(name + relativePlayer + 'hide');
                 isActive = false
             }
         }, this);
@@ -74,7 +92,7 @@ export class PointsPerson
 
     update()
     {
-        currentPoints = this.currentPoints;
+        currentPoints = this.relativePlayer.points;
     }
 
 }

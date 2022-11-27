@@ -92,7 +92,7 @@ export class FloorTiles {
         for(let i = 0; i < gameOptions.rows; i ++){
             this.tilesArray[i] = [];
             for(let j = 0; j < gameOptions.columns; j ++){
-                let randomTile = Math.floor(Math.random()* (4 - 0));
+                let randomTile = Math.floor(Math.random()* (4));
                 console.log(randomTile);
                 let openTile = this.relatedScene.add.sprite(0,
                     0,
@@ -116,11 +116,10 @@ export class FloorTiles {
                 tile.setOrigin(0, 0);
                 openTile.setOrigin(0, 0);
                 text.setOrigin(-0.35, -0.05);
-                if (j ==0 && i == 0) {
-                    let graphics = this.relatedScene.add.graphics();
-                    graphics.lineStyle(5, 0xff0000);
-                    graphics.strokeRectShape(container.getBounds());
-                }
+                let graphics = this.relatedScene.add.graphics();
+                graphics.lineStyle(5, 0xff0000);
+                graphics.strokeRectShape(container.getBounds());
+
                 this.tilesArray[i][j] = {
                     value: level[i][j],
                     isOpen: level[i][j] == 0,
