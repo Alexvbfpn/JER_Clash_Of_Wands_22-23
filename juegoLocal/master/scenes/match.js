@@ -5,6 +5,7 @@ var currentPoints = 1;
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
 import {LaserObs} from "../components/laserComponent.js";
+
 export class Match extends Phaser.Scene
 {
     constructor()
@@ -44,6 +45,7 @@ export class Match extends Phaser.Scene
         this.Player2.preload();
         this.laserComponent.preload();
         this.cursors = this.input.keyboard.createCursorKeys();
+        this.laserComponent.preload();
 
     }
 
