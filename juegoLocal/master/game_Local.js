@@ -31,6 +31,7 @@ var config = {
 
                 }
             }
+
         },
     title: 'Clash of Wands'
     }
