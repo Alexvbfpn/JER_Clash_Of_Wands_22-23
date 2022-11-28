@@ -39,6 +39,13 @@ export class MainMenu extends Phaser.Scene
         this.creditsButton.create();
         this.tutorialButton.create();
 
+
+        let text = this.add.text(-100, -100, '0', {
+            fontFamily: 'tilesFont',
+            font: (1).toString() + "px tilesFont",
+            //fontWeight: "bold",
+            color: '#32023a'
+        });
         /*
         //Animación del texto
         var play_button = this.add.image(0, 0, 'playButton').setScale(1.5, 1.5);

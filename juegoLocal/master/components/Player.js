@@ -29,6 +29,37 @@ export class Player
         this.canAttack=false;
     }
 
+
+    checkCollision()
+    {
+        //this.Collision.setCallback();
+        //this.Collision.setCollisionCallback();
+        //this.Collision.setOnCollideActive();
+        //this.Collision.setOnCollideEnd();
+        if(this.playerNumber===1)
+        {
+            //console.log('Colisión con player 2');
+            this.Collision.setOnCollideWith(this.relatedScene.Player2.player.body, pair => {
+                //this.Attack(this.relatedScene.Player2);
+                //console.log('Colisión con player 2');
+                this.relatedScene.Player2.player.thrust(-0.5);
+            });
+            //this.Collision.onCollideActiveCallback()
+        }
+
+
+        if(this.playerNumber===2)
+        {
+            this.Collision.setOnCollideWith(this.relatedScene.Player1.player.body, pair => {
+                //this.Attack(this.relatedScene.Player1);
+                //console.log('Colisión con player 1');
+                this.relatedScene.Player1.player.thrust(-0.5);
+            });
+
+
+        }
+    }
+
     preload()
     {
         //console.log(this.type);
@@ -57,10 +88,11 @@ export class Player
     create()
     {
         console.log(this.type);
-            this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
+        this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
 
         //this.Collision= this.relatedScene.matter.add.sprite(this.player.x,this.player.y,'Collision');
         this.Collision= this.relatedScene.matter.add.sprite(this.player.x+100,this.player.y+100,'Collision',null, {isSensor:true});
+        //boxB.render.fillStyle = 'Yellow';
         //this.Collision.parent=this.player;
         //this.Collision.setActive(false);
         this.Collision.visible=false;
@@ -118,59 +150,60 @@ export class Player
         //this.Collision.setY(this.player.y);
         this.Collision.rotation=this.player.rotation;
 
-               if (this.Controller.actions.UP.isDown)
-               {
-                   this.player.thrust(0.16);
-                   //this.player.y -= 10;
-                   this.player.anims.play(this.type + 'walk', true);
-               }
-               else if (this.Controller.actions.DOWN.isDown)
-               {
-                   this.player.thrust(-0.16);
-                   //this.player.y += 10;
-                   this.player.anims.play(this.type + 'walk', true);
-               }
-               else
-               {
-                   this.player.thrust(0);
-                   this.player.anims.play(this.type + 'idle', true);
-               }
+           if (this.Controller.actions.UP.isDown)
+           {
+               this.player.thrust(0.16);
+               //this.player.y -= 10;
+               this.player.anims.play(this.type + 'walk', true);
+           }
+           else if (this.Controller.actions.DOWN.isDown)
+           {
+               this.player.thrust(-0.16);
+               //this.player.y += 10;
+               this.player.anims.play(this.type + 'walk', true);
+           }
+           else
+           {
+               this.player.thrust(0);
+               this.player.anims.play(this.type + 'idle', true);
+           }
 
-               if (this.Controller.actions.LEFT.isDown)
-               {
-                   this.player.thrustLeft(-0.16);
-                   //this.player.x -= 10;
-               }
-               else if (this.Controller.actions.RIGHT.isDown)
-               {
-                   this.player.thrustRight(-0.16);
-                   //this.player.x += 10;
-               }
+           if (this.Controller.actions.LEFT.isDown)
+           {
+               this.player.thrustLeft(-0.16);
+               //this.player.x -= 10;
+           }
+           else if (this.Controller.actions.RIGHT.isDown)
+           {
+               this.player.thrustRight(-0.16);
+               //this.player.x += 10;
+           }
 
-               if (this.Controller.actions.ROTATEL.isDown)
-               {
-                   this.player.setAngularVelocity(-0.08);
+           if (this.Controller.actions.ROTATEL.isDown)
+           {
+               this.player.setAngularVelocity(-0.08);
 
-               }
-               else if (this.Controller.actions.ROTATER.isDown)
-               {
-                    this.player.setAngularVelocity(0.08);
+           }
+           else if (this.Controller.actions.ROTATER.isDown)
+           {
+                this.player.setAngularVelocity(0.08);
 
-               }
-               else
-               {
-                   this.player.setAngularVelocity(0);
-                   //this.player.anims.play('idle', true);
-               }
+           }
+           else
+           {
+               this.player.setAngularVelocity(0);
+               //this.player.anims.play('idle', true);
+           }
 
-               if(this.Controller.actions.ATTACK.isDown && this.attackCooldown)
-               {
-                   this.attackCooldown=false;
-                   this.relatedScene.time.addEvent({ delay: 1000, callback: Cooldown, callbackScope: this, loop: false});
-                   this.checkCollision();
-                   this.Collision.visible=true;
-                   this.relatedScene.time.addEvent({ delay: 200, callback: deletePunch, callbackScope: this, loop: false});
-               }
+            this.checkCollision();
+           if(this.Controller.actions.ATTACK.isDown && this.attackCooldown)
+           {
+               this.attackCooldown=false;
+               this.relatedScene.time.addEvent({ delay: 1000, callback: Cooldown, callbackScope: this, loop: false});
+
+               this.Collision.visible=true;
+               this.relatedScene.time.addEvent({ delay: 200, callback: deletePunch, callbackScope: this, loop: false});
+           }
     }
 
     Attack(PlayerC)
@@ -187,29 +220,6 @@ export class Player
         const vx =this.player.x + Math.cos(this.player.rotation) * 50;
         const vy =this.player.y + Math.sin(this.player.rotation) * 50;
         this.Collision.setPosition(vx,vy);
-    }
-    checkCollision()
-    {
-        //this.Collision.setCallback();
-        //this.Collision.setCollisionCallback();
-        //this.Collision.setOnCollideActive();
-        //this.Collision.setOnCollideEnd();
-
-        if(this.playerNumber===1)
-        {
-            this.Collision.setOnCollideWith(this.relatedScene.Player2, pair => {
-                //this.Attack(this.relatedScene.Player2);
-                this.relatedScene.Player2.player.thrust(-0.5);
-            });
-            this.Collision.onCollideActiveCallback()
-        }
-        if(this.playerNumber===2)
-        {
-            this.Collision.setOnCollideWith(this.relatedScene.Player1, pair => {
-                //this.Attack(this.relatedScene.Player1);
-                this.relatedScene.Player1.player.thrust(-0.5);
-            });
-        }
     }
 
 
