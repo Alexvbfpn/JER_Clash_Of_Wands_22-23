@@ -29,7 +29,7 @@ export class LaserObs {
         //Se precarga las imagenes en escena
         this.relatedScene.load.image("varaLaser", 'assets/img/varaLaser.png');
         this.relatedScene.load.spritesheet("bola", 'assets/img/bolaMagica.png',{ frameWidth: 46, frameHeight: 46 });
-        this.relatedScene.load.audio("laserSound", 'assets/sound/laserSound.ogg');
+        this.relatedScene.load.audio("laserSound", 'assets/sound/laserSound.wav');
     }
 
     create() {
@@ -74,7 +74,6 @@ export class LaserObs {
 
     update(){
             this.cooldown();
-
     }
 
     //Función que hace desaparecer la bola con la colisión y que salga el laser en la posición que estaba la bola
@@ -170,7 +169,6 @@ export class LaserObs {
             this.cooldwn = true;
             this.imIn === true;
             this.create();
-
         }
     }
 

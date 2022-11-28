@@ -6,6 +6,7 @@ import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
 import {LaserObs} from "../components/laserComponent.js";
 
+
 export class Match extends Phaser.Scene
 {
     constructor()
@@ -24,6 +25,7 @@ export class Match extends Phaser.Scene
 
         this.laserComponent = new LaserObs(this, 1160,590 );
         this.laserComponent2 = new LaserObs(this, 765,590 );
+        //this.laserComponent3 = new LaserObs(this, 765,375 );
     }
 
     init(data)
@@ -45,6 +47,7 @@ export class Match extends Phaser.Scene
         this.Player2.preload();
         this.laserComponent.preload();
         this.laserComponent2.preload();
+        //this.laserComponent3.preload();
         this.cursors = this.input.keyboard.createCursorKeys();
 
 
@@ -86,10 +89,10 @@ export class Match extends Phaser.Scene
         this.Player1.create();
         this.Player2.create();
 
+        this.scndLaser = false;
+
         this.laserComponent.create();
         this.laserComponent2.create();
-
-
 
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
@@ -124,9 +127,13 @@ export class Match extends Phaser.Scene
 
         this.Player1.update();
         this.Player2.update();
+
         this.laserComponent.update();
         this.laserComponent2.update();
 
+
     }
+
+
 
 }
