@@ -59,6 +59,10 @@ export class FloorTiles {
             frameWidth: gameOptions.tileSize,
             frameHeight: gameOptions.tileSize
         });
+        this.relatedScene.load.spritesheet("openTilesCol", "assets/img/match/sprite_placaTrans.PNG", {
+            frameWidth: gameOptions.tileSize,
+            frameHeight: gameOptions.tileSize
+        });
     }
 
     createLevel()
@@ -81,6 +85,12 @@ export class FloorTiles {
         return level;
     }
 
+    restartCombat(playerData)
+    {
+        playerData.points++;
+        this.relatedScene.scene.restart();
+    }
+
     create()
     {
         this.tilesArray = [];
@@ -94,31 +104,50 @@ export class FloorTiles {
             for(let j = 0; j < gameOptions.columns; j ++){
                 let randomTile = Math.floor(Math.random()* (4));
                 console.log(randomTile);
-                let openTile = this.relatedScene.add.sprite(0,
-                    0,
+
+                let openTileCol = this.relatedScene.matter.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX +gameOptions.tileSize/2,
+                    i * gameOptions.tileSize + gameOptions.initTilePosY +gameOptions.tileSize/2,
+                    'openTilesCol', 0, {isSensor: true}).setScale(this.floorMode);
+
+                let openTile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
+                    i * gameOptions.tileSize + gameOptions.initTilePosY,
                     'openTiles' + randomTile, level[i][j]).setScale(this.floorMode);
-                let tile = this.relatedScene.add.sprite(0,
-                    0,
+
+
+                openTileCol.setOnCollideWith([this.relatedScene.Player1.player, this.relatedScene.Player2.player], kill =>
+                {
+                    console.log('Colision con la placa')
+                });
+
+
+                //openTileCol.setOnCollideActive()
+                let tile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
+                    i * gameOptions.tileSize + gameOptions.initTilePosY,
                     'tiles', level[i][j]).setScale(this.floorMode);
 
-                let text = this.relatedScene.add.text(0, 0, level[i][j].toString(), {
+                let text = this.relatedScene.add.text(j * gameOptions.tileSize + gameOptions.initTilePosX, i * gameOptions.tileSize + gameOptions.initTilePosY - 75, level[i][j].toString(), {
                     fontFamily: 'tilesFont',
                     font: (gameOptions.tileSize-50).toString() + "px tilesFont",
                     //fontWeight: "bold",
                     color: '#32023a'
                 });
-
+                /*
                 let container = this.relatedScene.add.container(j * gameOptions.tileSize + gameOptions.initTilePosX,
                     i * gameOptions.tileSize + gameOptions.initTilePosY);
                 container.add(openTile);
                 container.add(tile);
                 container.add(text);
+
+                 */
+                openTile.setDepth(-1);
+                tile.setDepth(-1)
+                text.setDepth(-1)
                 tile.setOrigin(0, 0);
                 openTile.setOrigin(0, 0);
                 text.setOrigin(-0.35, -0.05);
                 let graphics = this.relatedScene.add.graphics();
-                graphics.lineStyle(5, 0xff0000);
-                graphics.strokeRectShape(container.getBounds());
+               // graphics.lineStyle(5, 0xff0000);
+                //graphics.strokeRectShape(container.getBounds());
 
                 this.tilesArray[i][j] = {
                     value: level[i][j],
@@ -126,7 +155,7 @@ export class FloorTiles {
                     sprite: tile,
                     tileText: text,
                     openTileSprite: openTile,
-                    container: container,
+                    //container: container,
                 }
                 this.tilesArray[i][j].tileText.visible = false;
                 this.tilesArray[i][j].value++;
@@ -146,10 +175,28 @@ export class FloorTiles {
         {
             for(let j = 0; j < gameOptions.columns; j ++)
             {
+                let t = this.tilesArray[i][j].sprite.getBounds();
                 if(this.tilesArray[i][j].value == 0)
                 {
                     this.tilesArray[i][j].sprite.visible = false;
                     this.tilesArray[i][j].tileText.visible = false;
+
+                    if((this.relatedScene.Player1.player.x > t.x && this.relatedScene.Player1.player.x < t.x + t.width) &&
+                        (this.relatedScene.Player1.player.y > t.y && this.relatedScene.Player1.player.y < t.y + t.height))
+                    {
+                        console.log('Mira mamá ando en la placa 0,0')
+                        this.restartCombat(this.relatedScene.dataObj.player2Data)
+                    }
+
+                    if((this.relatedScene.Player2.player.x > t.x && this.relatedScene.Player2.player.x < t.x + t.width) &&
+                        (this.relatedScene.Player2.player.y > t.y && this.relatedScene.Player2.player.y < t.y + t.height))
+                    {
+                        console.log('Mira papá ando en la placa 0,0')
+                        this.restartCombat(this.relatedScene.dataObj.player1Data)
+
+                    }
+
+
                 }
                 if (this.tilesArray[i][j].value == -1)
                 {
@@ -163,4 +210,9 @@ export class FloorTiles {
         }
     }
 
+    checkInTile(t)
+    {
+         return ((this.relatedScene.Player1.player.x > t.x && this.relatedScene.Player1.player.x < t.x + t.width) && (this.relatedScene.Player1.player.y > t.y && this.relatedScene.Player1.player.y < t.y + t.height))
+
+    }
 }

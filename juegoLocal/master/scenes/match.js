@@ -1,10 +1,12 @@
 import { FloorTiles} from "../components/floorTiles.js";
 import {PointsPerson} from "../components/pointsPerson.js";
 var currentPoints = 1;
+//Matter.use('matter-collision-events');
 
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
 import {LaserObs} from "../components/laserComponent.js";
+
 export class Match extends Phaser.Scene
 {
     constructor()
@@ -75,14 +77,17 @@ export class Match extends Phaser.Scene
         carvaP2.create();
         pepeP2.create();
 
-        this.floorTiles.create();
+
 
         this.Player1.type = this.dataObj.player1Data.type;
         this.Player2.type = this.dataObj.player2Data.type;
 
+
         this.Player1.create();
         this.Player2.create();
+        this.floorTiles.create();
         this.laserComponent.create();
+
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
 
@@ -99,7 +104,6 @@ export class Match extends Phaser.Scene
 
             //console.log(this.Player1.type)
             //console.log(this.Player2.type)
-
     }
     update()
     {
