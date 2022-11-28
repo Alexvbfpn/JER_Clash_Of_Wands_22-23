@@ -3,6 +3,13 @@ var scene;
 //Destruir laser
 function onEvent(){
     this.laser.destroy();
+    this.timesUp = this.relatedScene.time.addEvent({ delay: 5000, callback: setCooldown, callbackScope: this, loop: false});
+}
+
+function setCooldown(){
+
+    this.imIn = false;
+    this.cooldwn = false;
 }
 
 export class LaserObs {
@@ -14,6 +21,8 @@ export class LaserObs {
         this.playerType = player;
         this.ball;
         this.timesUp //Control del tiempo del laser
+        this.cooldwn = true;
+        this.imIn = true;
     }
 
     preload() {
@@ -26,7 +35,8 @@ export class LaserObs {
     create() {
 
         //Se crea la bola en una posición determinada (posX y posY)
-        this.ball = this.relatedScene.matter.add.sprite(this.positionX = 1160, this.positionY = 590, 'bola');
+        this.ball = this.relatedScene.matter.add.sprite(this.positionX, this.positionY, 'bola');
+        //Para el sonido del laser
         this.laserS = this.relatedScene.sound.add("laserSound");
 
         //Animación del sprite de la bola
@@ -41,13 +51,12 @@ export class LaserObs {
         //this.ball.setScale(5,5);
         this.ball.setMass(4000000);
 
-        console.log(this.positionX,this.ball.positionY);
-
         //Si colisiona la bola con el bloque de prueba, se ejecuta la función createLaser
         scene = this.relatedScene.scene;
+
         this.ball.setOnCollideWith(this.relatedScene.Player1.player, pair => {
             this.ball.destroy();
-            this.createLaserP1();
+            this.createLaserP1(this.positionX, this.positionY);
             //Sonido del laser
             this.laserS.play();
             this.laserS.volume = 0.1;
@@ -55,7 +64,7 @@ export class LaserObs {
 
         this.ball.setOnCollideWith(this.relatedScene.Player2.player, pair => {
             this.ball.destroy();
-            this.createLaserP2();
+            this.createLaserP2(this.positionX, this.positionY);
             //Sonido del laser
             this.laserS.play();
             this.laserS.volume = 0.1;
@@ -63,10 +72,17 @@ export class LaserObs {
 
     }
 
+    update(){
+            this.cooldown();
+
+    }
+
     //Función que hace desaparecer la bola con la colisión y que salga el laser en la posición que estaba la bola
-    createLaserP1()
+    createLaserP1(px1,py1)
     {
-        this.laser = this.relatedScene.matter.add.image(this.positionX,this.positionY,'varaLaser', null, {isSensor: true});
+        this.pos1 = px1;
+        this.pos2 = py1;
+        this.laser = this.relatedScene.matter.add.image(this.pos1,this.pos2,'varaLaser', null, {isSensor: true});
 
         //Para pintar el laser y evitar que colisione con él
         if(this.relatedScene.Player1.type === 'Rojo'){
@@ -82,12 +98,9 @@ export class LaserObs {
             this.laser.tint = 0x35FB55 ; //Verde
         }
 
-        //console.log(this.ball.positionX,this.ball.positionY);
-
         this.laser.setMass(40000000); //Seteamos la masa a un número muy alto para evitar que se mueva al colisionar
         this.laser.setAngularVelocity(0.03);
         this.laser.setFriction(0, 0, 0);
-
 
         this.laser.setOnCollideWith(this.relatedScene.Player2.player, pair => {
             console.log("Muere");
@@ -97,18 +110,20 @@ export class LaserObs {
             scene.restart();
             console.log("Cargando");
         });
-
+        this.cooldwn = true;
+        this.imIn = true;
         this.timesUp = this.relatedScene.time.addEvent({ delay: 6000, callback: onEvent, callbackScope: this, loop: false});
 
     }
 
-    createLaserP2()
+    createLaserP2(px2, py2)
     {
-        this.laser = this.relatedScene.matter.add.image(this.positionX,this.positionY,'varaLaser', null, {isSensor: true});
+
+        this.pos1 = px2;
+        this.pos2 = py2;
+        this.laser = this.relatedScene.matter.add.image(this.pos1,this.pos2,'varaLaser', null, {isSensor: true});
 
         //Para pintar el laser y evitar que colisione con él (Cambiar block2 por player)
-
-
         if(this.relatedScene.Player2.type === 'Rojo'){
             this.laser.tint = 0xFF4C3A; //Rojo
         }
@@ -123,7 +138,6 @@ export class LaserObs {
             this.laser.tint = 0x35FB55 ; //Verde
         }
 
-        //console.log(this.ball.positionX,this.ball.positionY);
         this.laser.setMass(40000000); //Seteamos la masa a un número muy alto para evitar que se mueva al colisionar
         this.laser.setAngularVelocity(0.03);
         this.laser.setFriction(0, 0, 0);
@@ -137,10 +151,11 @@ export class LaserObs {
             console.log("Cargando");
         });
 
+        this.cooldwn = true;
+        this.imIn = true;
         this.timesUp = this.relatedScene.time.addEvent({ delay: 6000, callback: onEvent, callbackScope: this, loop: false});
+
     }
-
-
 
 
     //Comprobación de colisiones
@@ -148,4 +163,18 @@ export class LaserObs {
     {
         console.log("Colisiona");
     }
+
+    cooldown(){
+
+        if(this.cooldwn === false && this.imIn === false){
+            this.cooldwn = true;
+            this.imIn === true;
+            this.create();
+
+        }
+    }
+
+
+
 }
+
