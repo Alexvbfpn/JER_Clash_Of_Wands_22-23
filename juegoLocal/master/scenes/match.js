@@ -19,8 +19,8 @@ export class Match extends Phaser.Scene
         this.Controller1=new Controller(this);
         this.Controller2=new Controller(this);
 
-        this.Player1=new Player(this,100,100,1,this.Controller1);
-        this.Player2=new Player(this,500,500,2,this.Controller2);
+        this.Player1=new Player(this,475,275,1,this.Controller1);
+        this.Player2=new Player(this,1425,915,2,this.Controller2);
 
         this.laserComponent = new LaserObs(this);
 
@@ -54,7 +54,7 @@ export class Match extends Phaser.Scene
         this.Controller1.create(Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.S,Phaser.Input.Keyboard.KeyCodes.A,Phaser.Input.Keyboard.KeyCodes.D,Phaser.Input.Keyboard.KeyCodes.SPACE,Phaser.Input.Keyboard.KeyCodes.E,Phaser.Input.Keyboard.KeyCodes.Q)
         this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.UP,Phaser.Input.Keyboard.KeyCodes.DOWN,Phaser.Input.Keyboard.KeyCodes.LEFT,Phaser.Input.Keyboard.KeyCodes.RIGHT,Phaser.Input.Keyboard.KeyCodes.NUMPAD_ZERO,Phaser.Input.Keyboard.KeyCodes.NUMPAD_TWO,Phaser.Input.Keyboard.KeyCodes.NUMPAD_ONE)
 
-        this.matter.world.setBounds(0, 0, 1920, 1080);
+        this.matter.world.setBounds(360, 195, 1200, 800);
         this.add.image(960, 540, 'match_Background');
 
         console.log(this.dataObj.player1Data.points);
