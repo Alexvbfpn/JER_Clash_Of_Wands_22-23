@@ -17,6 +17,7 @@ export class FinalScene extends Phaser.Scene
     preload()
     {
         this.display.preload()
+        this.load.audio("winSound", 'assets/sound/winSound.wav');
     }
 
     create()
@@ -31,12 +32,14 @@ export class FinalScene extends Phaser.Scene
         var types = ['Azul', 'Rojo', 'Amarillo', 'Verde'];
         this.display.type = types.indexOf(winner.type);
         this.display.winner = winner.id;
-
+        this.winSound = this.sound.add("winSound");
+        this.winSound.play();
         //console.log(types.indexOf('Azul'));
         this.exitButton = new Button(this, 'mainMenu', 'exitButton', 697, 868,
             1.15, 1.40, this.dataObj);
         this.display.create();
         this.exitButton.create();
+        this.dataObj.music.stop();
 
     }
 
