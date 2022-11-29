@@ -85,26 +85,10 @@ export class FloorTiles {
         return level;
     }
 
-    nextCombat(playerData)
+    restartCombat(playerData)
     {
         playerData.points++;
-        if(playerData.points != 3)
-        {
-            this.relatedScene.scene.restart();
-        } else if (playerData.points === 3)
-        {
-            playerData.wins++;
-            if(playerData.wins=== 2)
-            {
-                this.relatedScene.scene.start('finalScene', this.relatedScene.dataObj);
-            }
-            else
-            {
-                this.relatedScene.scene.start('midScene', this.relatedScene.dataObj);
-            }
-
-        }
-
+        this.relatedScene.scene.restart();
     }
 
     create()
@@ -129,13 +113,11 @@ export class FloorTiles {
                     i * gameOptions.tileSize + gameOptions.initTilePosY,
                     'openTiles' + randomTile, level[i][j]).setScale(this.floorMode);
 
-                /*
+
                 openTileCol.setOnCollideWith([this.relatedScene.Player1.player, this.relatedScene.Player2.player], kill =>
                 {
                     console.log('Colision con la placa')
                 });
-
-                 */
 
 
                 //openTileCol.setOnCollideActive()
@@ -203,15 +185,14 @@ export class FloorTiles {
                         (this.relatedScene.Player1.player.y > t.y && this.relatedScene.Player1.player.y < t.y + t.height))
                     {
                         console.log('Mira mamá ando en la placa 0,0')
-
-                        this.nextCombat(this.relatedScene.dataObj.player2Data)
+                        this.restartCombat(this.relatedScene.dataObj.player2Data)
                     }
 
                     if((this.relatedScene.Player2.player.x > t.x && this.relatedScene.Player2.player.x < t.x + t.width) &&
                         (this.relatedScene.Player2.player.y > t.y && this.relatedScene.Player2.player.y < t.y + t.height))
                     {
                         console.log('Mira papá ando en la placa 0,0')
-                        this.nextCombat(this.relatedScene.dataObj.player1Data)
+                        this.restartCombat(this.relatedScene.dataObj.player1Data)
 
                     }
 
