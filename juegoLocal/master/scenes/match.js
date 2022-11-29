@@ -2,7 +2,6 @@ import { FloorTiles} from "../components/floorTiles.js";
 import {PointsPerson} from "../components/pointsPerson.js";
 var currentPoints = 1;
 //Matter.use('matter-collision-events');
-
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
 import {LaserObs} from "../components/laserComponent.js";
@@ -53,6 +52,8 @@ export class Match extends Phaser.Scene
 
     create()
     {
+
+
         this.Controller1.create(Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.S,Phaser.Input.Keyboard.KeyCodes.A,Phaser.Input.Keyboard.KeyCodes.D,Phaser.Input.Keyboard.KeyCodes.SPACE,Phaser.Input.Keyboard.KeyCodes.E,Phaser.Input.Keyboard.KeyCodes.Q)
         this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.UP,Phaser.Input.Keyboard.KeyCodes.DOWN,Phaser.Input.Keyboard.KeyCodes.LEFT,Phaser.Input.Keyboard.KeyCodes.RIGHT,Phaser.Input.Keyboard.KeyCodes.NUMPAD_ZERO,Phaser.Input.Keyboard.KeyCodes.NUMPAD_TWO,Phaser.Input.Keyboard.KeyCodes.NUMPAD_ONE)
 
@@ -94,6 +95,27 @@ export class Match extends Phaser.Scene
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
 
 
+
+        //ESTO NO LO HE BORRADO POR SI ACASO, PERO CREO QUE NO HACE FALTA
+        this.Player2.player.setOnCollideWith(this.Player1.Collision, pair => {
+            this.Player1.Attack(this.Player2);
+        });
+        this.Player1.player.setOnCollideWith(this.Player2.Collision, pair => {
+            this.Player2.Attack(this.Player1);
+        });
+
+            //console.log(this.Player1.type)
+            //console.log(this.Player2.type)
+        /*
+        if((this.ikerP1.scorer.relativePlayer.points == this.ikerP1.scorer.posterNumber) && this.ikerP1.scorer.isActive == false)
+        {
+            console.log('Entrando en el if')
+            this.ikerP1.scorer.isActive == false;
+            this.ikerP1.scorer.sprite.play(this.ikerP1.scorer.name + this.ikerP1.scorer.relativePlayer + 'show');
+        }
+
+         */
+
     }
     update()
     {
@@ -101,6 +123,9 @@ export class Match extends Phaser.Scene
         //this.iker.currentPoints = this.dataObj.currentPoints;
         this.ikerP1.update();
         this.ikerP2.update();
+
+
+
         this.floorTiles.text.setText('Event.progress: ' + this.floorTiles.timedEvent.getProgress().toString().substring(0, 4)
           + '\nEvent.repeatCount: ' + this.floorTiles.timedEvent.repeatCount);
 

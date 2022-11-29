@@ -1,5 +1,13 @@
+import {MainMenu} from "../scenes/mainMenu.js";
+
+function dataReset(data)
+{
+    data.player1Data.points = 0;
+    data.player2Data.points = 0;
+}
+
 export class Button {
-    constructor(scene, destination, spriteButtonName, x, y, buttonScale, maxScale) {
+    constructor(scene, destination, spriteButtonName, x, y, buttonScale, maxScale, dataToReset, mainTheme) {
         this.relatedScene = scene;
         this.relatedDestination = destination;
         this.spriteButtonName = spriteButtonName;
@@ -7,6 +15,8 @@ export class Button {
         this.y = y;
         this.buttonScale = buttonScale;
         this.maxScale = maxScale;
+        this.dataToReset = dataToReset;
+        this.mainTheme = mainTheme;
     }
 
     preload() //Cargamos el sprite del botón
@@ -14,9 +24,15 @@ export class Button {
         this.relatedScene.load.image('playButton', 'assets/img/play_buttonDef.png');
         this.relatedScene.load.image('tutorialButton', 'assets/img/tutorial_buttonDef.png');
         this.relatedScene.load.image('creditsButton', 'assets/img/credits_buttonDef.png');
+        this.relatedScene.load.image('continueButton', 'assets/img/midScreen/continue_buttonDef.png');
+        this.relatedScene.load.image('exitButton', 'assets/img/finalScreen/exit_buttonDef.png');
+        this.relatedScene.load.image('backButton', 'assets/img/buttons/backButton.png');
+        this.relatedScene.load.image('backButtonCredits', 'assets/img/buttons/backButton.png');
         this.relatedScene.load.audio("onB", 'assets/sound/encimaBoton.wav');
         this.relatedScene.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
     }
+
+
 
     create() //Añadimos el botón en la escena
     {
@@ -50,10 +66,11 @@ export class Button {
 
         var regularScale = this.buttonScale;
         var maxScale = this.maxScale;
-
-
+        var dataToReset = this.dataToReset;
+        var mainTheme = this.mainTheme;
+        var buttonName = this.spriteButtonName;
         //this.onS.play();
-        //this.onS.volume = 0.1;
+        onS.volume = 0.1;
 
         container.on('pointerover', function (){
 
@@ -71,9 +88,27 @@ export class Button {
         container.on('pointerdown', function (){
 
             clickS.play();
-            scene.start(dest);
+
+            if(dataToReset != null)
+            {
+                dataReset(dataToReset);
+            }
+            if(mainTheme != null)
+            {
+                mainTheme.stop();
+            }
+            if(buttonName == 'creditsButton' || buttonName == 'backButtonCredits')
+            {
+                scene.switch(dest);
+            }else
+            {
+                scene.start(dest);
+            }
+
 
         });
 
     }
+
+
 }
