@@ -212,6 +212,8 @@ En modo local, el segundo jugador usará las flechas para moverse y para ambos j
 
 ## 4. INTERFACES
 
+*(NOTA: En este apartado se visualizan los bocetos de las interfaces que estuvieron presentes en la primera versión del juego para poder hacer una comparativa con los diseños finales que están úbicados en el apartado 6: Pantallas de juego)*
+
 En este apartado se explicará el flujo de pantallas y el funcionamiento de las distintas interfaces del juego, acompañando las descripciones con imágenes para poder visualizar la información que se intenta transmitir.
 
 La interfaz tendrá, como se mencionó en el apartado de Aspecto Visual, colores vivos y saturados. La primera pantalla, el menú principal, poseerá 4 botones: para jugar, para acceder a opciones como ajustes de volumen o colores, créditos y un botón de ayuda.
@@ -247,13 +249,35 @@ En esta sección se expondrá todo el arte realizado para el juego (la mayoría 
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.018.png)
 
+## 6. Pantallas de juego
 
+### 6.1 Pantalla de Inicio
 
+La primera pantalla que se encuentra al abrir el juego. En ella visualizamos tres opciones:
 
+- Jugar: Nos llevara al selector de personajes.
+- Tutorial: Nos indicará como ha de jugarse el juego de manera muy sencilla, así como los controles del mismo.
+- Créditos: Pantalla que muestra los autores del juego con sus repectivas tareas.
 
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/1.Inicio.png)
 
+### 6.2 Pantalla de Selección de personaje
 
+Se observan 4 simbolos que corresponden a los 4 personajes con sus elementos representativos . El Jugador 1 deberá seleccionar primero y a continuación, seleccionará el jugador dos (Se puede repetir personaje).
 
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/2.Selector%20de%20personajes.png)
+
+### 6.3 Pantalla de Juego
+
+Una vez se accede a la pantalla de juego tras la selección de personaje, se observa un ring separado en 6 cuadrados los cuales tienen una cuenta antrás dispar. Al llegar a 0, la trampilla se abrirá y el jugador que se úbice en tal sitio, morirá. A los laterales del ring se úbican 3 personajes que muestran la puntuación de cada jugador.
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/3.Pantalla%20de%20Juego.png)
+
+### 6.4 Pantalla de victoria de ronda
+
+Para ganar la ronda, cada jugador deberá hacer que su rival muera ya sea por los laseres, o haciendo uso de sus poderes para que el otro jugador caiga por alguna de las trampillas abiertas.
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/4.Pantalla%20Victoria.png)
 
 |Equipo 6: Angry Mango||
 | :- | -: |
