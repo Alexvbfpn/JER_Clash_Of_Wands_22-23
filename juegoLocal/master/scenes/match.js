@@ -56,9 +56,9 @@ export class Match extends Phaser.Scene
     create()
     {
         this.Controller1.create(Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.S,Phaser.Input.Keyboard.KeyCodes.A,Phaser.Input.Keyboard.KeyCodes.D,Phaser.Input.Keyboard.KeyCodes.SPACE,Phaser.Input.Keyboard.KeyCodes.E,Phaser.Input.Keyboard.KeyCodes.Q)
-        this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.UP,Phaser.Input.Keyboard.KeyCodes.DOWN,Phaser.Input.Keyboard.KeyCodes.LEFT,Phaser.Input.Keyboard.KeyCodes.RIGHT,Phaser.Input.Keyboard.KeyCodes.NUMPAD_ZERO,Phaser.Input.Keyboard.KeyCodes.NUMPAD_TWO,Phaser.Input.Keyboard.KeyCodes.NUMPAD_ONE)
+        this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.I,Phaser.Input.Keyboard.KeyCodes.K,Phaser.Input.Keyboard.KeyCodes.J,Phaser.Input.Keyboard.KeyCodes.L,Phaser.Input.Keyboard.KeyCodes.M,Phaser.Input.Keyboard.KeyCodes.O,Phaser.Input.Keyboard.KeyCodes.U)
 
-        this.matter.world.setBounds(360, 195, 1200, 800);
+        this.matter.world.setBounds(360, 195, 1200, 800,500);
         this.add.image(960, 540, 'match_Background');
 
         console.log(this.dataObj.player1Data.points);
@@ -99,15 +99,6 @@ export class Match extends Phaser.Scene
 
         console.log("Tipo player 1: " + this.dataObj.player1Data.type);
         console.log("Tipo player 2: " + this.dataObj.player2Data.type);
-
-
-        this.Player2.player.setOnCollideWith(this.Player1.Collision, pair => {
-            this.Player1.Attack(this.Player2);
-        });
-        this.Player1.player.setOnCollideWith(this.Player2.Collision, pair => {
-            this.Player2.Attack(this.Player1);
-        });
-
             //console.log(this.Player1.type)
             //console.log(this.Player2.type)
 
