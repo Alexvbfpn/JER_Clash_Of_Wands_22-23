@@ -25,6 +25,37 @@ export class Player
         this.canAttack=false;
     }
 
+
+    checkCollision()
+    {
+        //this.Collision.setCallback();
+        //this.Collision.setCollisionCallback();
+        //this.Collision.setOnCollideActive();
+        //this.Collision.setOnCollideEnd();
+        if(this.playerNumber===1)
+        {
+            //console.log('Colisión con player 2');
+            this.Collision.setOnCollideWith(this.relatedScene.Player2.player.body, pair => {
+                //this.Attack(this.relatedScene.Player2);
+                //console.log('Colisión con player 2');
+                this.relatedScene.Player2.player.thrust(-0.5);
+            });
+            //this.Collision.onCollideActiveCallback()
+        }
+
+
+        if(this.playerNumber===2)
+        {
+            this.Collision.setOnCollideWith(this.relatedScene.Player1.player.body, pair => {
+                //this.Attack(this.relatedScene.Player1);
+                //console.log('Colisión con player 1');
+                this.relatedScene.Player1.player.thrust(-0.5);
+            });
+
+
+        }
+    }
+
     preload()
     {
         //console.log(this.type);
@@ -55,6 +86,7 @@ export class Player
         //console.log(this.type);
         this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
         this.Collision= this.relatedScene.matter.add.sprite(this.player.x+150,this.player.y+150,'Collision',null, {isSensor:true});
+
         this.Collision.visible=false;
 
         this.relatedScene.anims.create({
@@ -154,6 +186,7 @@ export class Player
 
                    }
                }
+
     }
 
     Attack()
@@ -166,6 +199,7 @@ export class Player
         const vy =this.player.y + Math.sin(this.player.rotation) * 150;
         this.Collision.setPosition(vx,vy);
     }
+
     checkCollision()
     {
         this.canAttack=false;
@@ -192,6 +226,7 @@ export class Player
 
 
     }
+
 
 
 
