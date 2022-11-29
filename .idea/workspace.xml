@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
 
+    <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Colisiones intentos fallidos">
+
+
     <list default="true" id="0dbae4a6-7f89-47ab-919b-bf34c9af4c8f" name="Changes" comment="Datos de players entre escenas implementado y relacionado con los scorers de cada player">
       <change afterPath="$PROJECT_DIR$/juegoLocal/master/assets/img/match/match_backgroundPublic.PNG" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -18,8 +21,10 @@
 
 
     <list default="true" id="e3105f80-da4e-4d58-8b69-a32889ce90a7" name="Changes" comment="Animaciones y elementos">
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/components/Player.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/game_Local.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" beforeDir="false" afterPath="$PROJECT_DIR$/juegoLocal/master/scenes/match.js" afterDir="false" />
 
     <list default="true" id="0dbae4a6-7f89-47ab-919b-bf34c9af4c8f" name="Changes" comment="Ultima actualización selector">
@@ -96,6 +101,7 @@
       <workItem from="1669377481184" duration="5965000" />
       <workItem from="1669455985034" duration="20908000" />
       <workItem from="1669550751864" duration="6090000" />
+      <workItem from="1669650951549" duration="10276000" />
 
     </task>
     <task id="LOCAL-00001" summary="Sigo sin saber que se actualiza con el WorkSpace">

@@ -20,8 +20,10 @@ export class Match extends Phaser.Scene
         this.Controller1=new Controller(this);
         this.Controller2=new Controller(this);
 
-        this.Player1=new Player(this,100,100,1,this.Controller1);
-        this.Player2=new Player(this,500,500,2,this.Controller2);
+        //new Controller(this,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W);
+        //this.Controller2=new Controller(this,Phaser.input.keyboard.KeyCodes.UP,Phaser.input.keyboard.KeyCodes.DOWN,Phaser.input.keyboard.KeyCodes.LEFT,Phaser.input.keyboard.KeyCodes.RIGHT)
+        this.Player1=new Player(this,100,100,1,this.Controller1,'Azul');
+        this.Player2=new Player(this,500,500,2,this.Controller2,'Rojo');
 
         this.laserComponent = new LaserObs(this);
 
@@ -91,19 +93,7 @@ export class Match extends Phaser.Scene
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
 
-        console.log("Tipo player 1: " + this.dataObj.player1Data.type);
-        console.log("Tipo player 2: " + this.dataObj.player2Data.type);
 
-
-        this.Player2.player.setOnCollideWith(this.Player1.Collision, pair => {
-            this.Player1.Attack(this.Player2);
-        });
-        this.Player1.player.setOnCollideWith(this.Player2.Collision, pair => {
-            this.Player2.Attack(this.Player1);
-        });
-
-            //console.log(this.Player1.type)
-            //console.log(this.Player2.type)
     }
     update()
     {
@@ -119,7 +109,6 @@ export class Match extends Phaser.Scene
 
         this.Player1.update();
         this.Player2.update();
-
     }
 
 }
