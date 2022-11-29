@@ -20,7 +20,8 @@ export class CharacterSelector extends Phaser.Scene
                     {
                         type: null,
                         points: 0,
-                        wins: 0
+                        wins: 0,
+                        id: 1
                     },
                 player2Data:
                     {
@@ -28,7 +29,10 @@ export class CharacterSelector extends Phaser.Scene
 
                         points: 0,
 
-                        wins: 0
+                        wins: 0,
+
+                        id:0
+
                     }
 
             };

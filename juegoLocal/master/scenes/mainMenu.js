@@ -18,6 +18,7 @@ export class MainMenu extends Phaser.Scene
         this.tutorialButton.preload();
         this.load.audio("encimaB", 'assets/sound/encimaBoton.wav');
         this.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
+        this.load.audio("mainMenuMusic", 'assets/sound/mainTheme.ogg');
     }
 
     create()
@@ -29,10 +30,11 @@ export class MainMenu extends Phaser.Scene
 
         this.clickS = this.sound.add("pulsarB");
         this.encimaS = this.sound.add("encimaB");
+        this.mainTheme = this.sound.add("mainMenuMusic");
         this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40);
         this.creditsButton = new Button(this, 'characterSelector', 'creditsButton', 1301, 757, 0.75, 1);
         this.tutorialButton = new Button(this, 'characterSelector', 'tutorialButton', 73, 757, 0.75, 1);
-
+        this.mainTheme.play();
 
         //Llamamos al create de cada uno para que se cree y muestre en la escena
         this.playButton.create();

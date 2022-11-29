@@ -62,6 +62,16 @@ export class PointsPerson
             frames: this.person.anims.generateFrameNumbers(this.name, { frames: [ 4, 5, 6, 7] }),
             frameRate: 12,
         });
+        this.scorer =
+            {
+                sprite: this.person,
+                isActive: this.isActive,
+                name: this.name,
+                posterNumber: this.posterNumber,
+                relativePlayer: this.relativePlayer
+            };
+
+
         var person = this.person;
         var name = this.name;
         //currentPoints = this.currentPoints;
@@ -73,26 +83,33 @@ export class PointsPerson
 
 
         this.relatedScene.input.on('pointerdown', function () {
-            if (relativePlayer.points === posterNumber) {
-                person.play(name + relativePlayer + 'show');
-                isActive = true;
-            }
+
         }, this);
 
         this.relatedScene.input.on('pointerup', function() {
             if(isActive) {
-                person.play(name + relativePlayer + 'hide');
+                //person.play(name + relativePlayer + 'hide');
                 isActive = false
             }
         }, this);
 
+        if (this.scorer.relativePlayer.points === this.scorer.posterNumber) {
+            this.scorer.sprite.play(this.name + relativePlayer + 'show');
+            this.scorer.isActive = true;
+        }
+        if(this.scorer.isActive && relativePlayer.points != posterNumber)
+        {
+            this.scorer.sprite.play(name + relativePlayer + 'hide');
+            this.scorer.isActive = false
+        }
 
 
     }
 
     update()
     {
-        currentPoints = this.relativePlayer.points;
+        this.scorer.relativePlayer.points = this.relativePlayer.points;
+
     }
 
 }

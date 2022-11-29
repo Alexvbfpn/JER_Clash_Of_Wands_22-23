@@ -2,7 +2,6 @@ import { FloorTiles} from "../components/floorTiles.js";
 import {PointsPerson} from "../components/pointsPerson.js";
 var currentPoints = 1;
 //Matter.use('matter-collision-events');
-
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
 import {LaserObs} from "../components/laserComponent.js";
@@ -104,6 +103,15 @@ export class Match extends Phaser.Scene
 
             //console.log(this.Player1.type)
             //console.log(this.Player2.type)
+        /*
+        if((this.ikerP1.scorer.relativePlayer.points == this.ikerP1.scorer.posterNumber) && this.ikerP1.scorer.isActive == false)
+        {
+            console.log('Entrando en el if')
+            this.ikerP1.scorer.isActive == false;
+            this.ikerP1.scorer.sprite.play(this.ikerP1.scorer.name + this.ikerP1.scorer.relativePlayer + 'show');
+        }
+
+         */
     }
     update()
     {
@@ -111,6 +119,9 @@ export class Match extends Phaser.Scene
         //this.iker.currentPoints = this.dataObj.currentPoints;
         this.ikerP1.update();
         this.ikerP2.update();
+
+
+
         this.floorTiles.text.setText('Event.progress: ' + this.floorTiles.timedEvent.getProgress().toString().substring(0, 4)
           + '\nEvent.repeatCount: ' + this.floorTiles.timedEvent.repeatCount);
 
@@ -119,6 +130,8 @@ export class Match extends Phaser.Scene
 
         this.Player1.update();
         this.Player2.update();
+
+
 
     }
 
