@@ -22,7 +22,7 @@ export class Button {
     preload() //Cargamos el sprite del botón
     {
         this.relatedScene.load.image('playButton', 'assets/img/play_buttonDef.png');
-        this.relatedScene.load.image('tutorialButton', 'assets/img/tutorial_buttonDef.png');
+        this.relatedScene.load.image('tutorialButton', 'assets/img/controls_buttonDef.png');
         this.relatedScene.load.image('creditsButton', 'assets/img/credits_buttonDef.png');
         this.relatedScene.load.image('continueButton', 'assets/img/midScreen/continue_buttonDef.png');
         this.relatedScene.load.image('exitButton', 'assets/img/finalScreen/exit_buttonDef.png');
