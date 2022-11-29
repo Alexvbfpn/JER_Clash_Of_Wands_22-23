@@ -62,27 +62,7 @@ export class LaserObs {
         });
 
     }
-    nextCombat(playerData)
-    {
-        playerData.points++;
-        if(playerData.points != 3)
-        {
-            this.relatedScene.scene.restart();
-        } else if (playerData.points === 3)
-        {
-            playerData.wins++;
-            if(playerData.wins=== 2)
-            {
-                this.relatedScene.scene.start('finalScene', this.relatedScene.dataObj);
-            }
-            else
-            {
-                this.relatedScene.scene.start('midScene', this.relatedScene.dataObj);
-            }
 
-        }
-
-    }
     //Función que hace desaparecer la bola con la colisión y que salga el laser en la posición que estaba la bola
     createLaserP1()
     {
@@ -112,8 +92,9 @@ export class LaserObs {
         this.laser.setOnCollideWith(this.relatedScene.Player2.player, pair => {
             console.log("Muere");
             //this.playerDieP2();
+            this.relatedScene.dataObj.player1Data.points++;
             this.laserS.stop();
-            this.nextCombat(this.relatedScene.dataObj.player1Data)
+            scene.restart();
             console.log("Cargando");
         });
 
@@ -150,8 +131,9 @@ export class LaserObs {
 
         this.laser.setOnCollideWith(this.relatedScene.Player1.player, pair => {
             console.log("Muere");
+            this.relatedScene.dataObj.player2Data.points++;
             this.laserS.stop();
-            this.nextCombat(this.relatedScene.dataObj.player2Data)
+            scene.restart();
             console.log("Cargando");
         });
 
