@@ -24,6 +24,7 @@ export class MainMenu extends Phaser.Scene
     {
         //Fondo
         this.add.image(960, 540, 'mainMenu_Background');
+        this.input.setDefaultCursor('url(assets/img/mainMenu/cursor.cur), pointer');
 
         //Creamos la instancia de cada botón
 
@@ -33,16 +34,8 @@ export class MainMenu extends Phaser.Scene
         this.mainTheme = this.sound.add("mainMenuMusic", {loop: true});
         this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40, null, this.mainTheme);
         this.creditsButton = new Button(this, 'credits', 'creditsButton', 1301, 757, 0.75, 1);
-        this.tutorialButton = new Button(this, 'controls', 'tutorialButton', 73, 757, 0.75, 1);
+        this.tutorialButton = new Button(this, 'controls', 'controlsButton', 73, 757, 0.75, 1);
 
-        this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40);
-        this.creditsButton = new Button(this, 'characterSelector', 'creditsButton', 1301, 757, 0.75, 1);
-        this.tutorialButton = new Button(this, 'characterSelector', 'tutorialButton', 73, 757, 0.75, 1);
-        
-
-        this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40);
-        this.creditsButton = new Button(this, 'characterSelector', 'creditsButton', 1301, 757, 0.75, 1);
-        this.tutorialButton = new Button(this, 'characterSelector', 'tutorialButton', 73, 757, 0.75, 1);
 
 
         //Llamamos al create de cada uno para que se cree y muestre en la escena

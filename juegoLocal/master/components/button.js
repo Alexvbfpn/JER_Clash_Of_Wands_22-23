@@ -12,7 +12,8 @@ export class Button {
     preload() //Cargamos el sprite del botón
     {
         this.relatedScene.load.image('playButton', 'assets/img/play_buttonDef.png');
-        this.relatedScene.load.image('tutorialButton', 'assets/img/controls_buttonDef.png');
+        this.relatedScene.load.image('controlsButton', 'assets/img/controls_buttonDef.png');
+
         this.relatedScene.load.image('creditsButton', 'assets/img/credits_buttonDef.png');
         this.relatedScene.load.audio("onB", 'assets/sound/encimaBoton.wav');
         this.relatedScene.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
