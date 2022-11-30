@@ -38,7 +38,7 @@ export class MainMenu extends Phaser.Scene
         this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40);
         this.creditsButton = new Button(this, 'characterSelector', 'creditsButton', 1301, 757, 0.75, 1);
         this.tutorialButton = new Button(this, 'characterSelector', 'tutorialButton', 73, 757, 0.75, 1);
-
+        
         this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40);
         this.creditsButton = new Button(this, 'characterSelector', 'creditsButton', 1301, 757, 0.75, 1);
         this.tutorialButton = new Button(this, 'characterSelector', 'tutorialButton', 73, 757, 0.75, 1);

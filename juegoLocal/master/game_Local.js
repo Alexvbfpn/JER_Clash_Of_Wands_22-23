@@ -8,12 +8,13 @@ import {Controls} from "./scenes/controls.js";
 
 var scenes = [];
 scenes.push(MainMenu);
-scenes.push(Controls);
 scenes.push(Credits);
+
+var scenes = [];
+scenes.push(MainMenu);
 scenes.push(CharacterSelector);
 scenes.push(Match);
-scenes.push(MidScene);
-scenes.push(FinalScene);
+
 
 
 var config = {
