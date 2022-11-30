@@ -13,7 +13,7 @@ export class Punch
     create()
     {
 
-
+        this.nextCombat(this.relatedScene.dataObj.player2Data)
     }
     update()
     {

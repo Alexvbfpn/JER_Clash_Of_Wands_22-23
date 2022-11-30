@@ -1,5 +1,3 @@
-import {MainMenu} from "../scenes/mainMenu.js";
-
 function dataReset(data)
 {
     data.player1Data.points = 0;
@@ -22,7 +20,7 @@ export class Button {
     preload() //Cargamos el sprite del botón
     {
         this.relatedScene.load.image('playButton', 'assets/img/play_buttonDef.png');
-        this.relatedScene.load.image('tutorialButton', 'assets/img/tutorial_buttonDef.png');
+        this.relatedScene.load.image('controlsButton', 'assets/img/controls_buttonDef.png');
         this.relatedScene.load.image('creditsButton', 'assets/img/credits_buttonDef.png');
         this.relatedScene.load.image('continueButton', 'assets/img/midScreen/continue_buttonDef.png');
         this.relatedScene.load.image('exitButton', 'assets/img/finalScreen/exit_buttonDef.png');
@@ -97,7 +95,7 @@ export class Button {
             {
                 mainTheme.stop();
             }
-            if(buttonName == 'creditsButton' || buttonName == 'backButtonCredits')
+            if(buttonName == 'creditsButton' || buttonName == 'backButtonCredits' || buttonName == 'controlsButton')
             {
                 scene.switch(dest);
             }else
