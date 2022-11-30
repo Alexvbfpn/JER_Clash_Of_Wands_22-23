@@ -96,28 +96,6 @@ export class Match extends Phaser.Scene
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
 
-
-
-        //ESTO NO LO HE BORRADO POR SI ACASO, PERO CREO QUE NO HACE FALTA
-        this.Player2.player.setOnCollideWith(this.Player1.Collision, pair => {
-            this.Player1.Attack(this.Player2);
-        });
-        this.Player1.player.setOnCollideWith(this.Player2.Collision, pair => {
-            this.Player2.Attack(this.Player1);
-        });
-
-            //console.log(this.Player1.type)
-            //console.log(this.Player2.type)
-        /*
-        if((this.ikerP1.scorer.relativePlayer.points == this.ikerP1.scorer.posterNumber) && this.ikerP1.scorer.isActive == false)
-        {
-            console.log('Entrando en el if')
-            this.ikerP1.scorer.isActive == false;
-            this.ikerP1.scorer.sprite.play(this.ikerP1.scorer.name + this.ikerP1.scorer.relativePlayer + 'show');
-        }
-
-         */
-
     }
     update()
     {
