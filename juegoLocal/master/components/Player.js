@@ -31,35 +31,7 @@ export class Player
     }
 
 
-    checkCollision()
-    {
-        //this.Collision.setCallback();
-        //this.Collision.setCollisionCallback();
-        //this.Collision.setOnCollideActive();
-        //this.Collision.setOnCollideEnd();
-        if(this.playerNumber===1)
-        {
-            //console.log('Colisión con player 2');
-            this.Collision.setOnCollideWith(this.relatedScene.Player2.player.body, pair => {
-                //this.Attack(this.relatedScene.Player2);
-                //console.log('Colisión con player 2');
-                this.relatedScene.Player2.player.thrust(-0.5);
-            });
-            //this.Collision.onCollideActiveCallback()
-        }
 
-
-        if(this.playerNumber===2)
-        {
-            this.Collision.setOnCollideWith(this.relatedScene.Player1.player.body, pair => {
-                //this.Attack(this.relatedScene.Player1);
-                //console.log('Colisión con player 1');
-                this.relatedScene.Player1.player.thrust(-0.5);
-            });
-
-
-        }
-    }
 
     preload()
     {
@@ -88,7 +60,6 @@ export class Player
 
     create()
     {
-        //console.log(this.type);
         this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
         this.Collision= this.relatedScene.matter.add.sprite(this.player.x+150,this.player.y+150,'Collision',null, {isSensor:true});
 
@@ -129,74 +100,75 @@ export class Player
 
     update()
     {
-     
+
         this.checkCollision();
 
         this.calculateRotation()
         this.Collision.rotation=this.player.rotation;
 
-               if (this.Controller.actions.UP.isDown)
-               {
-                   this.player.thrust(this.speed);
-                   //this.player.y -= 10;
-                   if(!this.player.anims.isPlaying){this.player.anims.play(this.type + 'walk', true);}
-               }
-               else if (this.Controller.actions.DOWN.isDown)
-               {
-                   this.player.thrust(-this.speed);
-                   //this.player.y += 10;
-                   if(!this.player.anims.isPlaying){this.player.anims.play(this.type + 'walk', true);}
-               }
-               else
-               {
-                   this.player.thrust(0);
-                   if(!this.player.anims.isPlaying){this.player.anims.play(this.type + 'idle', true);}
-               }
+        if (this.Controller.actions.UP.isDown)
+        {
+            this.player.thrust(this.speed);
+            //this.player.y -= 10;
+            if(!this.player.anims.isPlaying){this.player.anims.play(this.type + 'walk', true);}
+        }
+        else if (this.Controller.actions.DOWN.isDown)
+        {
+            console.log(this.speed);
+            this.player.thrust(-this.speed);
+            //this.player.y += 10;
+            if(!this.player.anims.isPlaying){this.player.anims.play(this.type + 'walk', true);}
+        }
+        else
+        {
+            this.player.thrust(0);
+            if(!this.player.anims.isPlaying){this.player.anims.play(this.type + 'idle', true);}
+        }
 
-               if (this.Controller.actions.LEFT.isDown)
-               {
-                   /*if(this.player.angle<=0&&this.player.angle>=-180){this.player.thrustLeft(0.16);}
-                   else{this.player.thrustLeft(-0.16);}*/
+        if (this.Controller.actions.LEFT.isDown)
+        {
+            /*if(this.player.angle<=0&&this.player.angle>=-180){this.player.thrustLeft(0.16);}
+            else{this.player.thrustLeft(-0.16);}*/
 
-                   this.player.thrustLeft(this.speed);
-               }
-               else if (this.Controller.actions.RIGHT.isDown)
-               {
-                   /*if(this.player.angle<=0&&this.player.angle>=-180){this.player.thrustRight(0.16);}
-                   else{this.player.thrustRight(-0.16);}*/
+            this.player.thrustLeft(this.speed);
+        }
+        else if (this.Controller.actions.RIGHT.isDown)
+        {
+            /*if(this.player.angle<=0&&this.player.angle>=-180){this.player.thrustRight(0.16);}
+            else{this.player.thrustRight(-0.16);}*/
 
-                   this.player.thrustRight(this.speed);
-               }
+            this.player.thrustRight(this.speed);
+        }
 
-               if (this.Controller.actions.ROTATEL.isDown)
-               {
-                   this.player.setAngularVelocity(-0.08);
+        if (this.Controller.actions.ROTATEL.isDown)
+        {
+            this.player.setAngularVelocity(-0.08);
 
-               }
-               else if (this.Controller.actions.ROTATER.isDown)
-               {
-                    this.player.setAngularVelocity(0.08);
+        }
+        else if (this.Controller.actions.ROTATER.isDown)
+        {
+            this.player.setAngularVelocity(0.08);
 
-               }
-               else
-               {
-                   this.player.setAngularVelocity(0);
-                   //this.player.anims.play('idle', true);
-               }
+        }
+        else
+        {
+            this.player.setAngularVelocity(0);
+            //this.player.anims.play('idle', true);
+        }
 
-               if(this.Controller.actions.ATTACK.isDown && this.attackCooldown)
-               {
-                   this.attackCooldown=false;
+        if(this.Controller.actions.ATTACK.isDown && this.attackCooldown)
+        {
+            this.attackCooldown=false;
 
-                   this.relatedScene.time.addEvent({ delay: 3000, callback: Cooldown, callbackScope: this, loop: false});
-                   this.player.anims.play(this.type + 'walkPunch', true);
+            this.relatedScene.time.addEvent({ delay: 3000, callback: Cooldown, callbackScope: this, loop: false});
+            this.player.anims.play(this.type + 'walkPunch', true);
 
-                   if(this.canAttack)
-                   {
-                       this.Attack();
-                   }
+            if(this.canAttack)
+            {
+                this.Attack();
+            }
 
-               }
+        }
         if(this.player.anims.isPlaying){this.isAttacking=false;}
 
     }
@@ -259,4 +231,3 @@ export class Player
 
 
 }
-

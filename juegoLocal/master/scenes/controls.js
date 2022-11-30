@@ -28,7 +28,6 @@ export class Controls extends Phaser.Scene
         //Animación del texto
         var play_button = this.add.image(0, 0, 'playButton').setScale(1.5, 1.5);
         var text_play_button = this.add.image(0, 0, 'textPlayButton').setScale(1.5, 1.5);
-
         this.tweens.add({
             targets: text_play_button,
             alpha: 0.5,
@@ -37,7 +36,6 @@ export class Controls extends Phaser.Scene
             yoyo: true,
             repeat: -1
         });
-
          */
     }
 

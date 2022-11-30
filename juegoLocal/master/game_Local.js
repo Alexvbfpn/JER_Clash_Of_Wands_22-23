@@ -5,9 +5,10 @@ import {MidScene} from "./scenes/midScene.js";
 import {FinalScene} from "./scenes/finalScene.js";
 import {Credits} from "./scenes/credits.js";
 import {Controls} from "./scenes/controls.js";
-
+import {StartScene} from "./scenes/startScene.js";
 
 var scenes = [];
+scenes.push(StartScene);
 scenes.push(MainMenu);
 scenes.push(Credits);
 scenes.push(Controls);
@@ -15,11 +16,6 @@ scenes.push(CharacterSelector);
 scenes.push(Match);
 scenes.push(MidScene);
 scenes.push(FinalScene);
-
-
-
-
-
 
 var config = {
 

@@ -1,7 +1,8 @@
 var player1;
 var character;
+var text;
 export class Selector {
-    constructor(scene, elementName, x, y, runeFrame, characters1, characterFrame, flip, player_type) {
+    constructor(scene, elementName, x, y, runeFrame, characters1, characterFrame, flip, player_type, textP1, textFrame) {
         this.relatedScene = scene;
         this.element = elementName;
         this.x = x;
@@ -13,6 +14,9 @@ export class Selector {
         this.player_type = player_type;
         this.rune;
         this.currentCharacter;
+        this.textP1 = textP1;
+        this.textFrame = textFrame;
+        this.currentText;
     }
 
     preload()
@@ -61,21 +65,6 @@ export class Selector {
 
 
                     }
-                    /*
-                    if(this.isSelected == false)
-                    {
-                        this.sprite.setFrame(1);
-                        this.isSelected = true;
-                    } else
-                    {
-                        this.sprite.setFrame(0);
-                        this.isSelected = false;
-                    }
-                    //rune.sprite.setFrame(1);
-                    character.setFrame(chaFrame)
-                    character.visible = true;
-
-                     */
 
                 }
             };
@@ -86,10 +75,12 @@ export class Selector {
 
         this.currentCharacter = this.characters1;
         character = this.currentCharacter;
+        this.currentText = this.textP1;
     }
 
     update()
     {
         character = this.currentCharacter;
+        text = this.currentText;
     }
 }
