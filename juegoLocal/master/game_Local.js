@@ -6,14 +6,14 @@ import {FinalScene} from "./scenes/finalScene.js";
 import {Credits} from "./scenes/credits.js";
 import {Controls} from "./scenes/controls.js";
 
-var scenes = [];
-scenes.push(MainMenu);
-scenes.push(Credits);
 
 var scenes = [];
 scenes.push(MainMenu);
 scenes.push(CharacterSelector);
 scenes.push(Match);
+
+
+
 
 
 
