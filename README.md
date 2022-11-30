@@ -279,5 +279,23 @@ Para ganar la ronda, cada jugador deberá hacer que su rival muera ya sea por lo
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/4.Pantalla%20Victoria.png)
 
+### 6.5 Pantalla de victoria de partida
+
+Una vez ganada dos rondas (3 en caso de empate), uno de los jugadores ganará definitivamente mostrandose la pantalla de victoria.
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/5.pantalla%20victoria%20total.png)
+
+### 6.6 Pantalla de créditos
+
+Se muestran los desarrolladores y las ramas de los miembros
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/6.%20creditos.png)
+
+### 6.7 Pantalla de controles
+
+Se muestran los controles para ambos jugadores
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/7.%20controles.png)
+
 |Equipo 6: Angry Mango||
 | :- | -: |

@@ -72,8 +72,30 @@ export class LaserObs {
 
     }
 
+    nextCombat(playerData)
+    {
+        playerData.points++;
+        if(playerData.points != 3)
+        {
+            this.relatedScene.scene.restart();
+        } else if (playerData.points === 3)
+        {
+            playerData.wins++;
+            if(playerData.wins=== 2)
+            {
+                this.relatedScene.scene.start('finalScene', this.relatedScene.dataObj);
+            }
+            else
+            {
+                this.relatedScene.scene.start('midScene', this.relatedScene.dataObj);
+            }
+
+        }
+
+    }
+
     update(){
-            this.cooldown();
+        this.cooldown();
     }
 
     //Función que hace desaparecer la bola con la colisión y que salga el laser en la posición que estaba la bola
@@ -102,12 +124,9 @@ export class LaserObs {
         this.laser.setFriction(0, 0, 0);
 
         this.laser.setOnCollideWith(this.relatedScene.Player2.player, pair => {
-            console.log("Muere");
-            //this.playerDieP2();
-            this.relatedScene.dataObj.player1Data.points++;
             this.laserS.stop();
-            scene.restart();
-            console.log("Cargando");
+            this.nextCombat(this.relatedScene.dataObj.player1Data);
+
         });
         this.cooldwn = true;
         this.imIn = true;
@@ -143,24 +162,15 @@ export class LaserObs {
 
 
         this.laser.setOnCollideWith(this.relatedScene.Player1.player, pair => {
-            console.log("Muere");
-            this.relatedScene.dataObj.player2Data.points++;
             this.laserS.stop();
-            scene.restart();
-            console.log("Cargando");
+            this.nextCombat(this.relatedScene.dataObj.player2Data);
+
         });
 
         this.cooldwn = true;
         this.imIn = true;
         this.timesUp = this.relatedScene.time.addEvent({ delay: 6000, callback: onEvent, callbackScope: this, loop: false});
 
-    }
-
-
-    //Comprobación de colisiones
-    checkCollisiom()
-    {
-        console.log("Colisiona");
     }
 
     cooldown(){
@@ -175,4 +185,3 @@ export class LaserObs {
 
 
 }
-
