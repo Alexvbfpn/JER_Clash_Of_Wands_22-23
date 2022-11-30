@@ -32,7 +32,7 @@ var config = {
         {
             default: 'matter',
             matter: {
-                debug: true,
+                debug: false,
 
                 gravity: {
                     x: 0,
