@@ -9,8 +9,12 @@ import {Controls} from "./scenes/controls.js";
 
 var scenes = [];
 scenes.push(MainMenu);
+scenes.push(Credits);
+scenes.push(Controls);
 scenes.push(CharacterSelector);
 scenes.push(Match);
+scenes.push(MidScene);
+scenes.push(FinalScene);
 
 var config = {
 
