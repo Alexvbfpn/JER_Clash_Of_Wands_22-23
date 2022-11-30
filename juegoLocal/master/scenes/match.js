@@ -20,13 +20,13 @@ export class Match extends Phaser.Scene
         this.Controller1=new Controller(this);
         this.Controller2=new Controller(this);
 
-        //new Controller(this,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W);
-        //this.Controller2=new Controller(this,Phaser.input.keyboard.KeyCodes.UP,Phaser.input.keyboard.KeyCodes.DOWN,Phaser.input.keyboard.KeyCodes.LEFT,Phaser.input.keyboard.KeyCodes.RIGHT)
-        this.Player1=new Player(this,100,100,1,this.Controller1,'Azul');
-        this.Player2=new Player(this,500,500,2,this.Controller2,'Rojo');
+        this.Player1=new Player(this,475,275,1,this.Controller1);
+        this.Player2=new Player(this,1425,915,2,this.Controller2);
 
-        this.laserComponent = new LaserObs(this);
 
+        this.laserComponent = new LaserObs(this, 1160,590 );
+        this.laserComponent2 = new LaserObs(this, 765,590 );
+        //this.laserComponent3 = new LaserObs(this, 765,375 );
     }
 
     init(data)
@@ -47,16 +47,19 @@ export class Match extends Phaser.Scene
         this.Player1.preload();
         this.Player2.preload();
         this.laserComponent.preload();
+        this.laserComponent2.preload();
+        //this.laserComponent3.preload();
         this.cursors = this.input.keyboard.createCursorKeys();
+
 
     }
 
     create()
     {
         this.Controller1.create(Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.S,Phaser.Input.Keyboard.KeyCodes.A,Phaser.Input.Keyboard.KeyCodes.D,Phaser.Input.Keyboard.KeyCodes.SPACE,Phaser.Input.Keyboard.KeyCodes.E,Phaser.Input.Keyboard.KeyCodes.Q)
-        this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.UP,Phaser.Input.Keyboard.KeyCodes.DOWN,Phaser.Input.Keyboard.KeyCodes.LEFT,Phaser.Input.Keyboard.KeyCodes.RIGHT,Phaser.Input.Keyboard.KeyCodes.NUMPAD_ZERO,Phaser.Input.Keyboard.KeyCodes.NUMPAD_TWO,Phaser.Input.Keyboard.KeyCodes.NUMPAD_ONE)
+        this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.I,Phaser.Input.Keyboard.KeyCodes.K,Phaser.Input.Keyboard.KeyCodes.J,Phaser.Input.Keyboard.KeyCodes.L,Phaser.Input.Keyboard.KeyCodes.M,Phaser.Input.Keyboard.KeyCodes.O,Phaser.Input.Keyboard.KeyCodes.U)
 
-        this.matter.world.setBounds(0, 0, 1920, 1080);
+        this.matter.world.setBounds(360, 195, 1200, 800,500);
         this.add.image(960, 540, 'match_Background');
 
         console.log(this.dataObj.player1Data.points);
@@ -87,8 +90,15 @@ export class Match extends Phaser.Scene
 
         this.Player1.create();
         this.Player2.create();
-        this.floorTiles.create();
+
+
+        this.scndLaser = false;
+
         this.laserComponent.create();
+        this.laserComponent2.create();
+
+        this.floorTiles.create();
+
 
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
@@ -97,6 +107,7 @@ export class Match extends Phaser.Scene
     }
     update()
     {
+
         this.floorTiles.update();
         //this.iker.currentPoints = this.dataObj.currentPoints;
         this.ikerP1.update();
@@ -109,6 +120,13 @@ export class Match extends Phaser.Scene
 
         this.Player1.update();
         this.Player2.update();
+
+
+        this.laserComponent.update();
+        this.laserComponent2.update();
+
     }
+
+
 
 }
