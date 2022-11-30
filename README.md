@@ -8,7 +8,7 @@
 | Equipo / Estudio | Angry Mango  |
 | Integrantes  | Aisayan Jiménez Viera, Alejandro Campbell,  Javier Crespo, Victor Cabanillas Solis|
 | Correos Corporativos | a.jimenezv.2020@alumnos.urjc.es, a.campbell.2019@alumnos.urjc.es, j.crespop.2018@alumnos.urjc.es, v.cabanillas.2020@alumnos.urjc.es |
-| Cuentas de GitHub  | Aisayan (aisayan68@mgial.com) Alexvbfpn(campbell12082000@gmail.com) JavierCrespoP (javier.888.jcp@gmail.com) VictorCabanillas (vector.uno4@gmail.com) |
+| Cuentas de GitHub  | Aisayan (aisayan68@gmail.com) Alexvbfpn(campbell12082000@gmail.com) JavierCrespoP (javier.888.jcp@gmail.com) VictorCabanillas (vector.uno4@gmail.com) |
 | Género  | Peleas/Supervivencia |
 
 ## 1. CAMBIOS
@@ -296,6 +296,20 @@ Se muestran los desarrolladores y las ramas de los miembros
 Se muestran los controles para ambos jugadores
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/7.%20controles.png)
+
+## 7.Flujo de pantallas
+
+Se muestra el flujo de pantallas
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/flujo%20de%20pantallas.png)
+
+## 8. Sonidos
+###Disclaimer
+Tanto los sonidos como la música, han sido sacados de las siguientes fuentes:
+
+https://freesound.org/ -> Sonidos
+https://patrickdearteaga.com/es/index-es/ -> Música
+
 
 |Equipo 6: Angry Mango||
 | :- | -: |
