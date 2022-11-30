@@ -304,7 +304,7 @@ Se muestra el flujo de pantallas
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/flujo%20de%20pantallas.png)
 
 ## 8. Sonidos
-###Disclaimer
+### Disclaimer
 Tanto los sonidos como la música, han sido sacados de las siguientes fuentes:
 
 https://freesound.org/ -> Sonidos
