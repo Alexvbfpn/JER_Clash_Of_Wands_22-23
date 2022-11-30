@@ -29,6 +29,17 @@ export class MainMenu extends Phaser.Scene
 
         this.clickS = this.sound.add("pulsarB");
         this.encimaS = this.sound.add("encimaB");
+
+        this.mainTheme = this.sound.add("mainMenuMusic", {loop: true});
+        this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40, null, this.mainTheme);
+        this.creditsButton = new Button(this, 'credits', 'creditsButton', 1301, 757, 0.75, 1);
+        this.tutorialButton = new Button(this, 'controls', 'tutorialButton', 73, 757, 0.75, 1);
+
+        this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40);
+        this.creditsButton = new Button(this, 'characterSelector', 'creditsButton', 1301, 757, 0.75, 1);
+        this.tutorialButton = new Button(this, 'characterSelector', 'tutorialButton', 73, 757, 0.75, 1);
+        
+
         this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40);
         this.creditsButton = new Button(this, 'characterSelector', 'creditsButton', 1301, 757, 0.75, 1);
         this.tutorialButton = new Button(this, 'characterSelector', 'tutorialButton', 73, 757, 0.75, 1);
@@ -39,6 +50,13 @@ export class MainMenu extends Phaser.Scene
         this.creditsButton.create();
         this.tutorialButton.create();
 
+
+        let text = this.add.text(-100, -100, '0', {
+            fontFamily: 'tilesFont',
+            font: (1).toString() + "px tilesFont",
+            //fontWeight: "bold",
+            color: '#32023a'
+        });
         /*
         //Animación del texto
         var play_button = this.add.image(0, 0, 'playButton').setScale(1.5, 1.5);

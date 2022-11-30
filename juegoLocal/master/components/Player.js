@@ -6,6 +6,7 @@ function Cooldown()
 }
 function resetSpeed()
 {
+
     PlayerC1.speed=0.16;
     PlayerC2.speed=0.16;
 }
@@ -15,7 +16,6 @@ var PlayerC2=1;
 
 export class Player
 {
-
     constructor(scene,posX,posY,number,Controller,type)
     {
         this.relatedScene = scene;
@@ -28,6 +28,37 @@ export class Player
         this.attackCooldown=true;
         this.canAttack=false;
         this.speed=0.16;
+    }
+
+
+    checkCollision()
+    {
+        //this.Collision.setCallback();
+        //this.Collision.setCollisionCallback();
+        //this.Collision.setOnCollideActive();
+        //this.Collision.setOnCollideEnd();
+        if(this.playerNumber===1)
+        {
+            //console.log('Colisión con player 2');
+            this.Collision.setOnCollideWith(this.relatedScene.Player2.player.body, pair => {
+                //this.Attack(this.relatedScene.Player2);
+                //console.log('Colisión con player 2');
+                this.relatedScene.Player2.player.thrust(-0.5);
+            });
+            //this.Collision.onCollideActiveCallback()
+        }
+
+
+        if(this.playerNumber===2)
+        {
+            this.Collision.setOnCollideWith(this.relatedScene.Player1.player.body, pair => {
+                //this.Attack(this.relatedScene.Player1);
+                //console.log('Colisión con player 1');
+                this.relatedScene.Player1.player.thrust(-0.5);
+            });
+
+
+        }
     }
 
     preload()
@@ -57,13 +88,10 @@ export class Player
 
     create()
     {
-        console.log(this.type);
-            this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
+        //console.log(this.type);
+        this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
+        this.Collision= this.relatedScene.matter.add.sprite(this.player.x+150,this.player.y+150,'Collision',null, {isSensor:true});
 
-        //this.Collision= this.relatedScene.matter.add.sprite(this.player.x,this.player.y,'Collision');
-        this.Collision= this.relatedScene.matter.add.sprite(this.player.x+100,this.player.y+100,'Collision',null, {isSensor:true});
-        //this.Collision.parent=this.player;
-        //this.Collision.setActive(false);
         this.Collision.visible=false;
 
         this.relatedScene.anims.create({
@@ -97,17 +125,14 @@ export class Player
         if(this.playerNumber===1){PlayerC2=this.relatedScene.Player2}
         if(this.playerNumber===2){PlayerC1=this.relatedScene.Player1}
 
-
     }
 
     update()
     {
-        //console.log(this.player.angle);
+     
         this.checkCollision();
-        //console.log(this.canAttack);
+
         this.calculateRotation()
-        //this.Collision.setX(this.player.x+100);
-        //this.Collision.setY(this.player.y);
         this.Collision.rotation=this.player.rotation;
 
                if (this.Controller.actions.UP.isDown)
@@ -162,6 +187,7 @@ export class Player
                if(this.Controller.actions.ATTACK.isDown && this.attackCooldown)
                {
                    this.attackCooldown=false;
+
                    this.relatedScene.time.addEvent({ delay: 3000, callback: Cooldown, callbackScope: this, loop: false});
                    this.player.anims.play(this.type + 'walkPunch', true);
 
@@ -172,6 +198,7 @@ export class Player
 
                }
         if(this.player.anims.isPlaying){this.isAttacking=false;}
+
     }
 
     Attack()
@@ -181,6 +208,7 @@ export class Player
         if(this.playerNumber===2){PlayerC=this.relatedScene.Player1}
         var distance=50;
         console.log("Ataque");
+
         var vector = new Phaser.Math.Vector2(PlayerC.player.x - this.player.x,PlayerC.player.y - this.player.y);
         console.log(vector);
         vector.normalize()
@@ -202,6 +230,7 @@ export class Player
         const vy =this.player.y + Math.sin(this.player.rotation) * 125;
         this.Collision.setPosition(vx,vy);
     }
+
     checkCollision()
     {
         this.canAttack=false;
@@ -210,7 +239,6 @@ export class Player
                 if ((this.relatedScene.Player2.player.y <= (this.Collision.y + this.Collision.height / 2)) && (this.relatedScene.Player2.player.y >= (this.Collision.y - this.Collision.height / 2)))
                 {
                     this.canAttack=true;
-                    //console.log(this.canAttack);
                 }
             }
         }
@@ -223,7 +251,10 @@ export class Player
                 }
             }
         }
+
+
     }
+
 
 
 

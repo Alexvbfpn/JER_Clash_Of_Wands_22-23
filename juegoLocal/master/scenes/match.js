@@ -1,11 +1,11 @@
 import { FloorTiles} from "../components/floorTiles.js";
 import {PointsPerson} from "../components/pointsPerson.js";
 var currentPoints = 1;
+//Matter.use('matter-collision-events');
 
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
 import {LaserObs} from "../components/laserComponent.js";
-
 
 export class Match extends Phaser.Scene
 {
@@ -22,6 +22,7 @@ export class Match extends Phaser.Scene
 
         this.Player1=new Player(this,475,275,1,this.Controller1);
         this.Player2=new Player(this,1425,915,2,this.Controller2);
+
 
         this.laserComponent = new LaserObs(this, 1160,590 );
         this.laserComponent2 = new LaserObs(this, 765,590 );
@@ -81,26 +82,27 @@ export class Match extends Phaser.Scene
         carvaP2.create();
         pepeP2.create();
 
-        this.floorTiles.create();
+
 
         this.Player1.type = this.dataObj.player1Data.type;
         this.Player2.type = this.dataObj.player2Data.type;
 
+
         this.Player1.create();
         this.Player2.create();
+
 
         this.scndLaser = false;
 
         this.laserComponent.create();
         this.laserComponent2.create();
 
+        this.floorTiles.create();
+
+
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
 
-        console.log("Tipo player 1: " + this.dataObj.player1Data.type);
-        console.log("Tipo player 2: " + this.dataObj.player2Data.type);
-            //console.log(this.Player1.type)
-            //console.log(this.Player2.type)
 
     }
     update()
@@ -119,9 +121,9 @@ export class Match extends Phaser.Scene
         this.Player1.update();
         this.Player2.update();
 
+
         this.laserComponent.update();
         this.laserComponent2.update();
-
 
     }
 
