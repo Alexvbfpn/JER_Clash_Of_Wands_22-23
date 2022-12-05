@@ -146,7 +146,6 @@ export class LaserObs {
             this.laser.tint = 0xFF4C3A; //Rojo
         }
         if(this.relatedScene.Player2.type === 'Azul'){
-            console.log(this.relatedScene.Player2.type);
             this.laser.tint = 0x3AF6FF; //Azul
         }
         if(this.relatedScene.Player2.type === 'Amarillo'){

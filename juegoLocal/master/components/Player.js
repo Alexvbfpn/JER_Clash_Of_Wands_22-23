@@ -35,7 +35,6 @@ export class Player
 
     preload()
     {
-        //console.log(this.type);
         this.relatedScene.load.spritesheet('Azul', "assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG", {
             frameWidth: 165,
             frameHeight: 124
@@ -114,7 +113,6 @@ export class Player
         }
         else if (this.Controller.actions.DOWN.isDown)
         {
-            console.log(this.speed);
             this.player.thrust(-this.speed);
             //this.player.y += 10;
             if(!this.player.anims.isPlaying){this.player.anims.play(this.type + 'walk', true);}
@@ -153,7 +151,6 @@ export class Player
         else
         {
             this.player.setAngularVelocity(0);
-            //this.player.anims.play('idle', true);
         }
 
         if(this.Controller.actions.ATTACK.isDown && this.attackCooldown)
@@ -179,20 +176,15 @@ export class Player
         if(this.playerNumber===1){PlayerC=this.relatedScene.Player2}
         if(this.playerNumber===2){PlayerC=this.relatedScene.Player1}
         var distance=50;
-        console.log("Ataque");
 
         var vector = new Phaser.Math.Vector2(PlayerC.player.x - this.player.x,PlayerC.player.y - this.player.y);
-        console.log(vector);
         vector.normalize()
-        console.log(vector);
         if(this.type==='Rojo'){distance=100;}
         else if(this.type==='Azul'){PlayerC.speed=0.08; this.relatedScene.time.addEvent({ delay: 1500, callback: resetSpeed, callbackScope: this, loop: false});}
         else if(this.type==='Amarillo'){PlayerC.speed=0; this.relatedScene.time.addEvent({ delay: 1000, callback: resetSpeed, callbackScope: this, loop: false});}
         else if(this.type==='Verde'){}
 
-        console.log(PlayerC.player.x, PlayerC.player.y)
         PlayerC.player.setPosition(PlayerC.player.x + vector.x*distance,PlayerC.player.y + vector.y*distance);
-        console.log(PlayerC.player.x, PlayerC.player.y)
 
 
     }
@@ -219,7 +211,6 @@ export class Player
                 if((this.relatedScene.Player1.player.y <= (this.Collision.y + this.Collision.height/2)) && (this.relatedScene.Player1.player.y >= (this.Collision.y - this.Collision.height/2)))
                 {
                     this.canAttack=true;
-                    //console.log(this.canAttack);
                 }
             }
         }

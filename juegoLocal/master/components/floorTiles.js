@@ -119,7 +119,6 @@ export class FloorTiles {
             this.tilesArray[i] = [];
             for(let j = 0; j < gameOptions.columns; j ++){
                 let randomTile = Math.floor(Math.random()* (4));
-                console.log(randomTile);
 
                 let openTileCol = this.relatedScene.matter.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX +gameOptions.tileSize/2,
                     i * gameOptions.tileSize + gameOptions.initTilePosY +gameOptions.tileSize/2,
@@ -129,16 +128,6 @@ export class FloorTiles {
                     i * gameOptions.tileSize + gameOptions.initTilePosY,
                     'openTiles' + randomTile, level[i][j]).setScale(this.floorMode);
 
-                /*
-                openTileCol.setOnCollideWith([this.relatedScene.Player1.player, this.relatedScene.Player2.player], kill =>
-                {
-                    console.log('Colision con la placa')
-                });
-
-                 */
-
-
-                //openTileCol.setOnCollideActive()
                 let tile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
                     i * gameOptions.tileSize + gameOptions.initTilePosY,
                     'tiles', level[i][j]).setScale(this.floorMode);
@@ -146,7 +135,6 @@ export class FloorTiles {
                 let text = this.relatedScene.add.text(j * gameOptions.tileSize + gameOptions.initTilePosX, i * gameOptions.tileSize + gameOptions.initTilePosY - 75, level[i][j].toString(), {
                     fontFamily: 'tilesFont',
                     font: (gameOptions.tileSize-50).toString() + "px tilesFont",
-                    //fontWeight: "bold",
                     color: '#32023a'
                 });
                 /*
@@ -202,17 +190,13 @@ export class FloorTiles {
                     if((this.relatedScene.Player1.player.x > t.x && this.relatedScene.Player1.player.x < t.x + t.width) &&
                         (this.relatedScene.Player1.player.y > t.y && this.relatedScene.Player1.player.y < t.y + t.height))
                     {
-                        console.log('Mira mamá ando en la placa 0,0')
-
                         this.nextCombat(this.relatedScene.dataObj.player2Data)
                     }
 
                     if((this.relatedScene.Player2.player.x > t.x && this.relatedScene.Player2.player.x < t.x + t.width) &&
                         (this.relatedScene.Player2.player.y > t.y && this.relatedScene.Player2.player.y < t.y + t.height))
                     {
-                        console.log('Mira papá ando en la placa 0,0')
                         this.nextCombat(this.relatedScene.dataObj.player1Data)
-
                     }
 
 

@@ -123,13 +123,8 @@ export class CharacterSelector extends Phaser.Scene
         {
             if(runes[0].currentCharacter == characters2)
             {
-                //generalData.player2Data.type =
-                console.log(generalData.player1Data.type)
                 scene.start('match', generalData);
             }
-            console.log('Tipo player1: ' + generalData.player1Data.type);
-            console.log('Tipo player2: ' + generalData.player2Data.type);
-            console.log(runes.currentCharacter)
 
         });
 
@@ -180,7 +175,6 @@ export class CharacterSelector extends Phaser.Scene
 
         this.runeManager = new RuneManager(this, runes, confirm_button, characters2, textP2);
         this.runeManager.create();
-        console.log(this.runeManager.player1Type);
 
     }
     update()

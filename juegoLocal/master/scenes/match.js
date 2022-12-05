@@ -57,7 +57,7 @@ export class Match extends Phaser.Scene
         this.matter.world.setBounds(360, 195, 1200, 800,500);
         this.add.image(960, 540, 'match_Background');
 
-        console.log(this.dataObj.player1Data.points);
+
 
         //Puntuadores Player1
         var carvaP1 = new PointsPerson(this, 135, 393, 'carva', 2, this.dataObj.player1Data);

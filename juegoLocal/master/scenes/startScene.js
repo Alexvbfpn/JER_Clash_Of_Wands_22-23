@@ -32,8 +32,6 @@ export class StartScene extends Phaser.Scene
 
         });
 
-        console.log(this.scene.key);
-
         this.tweens.add({
             targets: this.text,
             alpha: 0.2,

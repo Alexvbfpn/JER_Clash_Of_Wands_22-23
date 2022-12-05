@@ -32,7 +32,6 @@ export class MidScene extends Phaser.Scene
         this.display.type = types.indexOf(winner.type);
         this.display.winner = winner.id;
 
-        //console.log(types.indexOf('Azul'));
         this.continueButton = new Button(this, 'match', 'continueButton', 697, 858,
             1.15, 1.40, this.dataObj);
         this.display.create();

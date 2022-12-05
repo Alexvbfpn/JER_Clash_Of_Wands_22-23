@@ -49,12 +49,10 @@ export class RuneManager {
                     if(currentRune.isSelected && selector.currentCharacter != characters2)
                     {
                         player1Type = currentRune.color;
-                        console.log('Player1Type: ' + player1Type);
                     }
                     if (selector.currentCharacter === characters2 && currentRune.isSelected)
                     {
                         player2Type = currentRune.color;
-                        console.log('Player2Type: ' + player2Type);
                     }
                     selector.currentCharacter.visible = true;
                     currentSelected = selector.characterFrame;
@@ -64,7 +62,6 @@ export class RuneManager {
                 } else
                 {
                    // player1Type = null; //CUIDADO
-                    console.log('Player1Type: ' + player1Type);
                     currentRune.sprite.setFrame(0);
                     selector.currentText.setFrame(0);
                     selector.currentCharacter.visible = false;
@@ -75,7 +72,6 @@ export class RuneManager {
                     textSelected = null;
                 }
                 //currentRune.isSelected = !currentRune.isSelected;
-                console.log(currentRune.isSelected)
             });
 
             this.confirm_button.on('pointerdown', function (){
@@ -83,7 +79,6 @@ export class RuneManager {
                 selector.currentCharacter= characters2;
                 selector.currentText = textP2;
                 selector.currentText.visible = true;
-                console.log(selector.currentCharacter);
                 currentRune.isSelected = false;
                 currentRune.sprite.setFrame(0);
                 this.visible = false;

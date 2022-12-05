@@ -34,7 +34,6 @@ export class FinalScene extends Phaser.Scene
         this.display.winner = winner.id;
         this.winSound = this.sound.add("winSound");
         this.winSound.play();
-        //console.log(types.indexOf('Azul'));
         this.exitButton = new Button(this, 'mainMenu', 'exitButton', 697, 868,
             1.15, 1.40, this.dataObj);
         this.display.create();
