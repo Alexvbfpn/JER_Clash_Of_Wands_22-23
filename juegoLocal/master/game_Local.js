@@ -6,8 +6,10 @@ import {MidScene} from "./scenes/midScene.js";
 import {FinalScene} from "./scenes/finalScene.js";
 import {Credits} from "./scenes/credits.js";
 import {Controls} from "./scenes/controls.js";
+import {StartScene} from "./scenes/startScene.js";
 
 var scenes = [];
+scenes.push(StartScene)
 scenes.push(MainMenu);
 scenes.push(Credits);
 scenes.push(Controls);
@@ -31,7 +33,7 @@ var config = {
         {
             default: 'matter',
             matter: {
-                debug: true,
+                debug: false,
 
                 gravity: {
                     x: 0,

@@ -1,6 +1,5 @@
 import { FloorTiles} from "../components/floorTiles.js";
 import {PointsPerson} from "../components/pointsPerson.js";
-//Matter.use('matter-collision-events');
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
 import {LaserObs} from "../components/laserComponent.js";
@@ -18,8 +17,6 @@ export class Match extends Phaser.Scene
         this.Controller1=new Controller(this);
         this.Controller2=new Controller(this);
 
-        //new Controller(this,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.W);
-        //this.Controller2=new Controller(this,Phaser.input.keyboard.KeyCodes.UP,Phaser.input.keyboard.KeyCodes.DOWN,Phaser.input.keyboard.KeyCodes.LEFT,Phaser.input.keyboard.KeyCodes.RIGHT)
         this.Player1=new Player(this,475,275,1,this.Controller1);
         this.Player2=new Player(this,1425,915,2,this.Controller2);
 
@@ -99,12 +96,7 @@ export class Match extends Phaser.Scene
 
 
         //ESTO NO LO HE BORRADO POR SI ACASO, PERO CREO QUE NO HACE FALTA
-        this.Player2.player.setOnCollideWith(this.Player1.Collision, pair => {
-            this.Player1.Attack(this.Player2);
-        });
-        this.Player1.player.setOnCollideWith(this.Player2.Collision, pair => {
-            this.Player2.Attack(this.Player1);
-        });
+
 
             //console.log(this.Player1.type)
             //console.log(this.Player2.type)

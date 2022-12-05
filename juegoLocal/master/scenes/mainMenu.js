@@ -18,6 +18,7 @@ export class MainMenu extends Phaser.Scene
         this.tutorialButton.preload();
         this.load.audio("encimaB", 'assets/sound/encimaBoton.wav');
         this.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
+        this.load.audio('mainMenuMusic', 'assets/sound/mainTheme.ogg');
     }
 
     create()
@@ -32,6 +33,7 @@ export class MainMenu extends Phaser.Scene
         this.encimaS = this.sound.add("encimaB");
 
         this.mainTheme = this.sound.add("mainMenuMusic", {loop: true});
+        this.mainTheme.play();
         this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40, null, this.mainTheme);
         this.creditsButton = new Button(this, 'credits', 'creditsButton', 1301, 757, 0.75, 1);
         this.tutorialButton = new Button(this, 'controls', 'controlsButton', 73, 757, 0.75, 1);
