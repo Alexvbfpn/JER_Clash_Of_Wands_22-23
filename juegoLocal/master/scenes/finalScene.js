@@ -39,7 +39,7 @@ export class FinalScene extends Phaser.Scene
         this.display.create();
         this.exitButton.create();
         this.dataObj.music.stop();
-
+        this.dataObj.crowdSound.stop();
     }
 
 }
