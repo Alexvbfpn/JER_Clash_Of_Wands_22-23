@@ -126,11 +126,11 @@ export class FloorTiles {
 
                 let openTile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
                     i * gameOptions.tileSize + gameOptions.initTilePosY,
-                    'openTiles' + randomTile, level[i][j]).setScale(this.floorMode);
+                    'openTiles' + randomTile, 0).setScale(this.floorMode);
 
                 let tile = this.relatedScene.add.sprite(j * gameOptions.tileSize + gameOptions.initTilePosX,
                     i * gameOptions.tileSize + gameOptions.initTilePosY,
-                    'tiles', level[i][j]).setScale(this.floorMode);
+                    'tiles', 0).setScale(this.floorMode);
 
                 let text = this.relatedScene.add.text(j * gameOptions.tileSize + gameOptions.initTilePosX, i * gameOptions.tileSize + gameOptions.initTilePosY - 75, level[i][j].toString(), {
                     fontFamily: 'tilesFont',

@@ -39,12 +39,14 @@ export class Match extends Phaser.Scene
         this.ikerP1.preload();
 
 
-        this.load.image('playerSprite', 'assets/img/sprite_Placa.PNG');
+       // this.load.image('playerSprite', 'assets/img/sprite_Placa.PNG');
         this.Player1.preload();
         this.Player2.preload();
         this.laserComponent.preload();
         this.laserComponent2.preload();
         this.cursors = this.input.keyboard.createCursorKeys();
+
+
 
     }
 
@@ -52,7 +54,7 @@ export class Match extends Phaser.Scene
     {
 
 
-        this.Controller1.create(Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.S,Phaser.Input.Keyboard.KeyCodes.A,Phaser.Input.Keyboard.KeyCodes.D,Phaser.Input.Keyboard.KeyCodes.SPACE,Phaser.Input.Keyboard.KeyCodes.E,Phaser.Input.Keyboard.KeyCodes.Q)
+        this.Controller1.create(Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.S,Phaser.Input.Keyboard.KeyCodes.A,Phaser.Input.Keyboard.KeyCodes.D,Phaser.Input.Keyboard.KeyCodes.X,Phaser.Input.Keyboard.KeyCodes.E,Phaser.Input.Keyboard.KeyCodes.Q)
         this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.I,Phaser.Input.Keyboard.KeyCodes.K,Phaser.Input.Keyboard.KeyCodes.J,Phaser.Input.Keyboard.KeyCodes.L,Phaser.Input.Keyboard.KeyCodes.M,Phaser.Input.Keyboard.KeyCodes.O,Phaser.Input.Keyboard.KeyCodes.U)
         this.matter.world.setBounds(360, 195, 1200, 800,500);
         this.add.image(960, 540, 'match_Background');
@@ -77,21 +79,25 @@ export class Match extends Phaser.Scene
         carvaP2.create();
         pepeP2.create();
 
-
-
         this.Player1.type = this.dataObj.player1Data.type;
         this.Player2.type = this.dataObj.player2Data.type;
-
-
         this.Player1.create();
         this.Player2.create();
         this.Player2.player.angle = -180;
         this.floorTiles.create();
         this.laserComponent.create();
         this.laserComponent2.create();
-
         //RING
-        var ring = this.add.image(283,120, 'ring').setOrigin(0).setInteractive({ draggable: true });
+        var ring = this.add.image(283,120, 'ring').setOrigin(0);
+
+
+        if(!this.dataObj.crowdSound.isPlaying)
+        {
+            //this.fightTheme.play();
+            this.dataObj.crowdSound.play()
+            this.dataObj.crowdSound.volume = 0.5;
+        }
+
 
     }
     update()

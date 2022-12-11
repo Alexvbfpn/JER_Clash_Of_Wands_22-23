@@ -38,7 +38,7 @@ export class CharacterSelector extends Phaser.Scene
                 },
 
             music: null,
-
+            crowdSound: null,
         };
 
     }
@@ -58,6 +58,7 @@ export class CharacterSelector extends Phaser.Scene
             frameWidth: 336,
             frameHeight: 428
         });
+        this.load.audio("crowdSound", 'assets/sound/crowdSound.wav');
     }
 
     create()
@@ -71,8 +72,11 @@ export class CharacterSelector extends Phaser.Scene
         //Fondo
         this.add.image(960, 540, 'characterSelector_Background');
         var scene = this.scene;
+        //Sonido
         this.fightTheme = this.sound.add("fightMusic", {loop: true});
         this.dataObj.music = this.fightTheme;
+        this.crowdSound = this.sound.add("crowdSound", {loop: true});
+        this.dataObj.crowdSound = this.crowdSound;
         //Añadimos los artworks de los personajes
         characters1 = this.add.sprite(1, 290, 'characters');
         characters1.visible = false;
@@ -105,6 +109,7 @@ export class CharacterSelector extends Phaser.Scene
         {
             //this.fightTheme.play();
             this.dataObj.music.play()
+            this.dataObj.music.volume = 0.3;
         }
 
 
@@ -127,8 +132,6 @@ export class CharacterSelector extends Phaser.Scene
             }
 
         });
-
-        var tint
 
         confirm_button.on('pointerover', function (){
 
