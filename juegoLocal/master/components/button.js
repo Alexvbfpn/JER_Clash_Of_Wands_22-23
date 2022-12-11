@@ -95,7 +95,7 @@ export class Button {
             {
                 mainTheme.stop();
             }
-            if(buttonName == 'creditsButton' || buttonName == 'backButtonCredits' || buttonName == 'controlsButton')
+            if(buttonName === 'creditsButton' || buttonName === 'backButtonCredits' || buttonName === 'controlsButton' || buttonName === 'playButton')
             {
                 scene.switch(dest);
             }else

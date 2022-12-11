@@ -6,10 +6,12 @@ import {FinalScene} from "./scenes/finalScene.js";
 import {Credits} from "./scenes/credits.js";
 import {Controls} from "./scenes/controls.js";
 import {StartScene} from "./scenes/startScene.js";
+import {ChooseMode} from "./scenes/chooseMode.js";
 
 var scenes = [];
 scenes.push(StartScene);
 scenes.push(MainMenu);
+scenes.push(ChooseMode);
 scenes.push(Credits);
 scenes.push(Controls);
 scenes.push(CharacterSelector);
