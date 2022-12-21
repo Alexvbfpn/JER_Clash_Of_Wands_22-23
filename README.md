@@ -253,7 +253,19 @@ En esta sección se expondrá todo el arte realizado para el juego (la mayoría 
 
 ### 6.1 Pantalla de Inicio
 
-La primera pantalla que se encuentra al abrir el juego. En ella visualizamos tres opciones:
+La primera pantalla que se encuentra al abrir el juego
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/pantallaInicio1.png)
+
+### 6.2 Pantalla de Inicio de sesión
+
+El usuario ha de poner su usuario y contraseña para acceder a su cuenta.
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/pantalla%20inicio%20sesion.png)
+
+### 6.3 Pantalla de Menú Principal
+
+En ella se visualizan tres opciones:
 
 - Jugar: Nos llevara al selector de personajes.
 - Tutorial: Nos indicará como ha de jugarse el juego de manera muy sencilla, así como los controles del mismo.
@@ -261,47 +273,51 @@ La primera pantalla que se encuentra al abrir el juego. En ella visualizamos tre
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/1.Inicio.png)
 
-### 6.2 Pantalla de Selección de personaje
+### 6.4 Pantalla de Selección de personaje
 
 Se observan 4 simbolos que corresponden a los 4 personajes con sus elementos representativos . El Jugador 1 deberá seleccionar primero y a continuación, seleccionará el jugador dos (Se puede repetir personaje).
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/2.Selector%20de%20personajes.png)
 
-### 6.3 Pantalla de Juego
+### 6.5 Pantalla de Juego
 
 Una vez se accede a la pantalla de juego tras la selección de personaje, se observa un ring separado en 6 cuadrados los cuales tienen una cuenta antrás dispar. Al llegar a 0, la trampilla se abrirá y el jugador que se úbice en tal sitio, morirá. A los laterales del ring se úbican 3 personajes que muestran la puntuación de cada jugador.
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/3.Pantalla%20de%20Juego.png)
 
-### 6.4 Pantalla de victoria de ronda
+### 6.6 Pantalla de victoria de ronda
 
 Para ganar la ronda, cada jugador deberá hacer que su rival muera ya sea por los laseres, o haciendo uso de sus poderes para que el otro jugador caiga por alguna de las trampillas abiertas.
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/4.Pantalla%20Victoria.png)
 
-### 6.5 Pantalla de victoria de partida
+### 6.7 Pantalla de victoria de partida
 
 Una vez ganada dos rondas (3 en caso de empate), uno de los jugadores ganará definitivamente mostrandose la pantalla de victoria.
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/5.pantalla%20victoria%20total.png)
 
-### 6.6 Pantalla de créditos
+### 6.8 Pantalla de créditos
 
 Se muestran los desarrolladores y las ramas de los miembros
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/6.%20creditos.png)
 
-### 6.7 Pantalla de controles
+### 6.9 Pantalla de controles
 
 Se muestran los controles para ambos jugadores
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/7.%20controles.png)
 
+
+
+
+
 ## 7.Flujo de pantallas
 
 Se muestra el flujo de pantallas
 
-![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/flujo%20de%20pantallas.png)
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/flujopantallas.png)
 
 ## 8. Sonidos
 ### Disclaimer
