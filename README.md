@@ -319,7 +319,13 @@ Se muestra el flujo de pantallas
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/flujopantallas.png)
 
-## 8. Sonidos
+## 8. Diagrama de clases
+
+A continuación se muestra un diagrama que relaciona todas las clases del juego:
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/uml.png)
+
+## 9. Sonidos
 ### Disclaimer
 Tanto los sonidos como la música, han sido sacados de las siguientes fuentes:
 
