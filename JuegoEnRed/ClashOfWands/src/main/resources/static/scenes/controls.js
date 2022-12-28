@@ -20,7 +20,11 @@ export class Controls extends Phaser.Scene
         this.load.image('controls_Background', 'assets/img/controls/controls_background.png');
         this.backButton.preload();
     }
+    init(data)
+    {
+        this.dataObj = data;
 
+    }
     create()
     {
 		//Control de usuarios

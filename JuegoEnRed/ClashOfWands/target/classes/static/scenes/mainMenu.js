@@ -60,8 +60,10 @@ export class MainMenu extends Phaser.Scene
         this.mainTheme.play();
         var mainTheme = this.mainTheme;
         //this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40, null, this.mainTheme, this.dataObj);
-        this.creditsButton = new Button(this, 'credits', 'creditsButton', 1301, 757, 0.75, 1);
-        this.tutorialButton = new Button(this, 'controls', 'controlsButton', 73, 757, 0.75, 1);
+        this.creditsButton = new Button(this, 'credits', 'creditsButton', 1301, 757, 0.75, 1,
+        null, null, this.dataObj);
+        this.tutorialButton = new Button(this, 'controls', 'controlsButton', 73, 757, 0.75, 1,
+            null, null, this.dataObj);
 		this.playButton = this.add.sprite(0, 0, 'play_button');
 		var container = this.add.container(686 + this.playButton.width/2, 757 + this.playButton.height/2,
             [this.playButton]).setScale(1.15, 1.15);
@@ -83,13 +85,12 @@ export class MainMenu extends Phaser.Scene
         container.on('pointerdown', function (){
 
             clickS.play();
-
            
             mainTheme.stop();
            
             
             
-            scene.scene.start('characterSelector', data);
+            scene.scene.start('chooseMode', data);
             
 
 

@@ -20,7 +20,10 @@ export class Credits extends Phaser.Scene
         this.load.image('credits_Background', 'assets/img/credits/credits_background.png');
         this.backButton.preload();
     }
-
+    init(data)
+    {
+        this.dataObj = data;
+    }
     create()
     {
 		//Control de usuarios

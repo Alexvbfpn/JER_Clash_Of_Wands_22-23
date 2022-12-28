@@ -16,7 +16,12 @@ export class ChooseMode extends Phaser.Scene
         this.load.image('online_button', 'assets/img/buttons/onlineBlock_buttonDef.png');
         this.onlineButton.preload();
     }
-
+	
+	init(data)
+    {
+        this.dataObj = data;
+    }
+	
     create()
     {
         //Fondo
