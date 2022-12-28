@@ -11,34 +11,9 @@ export class Login extends Phaser.Scene {
         this.username = 'Anonymous';
     }
 
-    init()
+    init(data)
     {
-        this.dataObj =
-            {
-                player1Data:
-                    {
-                        type: null,
-                        points: 0,
-                        wins: 0,
-                        id: 0
-                    },
-                player2Data:
-                    {
-                        type: null,
-
-                        points: 0,
-
-                        wins: 0,
-
-                        id:1
-
-                    },
-                url: window.location.href,
-                username: null,
-                music: null,
-                crowdSound: null,
-            };
-
+        this.dataObj = data;
     }
 
     preload() {
@@ -68,7 +43,9 @@ export class Login extends Phaser.Scene {
         let name = element.getChildByName("name");
         let password = element.getChildByName("password");
 
-        let text = this.add.text(450, 500, '').setScale(2);
+        let text = this.add.text(350, 650, '', {fontFamily: 'tilesFont',
+            font: (20).toString() + "px tilesFont",
+            color: 'black'}).setScale(2);
 
         let change = false; // boolean to change scene (at first is set to false)
 
@@ -96,13 +73,13 @@ export class Login extends Phaser.Scene {
 				})
 
                 // Starts the next scene
-                if (change) { // if we access with an existing user and correct password or create a new one we can change the scene
+                if (change) { //Si el usuario y contraseña existen y estan bien o no existen, se crea uno nuevo y se inicia la escena
                     this.scene.stop();
                     this.dataObj.username = name.value;
                     this.dataObj.url = url;
-                    this.scene.start('mainMenu', data);
-                } else { // if the given password doesn't match the one of the existing user, we can't change the scene
-                    text.setText('Wrong password. Try again'); //
+                    this.scene.start('lobby', data);
+                } else { // Si existe el usuario introducido pero la contraseña no es la guardada en el servidor, le decimos que intente de nuevo
+                    text.setText('Contraseña incorrecta. Inténtelo de nuevo'); //
                 }
             }
         });

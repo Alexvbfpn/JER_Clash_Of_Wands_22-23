@@ -1,4 +1,5 @@
 import {Button} from "../components/button.js"
+import {Chat} from "../components/chat.js";
 
 let url;
 
@@ -15,11 +16,36 @@ export class MainMenu extends Phaser.Scene
         this.playButton = new Button(this);
         this.creditsButton = new Button(this);
         this.tutorialButton = new Button(this);
+        this.chat = new Chat(this);
     }
 
-    init(data)
+    init()
     {
-        this.dataObj = data;
+        this.dataObj =
+            {
+                player1Data:
+                    {
+                        type: null,
+                        points: 0,
+                        wins: 0,
+                        id: 0
+                    },
+                player2Data:
+                    {
+                        type: null,
+
+                        points: 0,
+
+                        wins: 0,
+
+                        id:1
+
+                    },
+                url: window.location.href,
+                username: null,
+                music: null,
+                crowdSound: null,
+            };
     }
 
     preload()
@@ -34,19 +60,22 @@ export class MainMenu extends Phaser.Scene
         this.load.audio("encimaB", 'assets/sound/encimaBoton.wav');
         this.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
         this.load.audio('mainMenuMusic', 'assets/sound/mainTheme.ogg');
-        this.load.html('chat', "./chat.html");
+        this.chat.preload();
     }
 
     create()
     {
-		 var clickS = this.sound.add("pulsarB");
+        var clickS = this.sound.add("pulsarB");
         var onS = this.sound.add("onB");
-		 var scene = this;
+        var scene = this;
 		console.log(this.dataObj);
+        /*
         this.username = this.dataObj.username;
         url = this.dataObj.url;
         activeUsersNumber = 0;
         activePrevUsersNumber = 0;
+
+         */
         //Fondo
         this.add.image(960, 540, 'mainMenu_Background');
         this.input.setDefaultCursor('url(assets/img/mainMenu/cursor.cur), pointer');
@@ -102,20 +131,14 @@ export class MainMenu extends Phaser.Scene
         //this.playButton.create();
         this.creditsButton.create();
         this.tutorialButton.create();
-
-
-        let text = this.add.text(-100, -100, '0', {
-            fontFamily: 'tilesFont',
-            font: (1).toString() + "px tilesFont",
-            //fontWeight: "bold",
-            color: '#32023a'
-        });
-
+        /*
         textActiveUsers = this.add.text(50, 50, 'Usuarios activos: ' + activeUsersNumber, {
 			fontFamily: 'tilesFont',
 			font: (40).toString() + "px tilesFont",
 			color: 'black'
 		})
+
+         */
 
         /*
         //Animación del texto
@@ -132,6 +155,10 @@ export class MainMenu extends Phaser.Scene
         });
 
          */
+
+        this.chat.dataObj = this.dataObj;
+        this.chat.create();
+        /*
 		// PRUEBA DE CHAT
 	
 		let username = this.username;
@@ -143,7 +170,7 @@ export class MainMenu extends Phaser.Scene
         {
             deleteActiveUser(username);
         });
-        
+
         // ------------CHAT-----------------
         var chat = this.add.dom(1400, -280).createFromCache('chat');
         let input = chat.getChildByName("inputChat");
@@ -181,14 +208,16 @@ export class MainMenu extends Phaser.Scene
 					}
 			}
 		})
+
+         */
     	
     }
 	
     update(){
 
-        getActiveUsers();
-        updateActiveUsers();
-        textActiveUsers.setText('Usuarios activos: ' + activeUsersNumber);
+        //getActiveUsers();
+        //updateActiveUsers();
+        //textActiveUsers.setText('Usuarios activos: ' + activeUsersNumber);
         /*
         window.addEventListener('beforeunload', () =>
         {
@@ -206,10 +235,12 @@ export class MainMenu extends Phaser.Scene
         });
 
          */
-        console.log(activeUsersNumber);
+        //console.log(activeUsersNumber);
+        this.chat.update();
     }
 
 }
+/*
 function updateActiveUsers(){
     
     if(activePrevUsersNumber != activeUsersNumber)
@@ -282,5 +313,5 @@ function getMessage() {
 	}
 
 }
-
+ */
 

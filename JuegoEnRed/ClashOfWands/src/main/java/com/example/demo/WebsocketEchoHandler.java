@@ -12,12 +12,14 @@ public class WebsocketEchoHandler extends TextWebSocketHandler{
 	private Map<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
 	private int maxOnline = 2;
 	
+	//Notify a connection
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception 
 	{
 		System.out.println("New session" + session.getId());
 		sessions.put(session.getId(), session);
 	}
+	//Notify a disconnection 
 	@Override
 	public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception 
 	{

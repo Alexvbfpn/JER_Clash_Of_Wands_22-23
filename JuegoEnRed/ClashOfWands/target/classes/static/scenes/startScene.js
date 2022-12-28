@@ -26,10 +26,17 @@ export class StartScene extends Phaser.Scene
         let scene = this.scene;
         this.back.on('pointerdown', function (){
 
-            scene.start('login');
+            scene.start('mainMenu');
 
 
 
+        });
+
+        let text111 = this.add.text(-100, -100, '0', {
+            fontFamily: 'tilesFont',
+            font: (1).toString() + "px tilesFont",
+            //fontWeight: "bold",
+            color: '#32023a'
         });
 
         this.tweens.add({

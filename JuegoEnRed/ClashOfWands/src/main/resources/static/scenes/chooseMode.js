@@ -1,4 +1,10 @@
 import {Button} from "../components/button.js"
+let url;
+
+let activeUsersNumber;
+let activePrevUsersNumber;
+
+let textActiveUsers;
 export class ChooseMode extends Phaser.Scene
 {
     constructor()
@@ -13,7 +19,7 @@ export class ChooseMode extends Phaser.Scene
         //this.load.image('mainMenu_Background', 'assets/img/background_mainMenu.png');
         this.localButton.preload();
         this.load.image('local_button', 'assets/img/buttons/local_buttonDef.png');
-        this.load.image('online_button', 'assets/img/buttons/onlineBlock_buttonDef.png');
+        this.load.image('online_button', 'assets/img/buttons/online_buttonDef.png');
         this.onlineButton.preload();
     }
 	
@@ -32,8 +38,8 @@ export class ChooseMode extends Phaser.Scene
         this.clickS = this.sound.add("pulsarB");
         this.encimaS = this.sound.add("encimaB");
 
-        this.localButton = new Button(this, 'characterSelector', 'local_button', 286, 757, 1.15, 1.40, null, this.mainTheme);
-        this.onlineButton = new Button(this, 'credits', 'online_button', 1101, 757, 1.15, 1.40);
+        this.localButton = new Button(this, 'characterSelector', 'local_button', 286, 757, 1.15, 1.40, null, null, this.dataObj);
+        this.onlineButton = new Button(this, 'login', 'online_button', 1101, 757, 1.15, 1.40, null, null, this.dataObj);
 
 
         //Llamamos al create de cada uno para que se cree y muestre en la escena
@@ -55,6 +61,93 @@ export class ChooseMode extends Phaser.Scene
         });
 
          */
+
+        var scene = this;
+        console.log(this.dataObj);
+        this.username = this.dataObj.username;
+        url = this.dataObj.url;
+        activeUsersNumber = 0;
+        activePrevUsersNumber = 0;
+        var data = this.dataObj;
+        textActiveUsers = this.add.text(50, 50, 'Usuarios activos: ' + activeUsersNumber, {
+            fontFamily: 'tilesFont',
+            font: (40).toString() + "px tilesFont",
+            color: 'black'
+        })
+
+        let username = this.username;
+
+        /*
+        //Al cerrarse la pestaña se desconecta el usuario
+        window.addEventListener('beforeunload', () =>
+        {
+            deleteActiveUser(username);
+        });
+         */
+
+    }
+    update(){
+
+        getActiveUsers();
+        updateActiveUsers();
+        textActiveUsers.setText('Usuarios activos: ' + activeUsersNumber);
+        /*
+        window.addEventListener('beforeunload', () =>
+        {
+            $.ajax({
+                method: "DELETE",
+                url: url+ "activeUsers/" + username,
+                success : function () {
+                    console.log("User removed");
+                },
+                error : function () {
+                    console.log("Failed to delete");
+                    console.log("The URL was:\n" + url + "users/"+username)
+                }
+            })
+        });
+
+         */
+    }
+}
+function updateActiveUsers(){
+
+    if(activePrevUsersNumber != activeUsersNumber)
+    {
+        if(activePrevUsersNumber < activeUsersNumber){
+            console.log("Se ha conectado alguien. El número actual de usuarios es: " + activeUsersNumber);
+            //sendMessage('Alguien', 'se ha conectado, ¡viene con ganas de pelea!');
+        }else if(activePrevUsersNumber > activeUsersNumber){
+            //sendMessage('Alguien', 'se ha desconectado, un cobarde menos');
+            console.log("Alguien se ha desconectado. El número actual de usuarios es: " + activeUsersNumber);
+        }
+
+        activePrevUsersNumber = activeUsersNumber;
     }
 
+}
+
+function deleteActiveUser(user)
+{
+    $.ajax({
+        method: "DELETE",
+        url: url+ "activeUsers/" + user,
+        success : function () {
+            console.log("User removed");
+        },
+        error : function () {
+            console.log("Failed to delete");
+            console.log("The URL was:\n" + url + "users/"+username)
+        }
+    });
+}
+
+function getActiveUsers(){
+    $.ajax({
+        url:  url + "activeUsersNum",
+        method: 'GET',
+        dataType: 'json'
+    }).done(function(data) {
+        activeUsersNumber = data;
+    });
 }

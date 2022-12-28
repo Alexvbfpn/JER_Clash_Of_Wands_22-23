@@ -8,12 +8,14 @@ import {Controls} from "./scenes/controls.js";
 import {StartScene} from "./scenes/startScene.js";
 import {ChooseMode} from "./scenes/chooseMode.js";
 import {Login} from "./scenes/login.js";
+import {Lobby} from "./scenes/lobby.js";
 
 var scenes = [];
 scenes.push(StartScene);
 scenes.push(MainMenu);
 scenes.push(Login);
 scenes.push(ChooseMode);
+scenes.push(Lobby);
 scenes.push(Credits);
 scenes.push(Controls);
 scenes.push(CharacterSelector);
