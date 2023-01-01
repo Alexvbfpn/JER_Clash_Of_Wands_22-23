@@ -41,7 +41,7 @@ export class Lobby extends Phaser.Scene
         activePrevUsersNumber = 0;
         var onlineUsers;
         var connection;
-        countdown = 10;
+        countdown = 5;
         let username = this.username;
 
         //Fondo
@@ -58,6 +58,7 @@ export class Lobby extends Phaser.Scene
         if(connection == null || connection == undefined)
         {
             connection = new WebSocket("ws://"+ wsURL + "echo");
+            this.dataObj.connection = connection;
         }
         console.log("Ws URL: \n" + wsURL + "echo");
         textActiveUsers = this.add.text(50, 50, 'Usuarios activos: ' + activeUsersNumber, {
@@ -135,10 +136,10 @@ export class Lobby extends Phaser.Scene
         //countdownText.setText(countdown);
         if(activeUsersNumber === 1)
         {
-            id = data.player1Data.id;
+            id = 0;
         } else if (activeUsersNumber === 2 && id==null)
         {
-            id = data.player2Data.id;
+            id = 1;
 
         }
 
@@ -161,7 +162,9 @@ export class Lobby extends Phaser.Scene
         }
         if (countdown <= 0)
         {
-            this.scene.start("characterSelector", this.dataObj);
+            this.dataObj.playerId = id;
+            console.log("ID: " + id);
+            this.scene.start("onlineCharacterSelector", this.dataObj);
         }
     }
 

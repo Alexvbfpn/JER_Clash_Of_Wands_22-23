@@ -1,5 +1,13 @@
 package com.example.demo;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+
+import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
+import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
+
 import org.springframework.web.socket.WebSocketSession;
 import java.io.IOException;
 import java.util.Map;
@@ -11,7 +19,7 @@ public class WebsocketEchoHandler extends TextWebSocketHandler{
 
 	private Map<String, WebSocketSession> sessions = new ConcurrentHashMap<>();
 	private int maxOnline = 2;
-	
+	private ObjectMapper mapper = new ObjectMapper();
 	//Notify a connection
 	@Override
 	public void afterConnectionEstablished(WebSocketSession session) throws Exception 
@@ -29,16 +37,25 @@ public class WebsocketEchoHandler extends TextWebSocketHandler{
 	@Override
 	protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception 
 	{
-		sendOtherParticipants(session, message.getPayload());
+		JsonNode node = mapper.readTree(message.getPayload());
+		sendOtherParticipants(session, node);
 	}
 	
-	private void sendOtherParticipants(WebSocketSession session, String payload) throws IOException 
+	private void sendOtherParticipants(WebSocketSession session, JsonNode node) throws IOException 
 	{
+		ObjectNode newNode = mapper.createObjectNode();
+		
+		newNode.put("id", node.get("id").asInt());
+		newNode.put("visibleCharacter", node.get("visibleCharacter").asBoolean());
+		newNode.put("frameCharacter", node.get("frameCharacter").asInt());
+		newNode.put("text", node.get("text").asInt());
+		newNode.put("ready", node.get("ready").asInt());
+		newNode.put("type", node.get("type"));
 		for(WebSocketSession participant: sessions.values()) 
 		{
 			if(!participant.getId().equals(session.getId())) 
 			{
-				participant.sendMessage(new TextMessage(payload));
+				participant.sendMessage(new TextMessage(newNode.toString()));
 			}
 		}
 	}

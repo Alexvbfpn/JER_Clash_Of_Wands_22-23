@@ -45,6 +45,8 @@ export class MainMenu extends Phaser.Scene
                 username: null,
                 music: null,
                 crowdSound: null,
+                playerId: null,
+                connection: null,
             };
     }
 
@@ -156,8 +158,8 @@ export class MainMenu extends Phaser.Scene
 
          */
 
-        this.chat.dataObj = this.dataObj;
-        this.chat.create();
+        //this.chat.dataObj = this.dataObj;
+        //this.chat.create();
         /*
 		// PRUEBA DE CHAT
 	
@@ -236,7 +238,7 @@ export class MainMenu extends Phaser.Scene
 
          */
         //console.log(activeUsersNumber);
-        this.chat.update();
+        //this.chat.update();
     }
 
 }
