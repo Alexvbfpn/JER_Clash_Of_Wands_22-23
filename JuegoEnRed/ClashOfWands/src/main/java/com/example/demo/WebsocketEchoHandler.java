@@ -44,18 +44,26 @@ public class WebsocketEchoHandler extends TextWebSocketHandler{
 	private void sendOtherParticipants(WebSocketSession session, JsonNode node) throws IOException 
 	{
 		ObjectNode newNode = mapper.createObjectNode();
-		
+		ObjectNode playerNode = mapper.createObjectNode();
+
 		newNode.put("id", node.get("id").asInt());
 		newNode.put("visibleCharacter", node.get("visibleCharacter").asBoolean());
 		newNode.put("frameCharacter", node.get("frameCharacter").asInt());
 		newNode.put("text", node.get("text").asInt());
 		newNode.put("ready", node.get("ready").asInt());
 		newNode.put("type", node.get("type"));
+
+		playerNode.put("id",node.get("id").asInt;
+		playerNode.put("positionX",node.get("positionX").asInt;
+		playerNode.put("positionY",node.get("positionY").asInt;
+		playerNode.put("isAttacking",node.get("isAttacking").asBoolean;
+
 		for(WebSocketSession participant: sessions.values()) 
 		{
 			if(!participant.getId().equals(session.getId())) 
 			{
 				participant.sendMessage(new TextMessage(newNode.toString()));
+				participant.sendMessage(new TextMessage(playerNode.toString()));
 			}
 		}
 	}
