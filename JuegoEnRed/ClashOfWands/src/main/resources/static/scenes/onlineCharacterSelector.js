@@ -1,5 +1,5 @@
 import {Selector} from "../components/selector.js";
-import {RuneManager} from "../components/runeManager.js";
+import {OnlineRuneManager} from "../components/onlineRuneManager.js";
 import {Button} from "../components/button.js";
 import {Chat} from "../components/chat.js";
 
@@ -26,6 +26,7 @@ var rivalReady = false;
 var generalData;
 var countdown = 10;
 var countdownText;
+var countdownText2;
 
 
 export class OnlineCharacterSelector extends Phaser.Scene
@@ -52,11 +53,11 @@ export class OnlineCharacterSelector extends Phaser.Scene
         this.water.preload();
         this.backButton.preload();
         this.load.audio("fightMusic", 'assets/sound/fightTheme.ogg');
-        this.load.spritesheet('textP1', 'assets/img/characterSelector/spriteSheet_textP1.png', {
+        this.load.spritesheet('textP1', 'assets/img/characterSelector/spriteSheet_textP1Def.png', {
             frameWidth: 336,
             frameHeight: 428
         });
-        this.load.spritesheet('textP2', 'assets/img/characterSelector/spriteSheet_textP2.png', {
+        this.load.spritesheet('textP2', 'assets/img/characterSelector/spriteSheet_textP2Def.png', {
             frameWidth: 336,
             frameHeight: 428
         });
@@ -154,6 +155,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             playerReady = true;
             if(playerReady && rivalReady)
             {
+                runes[0].currentText.setFrame(6);
                 //scene.scene.start('match', generalData);
             }
 
@@ -202,7 +204,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             confirm_button.clearTint();
         });
 
-        this.runeManager = new RuneManager(this, runes, confirm_button, characters2, textP2);
+        this.runeManager = new OnlineRuneManager(this, runes, confirm_button, characters2, textP2);
         this.runeManager.create();
 
         // USUARIOS Y CHAT
@@ -222,10 +224,14 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
 
         // -----COUNTDOWN------
-        countdownText = this.add.text(900, 250, "", {
+        countdownText = this.add.text(675, 750, "", {
             fontFamily: 'tilesFont',
-            font: (300).toString() + "px tilesFont",
-            color: 'white'});
+            font: (200).toString() + "px tilesFont",
+            color: 'black'});
+        countdownText2 = this.add.text(1108, 750, "", {
+            fontFamily: 'tilesFont',
+            font: (200).toString() + "px tilesFont",
+            color: 'black'});
         this.countdownEvent = this.time.addEvent({delay: 1000, callback: countdownFunction, callbackScope: this, loop: true});
         // ------------CHAT-----------------
         this.chat.dataObj = this.dataObj;
@@ -331,8 +337,10 @@ function countdownFunction()
 {
     if(playerReady && rivalReady)
     {
+        runes[0].currentText.setFrame(6);
         countdown--;
         countdownText.text = countdown.toString();
+        countdownText2.text = countdown.toString();
     }
 }
 
