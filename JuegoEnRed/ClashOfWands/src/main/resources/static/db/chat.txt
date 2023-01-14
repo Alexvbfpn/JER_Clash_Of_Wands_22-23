@@ -11,3 +11,9 @@
 -Alguien: se ha conectado, ¡viene con ganas de pelea!
 -Alguien: se ha desconectado, un cobarde menos
 -Alguien: se ha desconectado, un cobarde menos
+-Alguien: se ha desconectado, un cobarde menos
+-Alguien: se ha desconectado, un cobarde menos
+-Alguien: se ha desconectado, un cobarde menos
+-Alguien: se ha desconectado, un cobarde menos
+-Alguien: se ha desconectado, un cobarde menos
+-Alguien: se ha desconectado, un cobarde menos

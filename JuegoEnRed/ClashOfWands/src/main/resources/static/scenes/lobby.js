@@ -10,7 +10,7 @@ var connection;
 let usersReady = 0;
 var countdown = 10;
 var countdownText;
-var waitText;
+var stateText;
 var playerText;
 var confirm_button;
 var playerReady = false;
@@ -42,6 +42,11 @@ export class Lobby extends Phaser.Scene
             frameWidth: 512,
             frameHeight: 80
         })
+        this.load.spritesheet('states_texts','assets/img/lobby/spritesheet_lobby.png' , {
+            frameWidth: 1304,
+            frameHeight: 248
+        })
+
     }
 
     create()
@@ -74,7 +79,8 @@ export class Lobby extends Phaser.Scene
         }
 
         //Botón de confirmación
-        confirm_button = this.add.image(140, 908, 'confirm_button').setOrigin(0, 0);
+        //confirm_button = this.add.image(140, 908, 'confirm_button').setOrigin(0, 0);
+        confirm_button = this.add.image(900, 508, 'confirm_button').setOrigin(0, 0);
         confirm_button.setInteractive()
         confirm_button.visible = false;
 
@@ -87,7 +93,7 @@ export class Lobby extends Phaser.Scene
             console.log("RivalReady: " + rivalReady);
             if(playerReady && rivalReady)
             {
-
+                stateText.setFrame(2);
                 //scene.scene.start('match', generalData);
             }
 
@@ -126,10 +132,10 @@ export class Lobby extends Phaser.Scene
             color: 'black'
         })
 
-
+        //stateText = this.add.sprite(312, 889, 'states_text', 0).setOrigin(0, 0);
         if (activeUsersNumber < 2)
         {
-            waitText = this.add.image(312, 889, 'waitingText').setOrigin(0, 0);
+            stateText = this.add.sprite(312, 889, 'states_texts', 0).setOrigin(0, 0);
         }
 
 
@@ -139,7 +145,7 @@ export class Lobby extends Phaser.Scene
             color: 'white'});
 
         this.tweens.add({
-            targets: waitText,
+            targets: stateText,
             alpha: 0.2,
             duration: 1400,
             ease: 'Sine.easeOut',
@@ -190,7 +196,7 @@ export class Lobby extends Phaser.Scene
         }
 
         timedEventUpdateConnection = this.time.addEvent({
-            delay: 33,
+            delay: 13,
             callback: this.sendCharacterInfo,
             callbackScope: this,
             loop: true });
@@ -216,13 +222,16 @@ export class Lobby extends Phaser.Scene
 
         if(activeUsersNumber == maxUsersReady)
         {
-
             usersReady++;
+            if(playerReady && rivalReady)
+            {
+                stateText.setFrame(2);
+            }
         }
 
         if(usersReady === 1)
         {
-            this.rivalFoundText = this.add.image(357, 804, 'foundText').setOrigin(0, 0);
+            //this.rivalFoundText = this.add.image(357, 804, 'foundText').setOrigin(0, 0);
             confirm_button.setVisible(true);
             /*
             this.rivalFoundText = this.add.text(500, 200, 'Se ha encontrado un rival, preparando el ring...', {
@@ -231,7 +240,7 @@ export class Lobby extends Phaser.Scene
                 color: 'black'}).setScale(2);
 
              */
-            waitText.setVisible(false);
+            stateText.setFrame(1);
         }
 
         if (countdown <= 0)
