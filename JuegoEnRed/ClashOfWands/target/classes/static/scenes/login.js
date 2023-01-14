@@ -2,7 +2,7 @@
 $(document).ready(function(){
     console.log('DOM charged (login)')
 });
-
+var countdown = 1;
 let url;
 export class Login extends Phaser.Scene {
     constructor() {
@@ -28,16 +28,21 @@ export class Login extends Phaser.Scene {
         this.load.image('mainMenu_Background', 'assets/img/background_mainMenu.png');
         this.load.html('form', "./form.html");
         this.load.image('start_button', 'assets/img/access.png');
+        this.load.image('login_background', 'assets/img/login/background_login.png');
+        this.load.spritesheet('login_texts', 'assets/img/login/spritesheet_LoginTexts.png', {
+            frameWidth: 638,
+            frameHeight: 137
+        });
 
     }
 
 
     create() {
 		url = this.dataObj.url;
-        this.add.image(960, 540, 'mainMenu_Background');
+        this.add.image(960, 540, 'login_background');
         
         // Creates variable for managing the textview
-
+        countdown = 1;
         var element = this.add.dom(750, 800).createFromCache('form');
 
         let name = element.getChildByName("name");
@@ -46,9 +51,10 @@ export class Login extends Phaser.Scene {
         let text = this.add.text(350, 650, '', {fontFamily: 'tilesFont',
             font: (20).toString() + "px tilesFont",
             color: 'black'}).setScale(2);
-
+        this.responseText = this.add.sprite(650, 550, 'login_texts', 0).setOrigin(0, 0);
+        this.responseText.setVisible(false);
         let change = false; // boolean to change scene (at first is set to false)
-
+        var responseText = this.responseText;
 		var data = this.dataObj;
         this.startButton = this.add.sprite(955, 950, 'start_button');
         this.startButton.setInteractive().on('pointerdown', () => {
@@ -74,12 +80,17 @@ export class Login extends Phaser.Scene {
 
                 // Starts the next scene
                 if (change) { //Si el usuario y contraseña existen y estan bien o no existen, se crea uno nuevo y se inicia la escena
-                    this.scene.stop();
+                    this.responseText.setFrame(0);
+                    this.responseText.setVisible(true);
+                    //this.scene.stop();
                     this.dataObj.username = name.value;
                     this.dataObj.url = url;
-                    this.scene.start('lobby', data);
+                    this.time.addEvent({delay: 1000, callback: countdownFunction, callbackScope: this, loop: true});
+                    //this.scene.start('lobby', data);
                 } else { // Si existe el usuario introducido pero la contraseña no es la guardada en el servidor, le decimos que intente de nuevo
-                    text.setText('Contraseña incorrecta. Inténtelo de nuevo'); //
+                    this.responseText.setFrame(2);
+                    this.responseText.setVisible(true);
+                    //text.setText('Contraseña incorrecta. Inténtelo de nuevo'); //
                 }
             }
         });
@@ -96,6 +107,25 @@ export class Login extends Phaser.Scene {
             //onS.play();
         })
 
-
+        this.tweens.add({
+            targets: responseText,
+            alpha: 0.5,
+            duration: 1000,
+            ease: 'Sine.easeOut',
+            yoyo: true,
+            repeat: -1
+        });
     }
+    update()
+    {
+        if(countdown<= 0)
+        {
+            this.scene.start('lobby', this.dataObj);
+        }
+    }
+}
+function countdownFunction()
+{
+    countdown--;
+    //countdownText.text = countdown.toString();
 }

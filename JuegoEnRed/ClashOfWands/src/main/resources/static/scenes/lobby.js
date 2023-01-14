@@ -6,10 +6,17 @@ let activePrevUsersNumber;
 var data;
 let textActiveUsers;
 var id;
+var connection;
 let usersReady = 0;
 var countdown = 10;
 var countdownText;
 var waitText;
+var playerText;
+var confirm_button;
+var playerReady = false;
+var rivalReady = false;
+var isSocketOpen = false;
+var timedEventUpdateConnection;
 
 export class Lobby extends Phaser.Scene
 {
@@ -30,17 +37,24 @@ export class Lobby extends Phaser.Scene
         this.load.image('lobby_background', 'assets/img/lobby/background_lobby.png');
         this.load.image('waitingText', 'assets/img/lobby/waitingText.png');
         this.load.image('foundText', 'assets/img/lobby/findText.png');
+        this.load.image('confirm_button', 'assets/img/characterSelector/confirm_button.png');
+        this.load.spritesheet('player_texts', 'assets/img/lobby/player_text.png', {
+            frameWidth: 512,
+            frameHeight: 80
+        })
     }
 
     create()
     {
+        id = null;
+        playerReady = false;
+        rivalReady = false;
         var scene = this;
         this.username = this.dataObj.username;
         url = this.dataObj.url;
         activeUsersNumber = 0;
         activePrevUsersNumber = 0;
-        var onlineUsers;
-        var connection;
+
         countdown = 5;
         let username = this.username;
 
@@ -49,8 +63,53 @@ export class Lobby extends Phaser.Scene
 
         data = this.dataObj;
 
+        if(activeUsersNumber === 1)
+        {
+            id = 0;
+            playerText.setFrame(0);
+        } else if (activeUsersNumber === 2 && id==null)
+        {
+            id = 1;
+            playerText.setFrame(1);
+        }
+
+        //Botón de confirmación
+        confirm_button = this.add.image(140, 908, 'confirm_button').setOrigin(0, 0);
+        confirm_button.setInteractive()
+        confirm_button.visible = false;
+
+        confirm_button.on('pointerdown', function ()
+        {
+            console.log()
+            confirm_button.setVisible(false);
+            playerReady = true;
+            console.log("PlayerReady: " + playerReady);
+            console.log("RivalReady: " + rivalReady);
+            if(playerReady && rivalReady)
+            {
+
+                //scene.scene.start('match', generalData);
+            }
+
+        });
+
+        confirm_button.on('pointerover', function (){
+
+            confirm_button.setTint(0x2BA32B);
+
+        });
+
+        confirm_button.on('pointerout', function (){
+
+            confirm_button.clearTint();
+        });
+
+        //----------CHAT---------
         this.chat.dataObj = this.dataObj;
         this.chat.create();
+
+
+
         // ------------WEBSOCKETS--------------
         console.log(url);
         var wsURL = url.replace("http://", "");
@@ -66,47 +125,19 @@ export class Lobby extends Phaser.Scene
             font: (40).toString() + "px tilesFont",
             color: 'black'
         })
-        //Atributos de la conexión
-        connection.onerror = function(e){
-            console.log("WS error: " + e);
-        }
 
-        connection.onclose = function(){
-            deleteActiveUser(username);
-            console.log("Closing socket.");
-
-        }
 
         if (activeUsersNumber < 2)
         {
             waitText = this.add.image(312, 889, 'waitingText').setOrigin(0, 0);
-            /*
-            waitText = this.add.text(400, 200, 'Esperando a que un rival se conecte, espere por favor', {
-                fontFamily: 'tilesFont',
-                font: (40).toString() + "px tilesFont",
-                color: 'black'});
-                */
-
         }
+
+
         countdownText = this.add.text(900, 250, "", {
             fontFamily: 'tilesFont',
             font: (300).toString() + "px tilesFont",
             color: 'white'});
-        /*
-        //Animación del texto
-        var play_button = this.add.image(0, 0, 'playButton').setScale(1.5, 1.5);
-        var text_play_button = this.add.image(0, 0, 'textPlayButton').setScale(1.5, 1.5);
 
-        this.tweens.add({
-            targets: text_play_button,
-            alpha: 0.5,
-            duration: 750,
-            ease: 'Sine.easeOut',
-            yoyo: true,
-            repeat: -1
-        });
-
-         */
         this.tweens.add({
             targets: waitText,
             alpha: 0.2,
@@ -118,6 +149,7 @@ export class Lobby extends Phaser.Scene
         // PRUEBA DE CHAT
 
         //Al cerrarse la pestaña se desconecta el usuario
+
         window.addEventListener('beforeunload', () =>
         {
             deleteActiveUser(username);
@@ -125,11 +157,49 @@ export class Lobby extends Phaser.Scene
 
         this.countdownEvent = this.time.addEvent({delay: 1000, callback: countdownFunction, callbackScope: this, loop: true});
 
+
+
+        playerText = this.add.sprite(712, 100, 'player_texts', 0).setOrigin(0, 0);
+        if(id === 0)
+        {
+            playerText.setFrame(0);
+            playerText.setScale(1, 1);
+        } else if(id == 1)
+        {
+            playerText.setFrame(1);
+            playerText.setScale(1, 1);
+        }
+
+        //Atributos de la conexión
+
+        connection.onopen = function (){
+            isSocketOpen = true;
+            console.log("Socket abierto")
+
+        }
+
+        connection.onclose = function(){
+            deleteActiveUser(username);
+            isSocketOpen = false;
+            console.log("Closing socket.");
+        }
+
+        connection.onmessage = function (message){
+            let msg = JSON.parse(message.data);
+            updatePlayerInfo(msg);
+        }
+
+        timedEventUpdateConnection = this.time.addEvent({
+            delay: 33,
+            callback: this.sendCharacterInfo,
+            callbackScope: this,
+            loop: true });
+
     }
 
     update(){
-        console.log("Countdown: " + countdown);
-        console.log("Users Ready: " + usersReady);
+        //console.log("Countdown: " + countdown);
+        //console.log("Users Ready: " + usersReady);
         getActiveUsers();
         updateActiveUsers();
         textActiveUsers.setText('Usuarios activos: ' + activeUsersNumber);
@@ -137,20 +207,23 @@ export class Lobby extends Phaser.Scene
         if(activeUsersNumber === 1)
         {
             id = 0;
+            playerText.setFrame(0);
         } else if (activeUsersNumber === 2 && id==null)
         {
             id = 1;
-
+            playerText.setFrame(1);
         }
 
         if(activeUsersNumber == maxUsersReady)
         {
+
             usersReady++;
         }
 
         if(usersReady === 1)
         {
             this.rivalFoundText = this.add.image(357, 804, 'foundText').setOrigin(0, 0);
+            confirm_button.setVisible(true);
             /*
             this.rivalFoundText = this.add.text(500, 200, 'Se ha encontrado un rival, preparando el ring...', {
                 fontFamily: 'tilesFont',
@@ -160,6 +233,7 @@ export class Lobby extends Phaser.Scene
              */
             waitText.setVisible(false);
         }
+
         if (countdown <= 0)
         {
             this.dataObj.playerId = id;
@@ -168,18 +242,45 @@ export class Lobby extends Phaser.Scene
         }
     }
 
+    sendCharacterInfo()
+    {
+        let message;
+
+        message = {
+            id: id,
+            ready: playerReady,
+            visibleCharacter: null,
+            frameCharacter: null,
+            text: null,
+            type: null,
+        }
+
+
+        console.log(message);
+        if(isSocketOpen && (activeUsersNumber == 2))
+        {
+            //console.log("Sending");
+            connection.send(JSON.stringify(message))
+        }
+    }
+
+}
+
+function updatePlayerInfo(data)
+{
+    console.log("Rival listo: " + data.ready);
+    rivalReady = data.ready;
 }
 
 function countdownFunction()
 {
-    if(usersReady >1)
+    if(playerReady && rivalReady)
     {
         countdown--;
         countdownText.text = countdown.toString();
     }
 
 }
-
 
 
 function updateActiveUsers(){

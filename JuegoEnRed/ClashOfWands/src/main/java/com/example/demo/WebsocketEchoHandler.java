@@ -49,7 +49,7 @@ public class WebsocketEchoHandler extends TextWebSocketHandler{
 		newNode.put("visibleCharacter", node.get("visibleCharacter").asBoolean());
 		newNode.put("frameCharacter", node.get("frameCharacter").asInt());
 		newNode.put("text", node.get("text").asInt());
-		newNode.put("ready", node.get("ready").asInt());
+		newNode.put("ready", node.get("ready").asBoolean());
 		newNode.put("type", node.get("type"));
 		for(WebSocketSession participant: sessions.values()) 
 		{

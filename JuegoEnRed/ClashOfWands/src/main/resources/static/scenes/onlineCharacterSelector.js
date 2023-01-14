@@ -17,7 +17,7 @@ var characters1;
 var characters2;
 var textP1;
 var textP2;
-var timedEventUpdateConection;
+var timedEventUpdateConnection;
 var connection;
 var isSocketOpen = false;
 var bothReady = false;
@@ -49,7 +49,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
     preload()
     {
         this.load.image('characterSelector_Background', 'assets/img/characterSelector/background_characterSelector.png');
-        this.load.image('confirm_button', 'assets/img/characterSelector/confirm_button.png')
+
         this.water.preload();
         this.backButton.preload();
         this.load.audio("fightMusic", 'assets/sound/fightTheme.ogg');
@@ -256,7 +256,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             let msg = JSON.parse(message.data);
             updatePlayerInfo(msg);
         }
-        timedEventUpdateConection = this.time.addEvent({
+        timedEventUpdateConnection = this.time.addEvent({
             delay: 33,
             callback: this.sendCharacterInfo,
             callbackScope: this,
