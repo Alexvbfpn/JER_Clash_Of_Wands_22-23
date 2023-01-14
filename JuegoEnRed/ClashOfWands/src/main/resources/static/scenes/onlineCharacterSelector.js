@@ -24,7 +24,7 @@ var bothReady = false;
 var playerReady = false;
 var rivalReady = false;
 var generalData;
-var countdown = 10;
+var countdown = 5;
 var countdownText;
 var countdownText2;
 
@@ -286,7 +286,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             console.log("Type player 1: " + this.dataObj.player1Data.type);
             console.log("Type player 2: " + this.dataObj.player2Data.type);
             bothReady = true;
-            this.scene.start('match', this.dataObj);
+            this.scene.start('MatchOnline', this.dataObj);
         }
         console.log("BothReady: " + bothReady);
         //if(id == 1)
