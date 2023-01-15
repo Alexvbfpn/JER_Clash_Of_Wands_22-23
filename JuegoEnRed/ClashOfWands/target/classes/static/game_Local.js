@@ -10,6 +10,7 @@ import {ChooseMode} from "./scenes/chooseMode.js";
 import {Login} from "./scenes/login.js";
 import {Lobby} from "./scenes/lobby.js";
 import {OnlineCharacterSelector} from "./scenes/onlineCharacterSelector.js";
+import {MatchOnline} from './scenes/matchOnline.js';
 
 var scenes = [];
 scenes.push(StartScene);
@@ -24,6 +25,7 @@ scenes.push(CharacterSelector);
 scenes.push(Match);
 scenes.push(MidScene);
 scenes.push(FinalScene);
+scenes.push(MatchOnline);
 
 var config = {
 

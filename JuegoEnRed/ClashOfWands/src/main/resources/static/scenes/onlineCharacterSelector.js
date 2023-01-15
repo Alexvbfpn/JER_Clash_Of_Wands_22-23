@@ -283,10 +283,10 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
         if(countdown <= 0)
         {
-            console.log("Type player 1: " + this.dataObj.player1Data.type);
-            console.log("Type player 2: " + this.dataObj.player2Data.type);
+            //console.log("Type player 1: " + this.dataObj.player1Data.type);
+            //console.log("Type player 2: " + this.dataObj.player2Data.type);
             bothReady = true;
-            this.scene.start('match', this.dataObj);
+            this.scene.start('MatchOnline', this.dataObj);
         }
         console.log("BothReady: " + bothReady);
         //if(id == 1)
@@ -302,6 +302,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
         {
             //runes[0].currentCharacter = characters1
             message = {
+				Lready: true,
                 id: id,
                 visibleCharacter: runes[0].currentCharacter.visible, //ES PROBABLE QUE SE TENGA QUE USAR RUNES.CURRENTCHARACTER O ALGO ASÍ PARA PASAR CUAL ESTÁ SELECCIONADO Y LUEGO
                 //ASIGNARLO AL CURRENTCHARACTER DEL QUE NO ESTAS SELECCIONANDO. Probar con runes, a modificar runes o guardar runes, compruebalo con un debug saliendo con los datos que se actualizan y así sabras que encesitamos
@@ -315,6 +316,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
         {
             //runes[0].currentCharacter = characters2;
             message = {
+				Lready: true,
                 id: id,
                 visibleCharacter: runes[0].currentCharacter.visible,
                 frameCharacter: runes[0].currentCharacter.frame.name,
@@ -350,14 +352,20 @@ function updatePlayerInfo(data)
     {
         //console.log("Frame Character: "+ data.frameCharacter);
         //console.log("Frame Text: "+ data.text);
+        if(!rivalReady)
+        {
         characters2.setFrame(data.frameCharacter);
         characters2.setVisible(data.visibleCharacter);
         textP2.setFrame(data.text);
         generalData.player2Data.type = data.type;
         rivalReady = data.ready;
+        }
 
     } else if (id == "1")
     {
+		if(!rivalReady)
+		{
+			
         //console.log("Frame Character: "+ data.frameCharacter);
         if(data.frameCharacter != undefined) {
             characters1.setFrame(data.frameCharacter);
@@ -369,7 +377,7 @@ function updatePlayerInfo(data)
         }
         generalData.player1Data.type = data.type;
         rivalReady = data.ready;
-
+		}
     }
 }
 
