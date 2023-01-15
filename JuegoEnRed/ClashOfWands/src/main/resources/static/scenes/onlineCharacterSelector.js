@@ -48,20 +48,8 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
     preload()
     {
-        this.load.image('characterSelector_Background', 'assets/img/characterSelector/background_characterSelector.png');
-
         this.water.preload();
         this.backButton.preload();
-        this.load.audio("fightMusic", 'assets/sound/fightTheme.ogg');
-        this.load.spritesheet('textP1', 'assets/img/characterSelector/spriteSheet_textP1Def.png', {
-            frameWidth: 336,
-            frameHeight: 428
-        });
-        this.load.spritesheet('textP2', 'assets/img/characterSelector/spriteSheet_textP2Def.png', {
-            frameWidth: 336,
-            frameHeight: 428
-        });
-        this.load.audio("crowdSound", 'assets/sound/crowdSound.wav');
     }
 
     create()

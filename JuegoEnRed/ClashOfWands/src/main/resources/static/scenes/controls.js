@@ -17,7 +17,6 @@ export class Controls extends Phaser.Scene
 
     preload()
     {
-        this.load.image('controls_Background', 'assets/img/controls/controls_background.png');
         this.backButton.preload();
     }
     init(data)

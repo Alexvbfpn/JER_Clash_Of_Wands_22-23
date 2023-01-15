@@ -13,7 +13,7 @@ export class RuneManager {
 
     preload()
     {
-        this.relatedScene.load.audio("onB", 'assets/sound/encimaBoton.wav');
+        //this.relatedScene.load.audio("onB", 'assets/sound/encimaBoton.wav');
     }
 
     create()

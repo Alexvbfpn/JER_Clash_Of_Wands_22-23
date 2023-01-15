@@ -23,7 +23,7 @@ export class MidScene extends Phaser.Scene
 
     preload()
     {
-        this.display.preload()
+        //this.display.preload()
     }
 
     create()

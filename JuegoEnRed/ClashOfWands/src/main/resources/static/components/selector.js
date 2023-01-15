@@ -21,27 +21,7 @@ export class Selector {
 
     preload()
     {
-        this.relatedScene.load.spritesheet('bolt', 'assets/img/characterSelector/sprites_bolt.png', {
-        frameWidth: 168,
-        frameHeight: 224
-        });
-        this.relatedScene.load.spritesheet('fire', 'assets/img/characterSelector/sprites_fire.png', {
-            frameWidth: 168,
-            frameHeight: 224
-        });
-        this.relatedScene.load.spritesheet('water', 'assets/img/characterSelector/sprites_water.png', {
-            frameWidth: 168,
-            frameHeight: 224
-        });
-        this.relatedScene.load.spritesheet('wind', 'assets/img/characterSelector/sprites_wind.png', {
-            frameWidth: 168,
-            frameHeight: 224
-        });
 
-        this.relatedScene.load.spritesheet('characters', 'assets/img/characterSelector/spriteSheet_characters.png', {
-            frameWidth: 542,
-            frameHeight: 620
-        });
     }
 
     create()

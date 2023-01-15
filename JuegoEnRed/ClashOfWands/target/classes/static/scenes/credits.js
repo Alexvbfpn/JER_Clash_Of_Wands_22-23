@@ -17,7 +17,6 @@ export class Credits extends Phaser.Scene
 
     preload()
     {
-        this.load.image('credits_Background', 'assets/img/credits/credits_background.png');
         this.backButton.preload();
     }
     init(data)

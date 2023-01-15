@@ -10,8 +10,10 @@ import {ChooseMode} from "./scenes/chooseMode.js";
 import {Login} from "./scenes/login.js";
 import {Lobby} from "./scenes/lobby.js";
 import {OnlineCharacterSelector} from "./scenes/onlineCharacterSelector.js";
+import {LoadingScreen} from "./scenes/loadingScreen.js";
 
 var scenes = [];
+scenes.push(LoadingScreen);
 scenes.push(StartScene);
 scenes.push(MainMenu);
 scenes.push(Login);

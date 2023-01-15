@@ -23,7 +23,7 @@ export class FinalScene extends Phaser.Scene
 
     preload()
     {
-        this.display.preload()
+        //this.display.preload()
         this.load.audio("winSound", 'assets/sound/winSound.wav');
     }
 
