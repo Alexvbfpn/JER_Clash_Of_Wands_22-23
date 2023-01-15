@@ -20,8 +20,11 @@ export class Match extends Phaser.Scene
         this.Player1=new Player(this,475,275,1,this.Controller1);
         this.Player2=new Player(this,1425,915,2,this.Controller2);
 
-        this.laserComponent = new LaserObs(this, 1160,590 );
-        this.laserComponent2 = new LaserObs(this, 765,590 );
+        this.laserComponent = new LaserObs(this, 1160,775 );
+        this.laserComponent2 = new LaserObs(this, 765,775 );
+
+        this.laserComponent3 = new LaserObs(this, 1160,375 );
+        this.laserComponent4 = new LaserObs(this, 765,375 );
 
     }
 
@@ -59,8 +62,6 @@ export class Match extends Phaser.Scene
         this.matter.world.setBounds(360, 195, 1200, 800,500);
         this.add.image(960, 540, 'match_Background');
 
-
-
         //Puntuadores Player1
         var carvaP1 = new PointsPerson(this, 135, 393, 'carva', 2, this.dataObj.player1Data);
         var pepeP1 = new PointsPerson(this, 135, 706, 'pepe', 3, this.dataObj.player1Data);
@@ -85,8 +86,20 @@ export class Match extends Phaser.Scene
         this.Player2.create();
         this.Player2.player.angle = -180;
         this.floorTiles.create();
-        this.laserComponent.create();
-        this.laserComponent2.create();
+
+        //Laseres
+        var laserArriba = false;
+        var laserAbajo = true;
+        if(laserAbajo){
+            this.laserComponent.create();
+            this.laserComponent2.create();
+        }else{
+            this.laserComponent3.create();
+            this.laserComponent4.create();
+        }
+
+
+
         //RING
         var ring = this.add.image(283,120, 'ring').setOrigin(0);
 
@@ -107,8 +120,6 @@ export class Match extends Phaser.Scene
         this.ikerP1.update();
         this.ikerP2.update();
 
-
-
         this.floorTiles.text.setText('Event.progress: ' + this.floorTiles.timedEvent.getProgress().toString().substring(0, 4)
           + '\nEvent.repeatCount: ' + this.floorTiles.timedEvent.repeatCount);
 
@@ -119,6 +130,8 @@ export class Match extends Phaser.Scene
         this.Player2.update();
         this.laserComponent.update();
         this.laserComponent2.update();
+        this.laserComponent3.update();
+        this.laserComponent4.update();
     }
 
 }

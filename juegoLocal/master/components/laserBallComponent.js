@@ -23,11 +23,7 @@ export class BallObs {
 
         this.ball.relatedScene.matter.add.overlap(this.block2,this.ball,this.ballCollision(),null,this);
 
-
-
     }
-
-
 
     ballCollision(){
         this.ball.disableBody(true,true);
