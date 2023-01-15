@@ -94,6 +94,7 @@ export class Lobby extends Phaser.Scene
             if(playerReady && rivalReady)
             {
                 stateText.setFrame(2);
+                stateText.setPosition(357, 889);
                 //scene.scene.start('match', generalData);
             }
 
@@ -225,6 +226,7 @@ export class Lobby extends Phaser.Scene
             usersReady++;
             if(playerReady && rivalReady)
             {
+                stateText.setPosition(357, 889);
                 stateText.setFrame(2);
             }
         }
@@ -240,7 +242,9 @@ export class Lobby extends Phaser.Scene
                 color: 'black'}).setScale(2);
 
              */
+            stateText.setPosition(357, 804);
             stateText.setFrame(1);
+
         }
 
         if (countdown <= 0)
