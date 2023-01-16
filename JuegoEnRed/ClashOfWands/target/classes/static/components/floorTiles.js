@@ -13,7 +13,7 @@ function onEvent()
         for(let j = 0; j < gameOptions.columns; j ++)
         {
             this.tilesArray[i][j].value--;
-            this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
+            //this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
         }
     }
 }
@@ -32,9 +32,10 @@ function firstCharge()
 }
 
 export class FloorTiles {
-    constructor(scene, floorMode) {
+    constructor(scene, floorMode,id) {
         this.relatedScene = scene;
         this.floorMode = floorMode;
+        this.id=id;
     }
 
     preload()
@@ -79,7 +80,9 @@ export class FloorTiles {
             level[i] = [];
             for(let j = 0; j < gameOptions.columns; j ++)
             {
-                level[i][j] = Math.floor(Math.random()* (9 - 4) + 4);
+				if(this.id==0){level[i][j] = Math.floor(Math.random()* (9 - 4) + 4);}
+				else{level[i][j]=8;}
+                
             }
         }
         return level;
@@ -165,13 +168,15 @@ export class FloorTiles {
                 }
                 this.tilesArray[i][j].tileText.visible = false;
                 this.tilesArray[i][j].value++;
+                
                 //this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
 
             }
         }
         //this.tilesArray[0][0].sprite.alpha = 0.5;
         this.firstEvent = this.relatedScene.time.addEvent({ delay: 75, callback: firstCharge, callbackScope: this, loop: false});
-        this.timedEvent = this.relatedScene.time.addEvent({ delay: 1500, callback: onEvent, callbackScope: this, loop: true});
+        console.log("ID: "+this.id)
+        if(this.id==0){this.timedEvent = this.relatedScene.time.addEvent({ delay: 1500, callback: onEvent, callbackScope: this, loop: true});}
         this.text = this.relatedScene.add.text(32, 32);
     }
 
@@ -181,6 +186,7 @@ export class FloorTiles {
         {
             for(let j = 0; j < gameOptions.columns; j ++)
             {
+				this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
                 let t = this.tilesArray[i][j].sprite.getBounds();
                 if(this.tilesArray[i][j].value == 0)
                 {
@@ -209,6 +215,11 @@ export class FloorTiles {
                     this.tilesArray[i][j].value = newValue;
                     this.tilesArray[i][j].tileText.text = this.tilesArray[i][j].value.toString();
                 }
+                if(this.tilesArray[i][j].value > 0)
+                {
+					this.tilesArray[i][j].sprite.visible = true;
+                    this.tilesArray[i][j].tileText.visible = true;
+				}
             }
         }
     }

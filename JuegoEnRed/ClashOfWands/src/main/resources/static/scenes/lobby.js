@@ -248,7 +248,7 @@ export class Lobby extends Phaser.Scene
 
         message = {
             id: id,
-            ready: playerReady,
+            Lready: playerReady,
             visibleCharacter: null,
             frameCharacter: null,
             text: null,
@@ -268,8 +268,8 @@ export class Lobby extends Phaser.Scene
 
 function updatePlayerInfo(data)
 {
-    console.log("Rival listo: " + data.ready);
-    rivalReady = data.ready;
+    console.log("Rival listo: " + data.Lready);
+    rivalReady = data.Lready;
 }
 
 function countdownFunction()

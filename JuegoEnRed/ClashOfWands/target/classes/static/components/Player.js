@@ -13,6 +13,7 @@ function resetSpeed()
 
 var PlayerC1=1;
 var PlayerC2=1;
+var once = true;
 
 export class Player
 {
@@ -99,7 +100,11 @@ export class Player
 
     update()
     {
-
+if(this.type!=null && once)
+{
+	this.player.sprite(this.type);
+	once= false;
+}
         this.checkCollision();
 
         this.calculateRotation()
