@@ -3,7 +3,7 @@ import {RuneManager} from "../components/runeManager.js";
 import {Button} from "../components/button.js";
 
 var runes;
-
+var theme;
 export class CharacterSelector extends Phaser.Scene
 {
     constructor()
@@ -30,16 +30,19 @@ export class CharacterSelector extends Phaser.Scene
 
     create()
     {
+        this.dataObj.currentScene = this.scene.key;
         var confirm_button;
         var characters1;
         var characters2;
         var textP1;
         var textP2;
+        var onS = this.sound.add("onB");
         //Fondo
         this.add.image(960, 540, 'characterSelector_Background');
         var scene = this.scene;
         //Sonido
         this.fightTheme = this.sound.add("fightMusic", {loop: true});
+        theme = this.fightTheme;
         this.dataObj.music = this.fightTheme;
         this.crowdSound = this.sound.add("crowdSound", {loop: true});
         this.dataObj.crowdSound = this.crowdSound;
@@ -88,7 +91,7 @@ export class CharacterSelector extends Phaser.Scene
         var generalData = this.dataObj;
 
         //Botón de vuelta atrás
-        this.backButton = new Button(this, 'mainMenu', 'backButton', 22, 65, 0.75, 1, null, this.fightTheme); //this.fightTheme
+        this.backButton = new Button(this, 'mainMenu', 'backButton', 52, 45, 1, 1.25, null, this.fightTheme); //this.fightTheme
         this.backButton.create();
         confirm_button.on('pointerdown', function ()
         {
@@ -142,6 +145,28 @@ export class CharacterSelector extends Phaser.Scene
 
         this.runeManager = new RuneManager(this, runes, confirm_button, characters2, textP2);
         this.runeManager.create();
+        let data = this.dataObj;
+        let pauseButton = this.add.image(1868 - 162, 45, 'pauseButton').setOrigin(0, 0);
+        pauseButton.setInteractive();
+
+        pauseButton.on('pointerover', function (){
+
+            pauseButton.setScale(1.15, 1.15);
+            //playButton.setTint(0x44ff44);
+            onS.play();
+        });
+
+        pauseButton.on('pointerout', function (){
+
+            pauseButton.setScale(1, 1);
+
+        });
+
+        pauseButton.on('pointerdown', function (){
+            scene.pause();
+            scene.launch('pauseScreen', data);
+        });
+
     }
     update()
     {
@@ -157,5 +182,6 @@ export class CharacterSelector extends Phaser.Scene
     }
 
 }
+
 
 

@@ -11,6 +11,7 @@ import {Login} from "./scenes/login.js";
 import {Lobby} from "./scenes/lobby.js";
 import {OnlineCharacterSelector} from "./scenes/onlineCharacterSelector.js";
 import {LoadingScreen} from "./scenes/loadingScreen.js";
+import {PauseScreen} from "./scenes/pauseScreen.js";
 
 var scenes = [];
 scenes.push(LoadingScreen);
@@ -26,7 +27,7 @@ scenes.push(CharacterSelector);
 scenes.push(Match);
 scenes.push(MidScene);
 scenes.push(FinalScene);
-
+scenes.push(PauseScreen);
 var config = {
 
     type: Phaser.AUTO,
@@ -51,7 +52,6 @@ var config = {
 
                 }
             }
-
         },
     dom:
     {

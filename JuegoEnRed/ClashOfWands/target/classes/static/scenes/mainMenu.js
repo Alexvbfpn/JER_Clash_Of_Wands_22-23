@@ -40,6 +40,8 @@ export class MainMenu extends Phaser.Scene
                 crowdSound: null,
                 playerId: null,
                 connection: null,
+                mainTheme: null,
+                currentScene: null,
             };
     }
 
@@ -75,6 +77,7 @@ export class MainMenu extends Phaser.Scene
         this.mainTheme = this.sound.add("mainMenuMusic", {loop: true});
         this.mainTheme.play();
         var mainTheme = this.mainTheme;
+        this.dataObj.mainTheme = this.mainTheme;
         //this.playButton = new Button(this, 'characterSelector', 'playButton', 686, 757, 1.15, 1.40, null, this.mainTheme, this.dataObj);
         this.creditsButton = new Button(this, 'credits', 'creditsButton', 1301, 757, 0.75, 1,
         null, null, this.dataObj);

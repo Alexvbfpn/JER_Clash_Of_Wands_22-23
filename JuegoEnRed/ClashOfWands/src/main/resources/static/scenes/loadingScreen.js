@@ -39,11 +39,13 @@ export class LoadingScreen extends Phaser.Scene
 
         //MENU PRINCIPAL
         this.load.image('controlsButton', 'assets/img/controls_buttonDef.png');
+        this.load.image('controlsButton2', 'assets/img/pauseScreen/controlsButton2.png');
         this.load.image('creditsButton', 'assets/img/credits_buttonDef.png');
         this.load.image('playButton', 'assets/img/play_buttonDef.png');
         this.load.image('continueButton', 'assets/img/midScreen/continue_buttonDef.png');
         this.load.image('exitButton', 'assets/img/finalScreen/exit_buttonDef.png');
         this.load.image('backButton', 'assets/img/buttons/backButton.png');
+        this.load.image('pauseButton', 'assets/img/buttons/pauseButton.png');
         this.load.image('backButtonCredits', 'assets/img/buttons/backButton.png');
         this.load.audio("onB", 'assets/sound/encimaBoton.wav');
         this.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
@@ -53,6 +55,11 @@ export class LoadingScreen extends Phaser.Scene
         this.load.audio('mainMenuMusic', 'assets/sound/mainTheme.ogg');
         this.load.image('local_button', 'assets/img/buttons/local_buttonDef.png');
         this.load.image('online_button', 'assets/img/buttons/online_buttonDef.png');
+        this.load.image('resumeButton', 'assets/img/pauseScreen/resume_button.png');
+        this.load.image('exitButton', 'assets/img/pauseScreen/exit_button.png');
+        this.load.image('pause_background', 'assets/img/pauseScreen/pause_background.png');
+        this.load.image('pauseText', 'assets/img/pauseScreen/pause_text.png');
+
         // CONTROLES
         this.load.image('controls_Background', 'assets/img/controls/controls_background.png');
         // CREDITOS
