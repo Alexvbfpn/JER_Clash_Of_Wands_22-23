@@ -245,7 +245,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             updatePlayerInfo(msg);
         }
         timedEventUpdateConnection = this.time.addEvent({
-            delay: 33,
+            delay: 13,
             callback: this.sendCharacterInfo,
             callbackScope: this,
             loop: true });
@@ -288,7 +288,6 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
         if(id == "0")
         {
-            //runes[0].currentCharacter = characters1
             message = {
                 id: id,
                 visibleCharacter: runes[0].currentCharacter.visible, //ES PROBABLE QUE SE TENGA QUE USAR RUNES.CURRENTCHARACTER O ALGO ASÍ PARA PASAR CUAL ESTÁ SELECCIONADO Y LUEGO
@@ -301,7 +300,6 @@ export class OnlineCharacterSelector extends Phaser.Scene
         }
         else if (id == "1")
         {
-            //runes[0].currentCharacter = characters2;
             message = {
                 id: id,
                 visibleCharacter: runes[0].currentCharacter.visible,
@@ -352,7 +350,7 @@ function updatePlayerInfo(data)
         }
         characters1.setVisible(data.visibleCharacter);
         //console.log("Frame Text: "+ data.text);
-        if(data.text != undefined) {
+        if(data.text != undefined) { // Este también
             textP1.setFrame(data.text);
         }
         generalData.player1Data.type = data.type;
