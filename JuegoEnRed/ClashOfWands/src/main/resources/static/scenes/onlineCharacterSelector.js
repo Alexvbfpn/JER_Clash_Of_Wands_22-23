@@ -288,7 +288,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             bothReady = true;
             this.scene.start('MatchOnline', this.dataObj);
         }
-        console.log("BothReady: " + bothReady);
+        //console.log("BothReady: " + bothReady);
         //if(id == 1)
         //this.sendCharacterInfo();
 
@@ -352,32 +352,27 @@ function updatePlayerInfo(data)
     {
         //console.log("Frame Character: "+ data.frameCharacter);
         //console.log("Frame Text: "+ data.text);
-        if(!rivalReady)
-        {
+        
         characters2.setFrame(data.frameCharacter);
         characters2.setVisible(data.visibleCharacter);
         textP2.setFrame(data.text);
         generalData.player2Data.type = data.type;
         rivalReady = data.ready;
-        }
+        
 
     } else if (id == "1")
     {
-		if(!rivalReady)
-		{
+		
 			
         //console.log("Frame Character: "+ data.frameCharacter);
-        if(data.frameCharacter != undefined) {
-            characters1.setFrame(data.frameCharacter);
-        }
+        
+        characters1.setFrame(data.frameCharacter);
         characters1.setVisible(data.visibleCharacter);
         //console.log("Frame Text: "+ data.text);
-        if(data.text != undefined) {
-            textP1.setFrame(data.text);
-        }
+        textP1.setFrame(data.text);
         generalData.player1Data.type = data.type;
         rivalReady = data.ready;
-		}
+		
     }
 }
 

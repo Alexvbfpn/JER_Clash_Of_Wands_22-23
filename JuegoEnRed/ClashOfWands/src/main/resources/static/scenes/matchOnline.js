@@ -14,6 +14,7 @@ let textActiveUsers;
 var Jugador1=new Player(475,275,1);
 var Jugador2=new Player(1425,915,2);
 var Casillas= new FloorTiles(this, 2);
+var once = true;
 
 var id;
 var connection;
@@ -35,12 +36,13 @@ export class MatchOnline extends Phaser.Scene
 
         this.Controller1=new Controller(this);
         this.Controller2=new Controller(this);
+        this.Controller3=new Controller(this);
 		
 		Jugador1.relatedScene=this.escena;
 		Jugador2.relatedScene=this.escena;
 		
 		Jugador1.Controller=this.Controller1;
-		Jugador2.Controller=this.Controller1;
+		Jugador2.Controller=this.Controller2;
 
         this.Player1=Jugador1;
         this.Player2=Jugador2;
@@ -90,6 +92,7 @@ export class MatchOnline extends Phaser.Scene
 
         this.Controller1.create(Phaser.Input.Keyboard.KeyCodes.W,Phaser.Input.Keyboard.KeyCodes.S,Phaser.Input.Keyboard.KeyCodes.A,Phaser.Input.Keyboard.KeyCodes.D,Phaser.Input.Keyboard.KeyCodes.X,Phaser.Input.Keyboard.KeyCodes.E,Phaser.Input.Keyboard.KeyCodes.Q)
         this.Controller2.create(Phaser.Input.Keyboard.KeyCodes.I,Phaser.Input.Keyboard.KeyCodes.K,Phaser.Input.Keyboard.KeyCodes.J,Phaser.Input.Keyboard.KeyCodes.L,Phaser.Input.Keyboard.KeyCodes.M,Phaser.Input.Keyboard.KeyCodes.O,Phaser.Input.Keyboard.KeyCodes.U)
+        this.Controller3.create(Phaser.Input.Gamepad.Configs.DUALSHOCK_4.UP,Phaser.Input.Gamepad.Configs.DUALSHOCK_4.DOWN,Phaser.Input.Gamepad.Configs.DUALSHOCK_4.LEFT,Phaser.Input.Gamepad.Configs.DUALSHOCK_4.RIGHT,Phaser.Input.Gamepad.Configs.DUALSHOCK_4.SQUARE,Phaser.Input.Gamepad.Configs.DUALSHOCK_4.R1,Phaser.Input.Gamepad.Configs.DUALSHOCK_4.L1)
         this.matter.world.setBounds(360, 195, 1200, 800,500);
         this.add.image(960, 540, 'match_Background');
 
@@ -113,12 +116,16 @@ export class MatchOnline extends Phaser.Scene
         carvaP2.create();
         pepeP2.create();
 
+		console.log("Asignacion inicial de type player1: "+ this.dataObj.player1Data.type);
         this.Player1.type = this.dataObj.player1Data.type;
+        console.log("Asignacion inicial de type player2: "+ this.dataObj.player2Data.type);
         this.Player2.type = this.dataObj.player2Data.type;
         this.Player1.create();
         this.Player2.create();
        	this.Player1.player.setPosition(475,275);
        	this.Player2.player.setPosition(1425,915);
+       	this.Player1.player.setFrame(0);
+       	this.Player2.player.setFrame(0);
         this.Player2.player.angle = -180;
         console.log("id " + id);
         this.floorTiles.id=id;
@@ -232,8 +239,30 @@ export class MatchOnline extends Phaser.Scene
             + '\nEvent.repeatCount: ' + this.floorTiles.timedEvent.repeatCount);
 
 		*/
-		if(id==0){this.Player1.update();}
-        if(id==1){this.Player2.update();}
+		if(id==0)
+		{
+		this.Player1.update(); 
+		if(this.Player2.type!=null && once)
+		{
+		console.log(this.Player2.player.frame);
+		console.log(this.Player2.type);
+		//this.Player2.refresh();
+		once= false;
+		}
+		}
+		
+        if(id==1)
+        {
+		this.Player2.update();
+		if(this.Player1.type!=null && once)
+		{
+            console.log(this.Player2.player.frame);
+		console.log(this.Player1.type);
+		//this.Player1.refresh();
+		once= false;
+		}
+		}
+        
         
         this.laserComponent.update();
         this.laserComponent2.update();
@@ -250,7 +279,7 @@ export class MatchOnline extends Phaser.Scene
 
         if(id == "0")
         {
-			console.log("Casillas: "+ this.floorTiles.tilesArray[0][0].value + this.floorTiles.tilesArray[0][1].value + this.floorTiles.tilesArray[0][2].value + this.floorTiles.tilesArray[1][0].value + this.floorTiles.tilesArray[1][1].value + this.floorTiles.tilesArray[1][2].value)
+			//console.log("Casillas: "+ this.floorTiles.tilesArray[0][0].value + this.floorTiles.tilesArray[0][1].value + this.floorTiles.tilesArray[0][2].value + this.floorTiles.tilesArray[1][0].value + this.floorTiles.tilesArray[1][1].value + this.floorTiles.tilesArray[1][2].value)
 			//console.log("X= " + this.Player1.player.x + " Y= " + this.Player1.player.y);
             //runes[0].currentCharacter = characters1
             message = {
@@ -314,11 +343,11 @@ function updatePlayerInfo(data)
         Jugador2.player.setPosition(data.positionX,data.positionY);
         Jugador2.isAttacking=data.isAttacking;
         Jugador2.player.rotation=data.rotation/100;
-        Jugador2.type=data.type;
+        //Jugador2.type=data.type;
 
     } else if (id == "1")
     {
-		console.log("Casillas recibidas: " + data.cell0+ data.cell1+ data.cell2+ data.cell3+ data.cell4+ data.cell5);
+		//console.log("Casillas recibidas: " + data.cell0+ data.cell1+ data.cell2+ data.cell3+ data.cell4+ data.cell5);
 		//console.log("Data received: X= "+ data.positionX + " Y= " + data.positionY);
         //console.log("Frame Character: "+ data.frameCharacter);
 
@@ -326,7 +355,7 @@ function updatePlayerInfo(data)
         Jugador1.player.setPosition(data.positionX,data.positionY);
         Jugador1.isAttacking=data.isAttacking;
         Jugador1.player.rotation=data.rotation/100;
-        Jugador1.type=data.type;
+        //Jugador1.type=data.type;
         if(data.cell0!=null)
         {
         Casillas.tilesArray[0][0].value=data.cell0;

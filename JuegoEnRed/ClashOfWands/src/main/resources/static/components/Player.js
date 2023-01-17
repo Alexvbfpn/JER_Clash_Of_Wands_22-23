@@ -13,13 +13,12 @@ function resetSpeed()
 
 var PlayerC1=1;
 var PlayerC2=1;
-var once = true;
 
 export class Player
 {
-    constructor(scene,posX,posY,number,Controller,type)
+    constructor(posX,posY,number,Controller,type)
     {
-        this.relatedScene = scene;
+        this.relatedScene;
         this.posX=posX;
         this.posY=posY;
         this.playerNumber=number;
@@ -60,7 +59,9 @@ export class Player
 
     create()
     {
+		console.log("Se va a crear un jugador del tipo: "+this.type + " en la posicion: " + this.posX + ","+this.posY);
         this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
+        console.log(this.player);
         this.Collision= this.relatedScene.matter.add.sprite(this.player.x+150,this.player.y+150,'Collision',null, {isSensor:true});
 
         this.Collision.visible=false;
@@ -95,16 +96,14 @@ export class Player
         this.player.setFixedRotation();
         if(this.playerNumber===1){PlayerC2=this.relatedScene.Player2}
         if(this.playerNumber===2){PlayerC1=this.relatedScene.Player1}
-
+        this.attackCooldown=true;
+        this.player.setPosition(this.posX,this.posY)
     }
+    refresh(){this.player.setTexture(this.type,0);}
 
     update()
     {
-if(this.type!=null && once)
-{
-	this.player.sprite(this.type);
-	once= false;
-}
+		
         this.checkCollision();
 
         this.calculateRotation()

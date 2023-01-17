@@ -104,6 +104,7 @@ export class LaserObs {
         this.pos1 = px1;
         this.pos2 = py1;
         this.laser = this.relatedScene.matter.add.image(this.pos1,this.pos2,'varaLaser', null, {isSensor: true});
+console.log("El jugador colisionado es de color: "+ this.relatedScene.Player1.type);
 
         //Para pintar el laser y evitar que colisione con él
         if(this.relatedScene.Player1.type === 'Rojo'){
@@ -125,6 +126,8 @@ export class LaserObs {
 
         this.laser.setOnCollideWith(this.relatedScene.Player2.player, pair => {
             this.laserS.stop();
+            this.relatedScene.Player1.player.setPosition(this.relatedScene.Player1.posX,this.relatedScene.Player1.posY);
+            this.relatedScene.Player2.player.setPosition(this.relatedScene.Player2.posX,this.relatedScene.Player2.posY);
             this.nextCombat(this.relatedScene.dataObj.player1Data);
 
         });
@@ -140,7 +143,7 @@ export class LaserObs {
         this.pos1 = px2;
         this.pos2 = py2;
         this.laser = this.relatedScene.matter.add.image(this.pos1,this.pos2,'varaLaser', null, {isSensor: true});
-
+console.log("El jugador colisionado es de color: "+this.relatedScene.Player2.type);
         //Para pintar el laser y evitar que colisione con él (Cambiar block2 por player)
         if(this.relatedScene.Player2.type === 'Rojo'){
             this.laser.tint = 0xFF4C3A; //Rojo
@@ -162,6 +165,8 @@ export class LaserObs {
 
         this.laser.setOnCollideWith(this.relatedScene.Player1.player, pair => {
             this.laserS.stop();
+            this.relatedScene.Player1.player.setPosition(this.relatedScene.Player1.posX,this.relatedScene.Player1.posY);
+            this.relatedScene.Player2.player.setPosition(this.relatedScene.Player2.posX,this.relatedScene.Player2.posY);
             this.nextCombat(this.relatedScene.dataObj.player2Data);
 
         });

@@ -196,12 +196,16 @@ export class FloorTiles {
                     if((this.relatedScene.Player1.player.x > t.x && this.relatedScene.Player1.player.x < t.x + t.width) &&
                         (this.relatedScene.Player1.player.y > t.y && this.relatedScene.Player1.player.y < t.y + t.height))
                     {
+                        this.relatedScene.Player1.player.setPosition(this.relatedScene.Player1.posX,this.relatedScene.Player1.posY);
+                        this.relatedScene.Player2.player.setPosition(this.relatedScene.Player2.posX,this.relatedScene.Player2.posY);
                         this.nextCombat(this.relatedScene.dataObj.player2Data)
                     }
 
                     if((this.relatedScene.Player2.player.x > t.x && this.relatedScene.Player2.player.x < t.x + t.width) &&
                         (this.relatedScene.Player2.player.y > t.y && this.relatedScene.Player2.player.y < t.y + t.height))
                     {
+                        this.relatedScene.Player1.player.setPosition(this.relatedScene.Player1.posX,this.relatedScene.Player1.posY);
+                        this.relatedScene.Player2.player.setPosition(this.relatedScene.Player2.posX,this.relatedScene.Player2.posY);
                         this.nextCombat(this.relatedScene.dataObj.player1Data)
                     }
 

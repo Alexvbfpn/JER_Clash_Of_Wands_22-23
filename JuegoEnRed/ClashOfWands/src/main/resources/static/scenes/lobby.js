@@ -80,11 +80,11 @@ export class Lobby extends Phaser.Scene
 
         confirm_button.on('pointerdown', function ()
         {
-            console.log()
+            
             confirm_button.setVisible(false);
             playerReady = true;
-            console.log("PlayerReady: " + playerReady);
-            console.log("RivalReady: " + rivalReady);
+            //console.log("PlayerReady: " + playerReady);
+            //console.log("RivalReady: " + rivalReady);
             if(playerReady && rivalReady)
             {
 
@@ -237,7 +237,7 @@ export class Lobby extends Phaser.Scene
         if (countdown <= 0)
         {
             this.dataObj.playerId = id;
-            console.log("ID: " + id);
+            //console.log("ID: " + id);
             this.scene.start("onlineCharacterSelector", this.dataObj);
         }
     }
@@ -256,7 +256,7 @@ export class Lobby extends Phaser.Scene
         }
 
 
-        console.log(message);
+        //console.log(message);
         if(isSocketOpen && (activeUsersNumber == 2))
         {
             //console.log("Sending");
@@ -268,7 +268,7 @@ export class Lobby extends Phaser.Scene
 
 function updatePlayerInfo(data)
 {
-    console.log("Rival listo: " + data.Lready);
+    //console.log("Rival listo: " + data.Lready);
     rivalReady = data.Lready;
 }
 
