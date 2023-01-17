@@ -17,7 +17,7 @@ export class ChooseMode extends Phaser.Scene
     {
         this.localButton.preload();
 
-        this.onlineButton.preload();
+        //this.onlineButton.preload();
     }
 	
 	init(data)
@@ -36,12 +36,12 @@ export class ChooseMode extends Phaser.Scene
         this.encimaS = this.sound.add("encimaB");
 
         this.localButton = new Button(this, 'characterSelector', 'local_button', 286, 757, 1.15, 1.40, null, null, this.dataObj);
-        this.onlineButton = new Button(this, 'login', 'online_button', 1101, 757, 1.15, 1.40, null, null, this.dataObj);
-
+        //this.onlineButton = new Button(this, 'login', 'online_button', 1101, 757, 1.15, 1.40, null, null, this.dataObj);
+		this.onlineButton = this.add.image(1101, 755,'onlineBlock_button').setOrigin(0,0).setScale(1.15,1.15);
 
         //Llamamos al create de cada uno para que se cree y muestre en la escena
         this.localButton.create();
-        this.onlineButton.create();
+        //this.onlineButton.create();
         this.backButton.create();
 
 

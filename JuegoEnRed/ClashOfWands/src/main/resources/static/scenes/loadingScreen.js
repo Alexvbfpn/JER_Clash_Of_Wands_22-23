@@ -55,6 +55,7 @@ export class LoadingScreen extends Phaser.Scene
         this.load.audio('mainMenuMusic', 'assets/sound/mainTheme.ogg');
         this.load.image('local_button', 'assets/img/buttons/local_buttonDef.png');
         this.load.image('online_button', 'assets/img/buttons/online_buttonDef.png');
+        this.load.image('onlineBlock_button', 'assets/img/buttons/onlineBlock_buttonDef.png');
         this.load.image('resumeButton', 'assets/img/pauseScreen/resume_button.png');
         this.load.image('exitButton', 'assets/img/pauseScreen/exit_button.png');
         this.load.image('pause_background', 'assets/img/pauseScreen/pause_background.png');
