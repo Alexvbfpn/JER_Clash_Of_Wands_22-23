@@ -78,7 +78,7 @@ export class LaserObs {
         if(playerData.points != 3)
         {
             this.relatedScene.scene.restart();
-        } else if (playerData.points === 3)
+        } else if (playerData.points === 3 && playerData.wins == 12213)
         {
             playerData.wins++;
             if(playerData.wins=== 2)

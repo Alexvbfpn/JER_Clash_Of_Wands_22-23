@@ -24,7 +24,7 @@ var bothReady = false;
 var playerReady = false;
 var rivalReady = false;
 var generalData;
-var countdown = 10;
+var countdown = 5;
 var countdownText;
 var countdownText2;
 
@@ -62,6 +62,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             frameHeight: 428
         });
         this.load.audio("crowdSound", 'assets/sound/crowdSound.wav');
+        this.chat.preload();
     }
 
     create()
@@ -214,8 +215,6 @@ export class OnlineCharacterSelector extends Phaser.Scene
             color: 'black'
         });
 
-        setInterval (getMessage, 2500); // Recarga los mensajes cada 2 segundos y medio
-
         //Al cerrarse la pestaña se desconecta el usuario
         window.addEventListener('beforeunload', () =>
         {
@@ -257,7 +256,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             updatePlayerInfo(msg);
         }
         timedEventUpdateConnection = this.time.addEvent({
-            delay: 33,
+            delay: 13,
             callback: this.sendCharacterInfo,
             callbackScope: this,
             loop: true });
@@ -418,33 +417,5 @@ function getActiveUsers(){
     });
 }
 
-// FUNCIONES DE CHAT
 
-function sendMessage(user, message)
-{
-    $.ajax({
-        type: "POST",
-        async:false,
-        headers: {
-            'Accept': 'application/json',
-            'Content-type' : 'application/json'
-        },
-        url: url + "chat",
-        data: JSON.stringify( { user: "-"+user, message: ""+message } ),
-        dataType: "json"
-    })
-    getMessage();
-}
 
-function getMessage() {
-    for (let i = 0; i < 8; i++) {
-        $.ajax({
-            method: "GET",
-            url: url + "chat/" + i.toString()
-        }).done(function(data){
-            if(data != "")
-                document.getElementById("message"+i.toString()).innerHTML = data;
-        })
-    }
-
-}

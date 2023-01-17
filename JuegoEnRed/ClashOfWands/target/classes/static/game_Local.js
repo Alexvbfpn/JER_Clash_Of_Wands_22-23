@@ -11,6 +11,8 @@ import {Login} from "./scenes/login.js";
 import {Lobby} from "./scenes/lobby.js";
 import {OnlineCharacterSelector} from "./scenes/onlineCharacterSelector.js";
 import {MatchOnline} from './scenes/matchOnline.js';
+import {MidSceneOnline} from "./scenes/midSceneOnline.js";
+import {OnlineFinalScene} from "./scenes/finalSceneOnline.js";
 
 var scenes = [];
 scenes.push(StartScene);
@@ -24,7 +26,9 @@ scenes.push(Controls);
 scenes.push(CharacterSelector);
 scenes.push(Match);
 scenes.push(MidScene);
+scenes.push(MidSceneOnline);
 scenes.push(FinalScene);
+scenes.push(OnlineFinalScene);
 scenes.push(MatchOnline);
 
 var config = {

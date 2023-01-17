@@ -32,10 +32,11 @@ function firstCharge()
 }
 
 export class FloorTiles {
-    constructor(scene, floorMode,id) {
+    constructor(scene, floorMode,id, rivalReady) {
         this.relatedScene = scene;
         this.floorMode = floorMode;
         this.id=id;
+        this.rivalReady = rivalReady;
     }
 
     preload()
@@ -94,7 +95,7 @@ export class FloorTiles {
         if(playerData.points != 3)
         {
             this.relatedScene.scene.restart();
-        } else if (playerData.points === 3)
+        } else if (playerData.points === 3 && this.rivalReady)
         {
             playerData.wins++;
             if(playerData.wins=== 2)

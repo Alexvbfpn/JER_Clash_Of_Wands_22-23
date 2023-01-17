@@ -71,7 +71,7 @@ public class WebsocketEchoHandler extends TextWebSocketHandler{
 		}
 		if(node.get("type")!= null) 
 		{
-				newNode.put("type", node.get("type"));
+				newNode.put("type", node.get("type").asText());
 		}
 		if(node.get("animationFrame")!= null) 
 		{
@@ -116,6 +116,14 @@ public class WebsocketEchoHandler extends TextWebSocketHandler{
 		if(node.get("cell5")!=null) 
 		{
 				newNode.put("cell5",node.get("cell5").asInt());
+		}
+		if(node.get("pointsP1") != null) 
+		{
+			newNode.put("pointsP1", node.get("pointsP1").asInt());
+		}
+		if(node.get("pointsP2") != null) 
+		{
+			newNode.put("pointsP2", node.get("pointsP2").asInt());
 		}
 		for(WebSocketSession participant: sessions.values()) 
 		{

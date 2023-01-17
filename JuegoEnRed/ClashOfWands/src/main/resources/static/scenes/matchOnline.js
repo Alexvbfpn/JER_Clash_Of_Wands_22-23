@@ -3,6 +3,7 @@ import {PointsPerson} from "../components/pointsPerson.js";
 import {Player} from "../components/Player.js";
 import {Controller} from "../components/Controller.js";
 import {LaserObs} from "../components/laserComponent.js";
+import {Chat} from "../components/chat.js";
 
 let url;
 
@@ -21,7 +22,9 @@ var connection;
 var isSocketOpen = false;
 var timedEventUpdateConection;
 let msg;
-
+var rivalReady;
+var ready;
+var dataObj;
 export class MatchOnline extends Phaser.Scene
 {
     constructor()
@@ -51,6 +54,8 @@ export class MatchOnline extends Phaser.Scene
         this.laserComponent = new LaserObs(this, 1160,590 );
         this.laserComponent2 = new LaserObs(this, 765,590 );
 
+        this.chat = new Chat(this);
+
     }
 
     init(data)
@@ -77,7 +82,7 @@ export class MatchOnline extends Phaser.Scene
         this.laserComponent.preload();
         this.laserComponent2.preload();
         this.cursors = this.input.keyboard.createCursorKeys();
-
+        this.chat.preload();
 
 
     }
@@ -120,6 +125,7 @@ export class MatchOnline extends Phaser.Scene
         this.Player1.type = this.dataObj.player1Data.type;
         console.log("Asignacion inicial de type player2: "+ this.dataObj.player2Data.type);
         this.Player2.type = this.dataObj.player2Data.type;
+
         this.Player1.create();
         this.Player2.create();
        	this.Player1.player.setPosition(475,275);
@@ -148,56 +154,20 @@ export class MatchOnline extends Phaser.Scene
 			font: (40).toString() + "px tilesFont",
 			color: 'white'
 		});
-		
-		setInterval (getMessage, 2500); // Recarga los mensajes cada 2 segundos y medio
 
 		//Al cerrarse la pestaña se desconecta el usuario
 		window.addEventListener('beforeunload', () =>
         {
 			
             deleteActiveUser(username);
-            sendMessage(username, 'abandono se ha desconectado');
             
         });
         
         // ------------CHAT-----------------
-        var chat = this.add.dom(1400, -280).createFromCache('chat');
-        let input = chat.getChildByName("inputChat");
-        let button = chat.getChildByName("sendButton");
-        input.placeholder='Introduzca su mensaje';
-        chat.addListener('click');
-        var scene = this;
-        chat.on('click', function()
-        {
-			if(event.target.name ==='sendButton'){
-				if(input.value != null){
-					sendMessage(username, input.value);
-					input.value = "";
-				}
-			}
-			if(event.target.name ==='showButton')
-			{
-				if(event.target.innerHTML === 'Mostrar chat'){
-						event.target.innerHTML = 'Ocultar chat';
-						scene.tweens.add({
-					        targets: chat,
-					        y: 400,
-					        duration: 1250,
-					        ease: 'Bounce'
-					    });
-				    } else if (event.target.innerHTML === 'Ocultar chat')
-				    {
-						event.target.innerHTML = 'Mostrar chat';
-						scene.tweens.add({
-					        targets: chat,
-					        y: -280,
-					        duration: 2000,
-					        ease: 'Power3'
-					    });
-					}
-			}
-		})
 
+        var scene = this;
+        this.chat.dataObj = this.dataObj;
+        this.chat.create();
 
         //FUNCIONES WEBSOCKETS
         //isSocketOpen = true;
@@ -218,13 +188,15 @@ export class MatchOnline extends Phaser.Scene
             
         }
         timedEventUpdateConection = this.time.addEvent({
-            delay: 33,
+            delay: 13,
             callback: this.sendCharacterInfo,
             callbackScope: this,
             loop: true });
+        dataObj = this.dataObj;
     }
     update()
     {
+        dataObj = this.dataObj;
         this.floorTiles.update();
         //this.iker.currentPoints = this.dataObj.currentPoints;
         this.ikerP1.update();
@@ -241,35 +213,56 @@ export class MatchOnline extends Phaser.Scene
 		*/
 		if(id==0)
 		{
-		this.Player1.update(); 
-		if(this.Player2.type!=null && once)
-		{
-		console.log(this.Player2.player.frame);
-		console.log(this.Player2.type);
-		//this.Player2.refresh();
-		once= false;
-		}
+            this.Player1.update();
+            if(this.Player2.type!=null && once)
+            {
+                console.log(this.Player2.player.frame);
+                console.log(this.Player2.type);
+                //this.Player2.refresh();
+                once= false;
+		    }
+            if(dataObj.player1Data.points === 3)
+            {
+                ready = true;
+            }
 		}
 		
         if(id==1)
         {
-		this.Player2.update();
-		if(this.Player1.type!=null && once)
-		{
-            console.log(this.Player2.player.frame);
-		console.log(this.Player1.type);
-		//this.Player1.refresh();
-		once= false;
-		}
+            this.Player2.update();
+            if(this.Player1.type!=null && once)
+            {
+                console.log(this.Player2.player.frame);
+                console.log(this.Player1.type);
+            //this.Player1.refresh();
+                once= false;
+		    }
+            if(dataObj.player2Data.points === 3)
+            {
+                ready = true;
+            }
 		}
         
-        
+        if((dataObj.player1Data.points >= 3 || dataObj.player2Data.points >= 3))
+        {
+            if((dataObj.player1Data.wins > 0 && dataObj.player1Data.points >= 3))
+            {
+                this.scene.start('onlineFinalScene', this.dataObj);
+            } else if (dataObj.player2Data.wins > 0 && dataObj.player2Data.points >= 3)
+            {
+                this.scene.start('onlineFinalScene', this.dataObj);
+            } else {
+                this.scene.start('midSceneOnline', this.dataObj);
+            }
+
+        }
         this.laserComponent.update();
         this.laserComponent2.update();
         
         getActiveUsers();
         updateActiveUsers();
         textActiveUsers.setText('Usuarios activos: ' + activeUsersNumber);
+        this.floorTiles.rivalReady = rivalReady;
     }
 
 
@@ -282,6 +275,8 @@ export class MatchOnline extends Phaser.Scene
 			//console.log("Casillas: "+ this.floorTiles.tilesArray[0][0].value + this.floorTiles.tilesArray[0][1].value + this.floorTiles.tilesArray[0][2].value + this.floorTiles.tilesArray[1][0].value + this.floorTiles.tilesArray[1][1].value + this.floorTiles.tilesArray[1][2].value)
 			//console.log("X= " + this.Player1.player.x + " Y= " + this.Player1.player.y);
             //runes[0].currentCharacter = characters1
+            console.log("Puntos p1 " + this.dataObj.player1Data.points);
+            console.log("Puntos p2 " + this.dataObj.player2Data.points);
             message = {
                 //id: id,
                 animationFrame: this.Player1.player.frame.name,
@@ -291,19 +286,24 @@ export class MatchOnline extends Phaser.Scene
                 rotation:this.Player1.player.rotation*100,
                 ready: true,
                 type: this.Player1.type,
-                
+                Lready: ready,
                 cell0: this.floorTiles.tilesArray[0][0].value,
                 cell1: this.floorTiles.tilesArray[0][1].value,
                 cell2: this.floorTiles.tilesArray[0][2].value,
                 cell3: this.floorTiles.tilesArray[1][0].value,
                 cell4: this.floorTiles.tilesArray[1][1].value,
                 cell5: this.floorTiles.tilesArray[1][2].value,
+
+                pointsP1: this.dataObj.player1Data.points,
+                pointsP2: this.dataObj.player2Data.points,
             }
         }
         else if (id == "1")
         {
 			//console.log("X= " + this.Player2.player.x + " Y= " + this.Player2.player.y);
             //runes[0].currentCharacter = characters2;
+            console.log("Puntos p1 - :" + this.dataObj.player1Data.points);
+            console.log("Puntos p2 - :" + this.dataObj.player2Data.points);
             message = {
                 //id: id,
                 animationFrame: this.Player2.player.frame.name,
@@ -312,7 +312,10 @@ export class MatchOnline extends Phaser.Scene
                 isAttacking: this.Player2.isAttacking,
                 rotation:this.Player2.player.rotation*100,
                 ready: true,
+                Lready: ready,
                 type: this.Player2.type,
+                pointsP1: this.dataObj.player1Data.points,
+                pointsP2: this.dataObj.player2Data.points,
             }
         }
         //console.log(message);
@@ -334,15 +337,22 @@ function updatePlayerInfo(data)
 {
 	//console.log("Data received: rotation= " + data.rotation);
 	//console.log("Data received: X= "+ data.positionX + " Y= " + data.positionY);
+
     if (id == "0")
     {
         //console.log("Frame Character: "+ data.frameCharacter);
         //console.log("Data received: X= "+ data.positionX + " Y= " + data.positionY);
-
+        console.log("Lready (Player 2 listo): "+ data.Lready)
         Jugador2.player.setFrame(data.animationFrame);
         Jugador2.player.setPosition(data.positionX,data.positionY);
         Jugador2.isAttacking=data.isAttacking;
         Jugador2.player.rotation=data.rotation/100;
+        rivalReady = data.Lready;
+        if(data.pointsP1 >= 3 || data.pointsP2 >=3)
+        {
+            dataObj.player1Data.points = data.pointsP1;
+            dataObj.player2Data.points = data.pointsP2;
+        }
         //Jugador2.type=data.type;
 
     } else if (id == "1")
@@ -350,20 +360,24 @@ function updatePlayerInfo(data)
 		//console.log("Casillas recibidas: " + data.cell0+ data.cell1+ data.cell2+ data.cell3+ data.cell4+ data.cell5);
 		//console.log("Data received: X= "+ data.positionX + " Y= " + data.positionY);
         //console.log("Frame Character: "+ data.frameCharacter);
-
+        console.log("Lready (Player 1 listo): "+ data.Lready)
         Jugador1.player.setFrame(data.animationFrame);
         Jugador1.player.setPosition(data.positionX,data.positionY);
         Jugador1.isAttacking=data.isAttacking;
         Jugador1.player.rotation=data.rotation/100;
+        rivalReady = data.Lready;
         //Jugador1.type=data.type;
+        //console.log("Puntos p1 " + this.dataObj.player1Data.points);
         if(data.cell0!=null)
         {
-        Casillas.tilesArray[0][0].value=data.cell0;
-        Casillas.tilesArray[0][1].value=data.cell1;
-        Casillas.tilesArray[0][2].value=data.cell2;
-        Casillas.tilesArray[1][0].value=data.cell3;
-        Casillas.tilesArray[1][1].value=data.cell4;
-        Casillas.tilesArray[1][2].value=data.cell5;
+            Casillas.tilesArray[0][0].value=data.cell0;
+            Casillas.tilesArray[0][1].value=data.cell1;
+            Casillas.tilesArray[0][2].value=data.cell2;
+            Casillas.tilesArray[1][0].value=data.cell3;
+            Casillas.tilesArray[1][1].value=data.cell4;
+            Casillas.tilesArray[1][2].value=data.cell5;
+            dataObj.player1Data.points = data.pointsP1;
+            dataObj.player2Data.points = data.pointsP2;
         }
     }
 }
@@ -376,9 +390,7 @@ function updateActiveUsers(){
     {
         if(activePrevUsersNumber < activeUsersNumber){
             console.log("Se ha conectado alguien. El número actual de usuarios es: " + activeUsersNumber);
-            sendMessage('Alguien', 'se ha conectado, ¡viene con ganas de pelea!');
         }else if(activePrevUsersNumber > activeUsersNumber){
-			sendMessage('Alguien', 'se ha desconectado, un cobarde menos');
             console.log("Alguien se ha desconectado. El número actual de usuarios es: " + activeUsersNumber);
         }
 
@@ -410,34 +422,4 @@ function getActiveUsers(){
     }).done(function(data) {
         activeUsersNumber = data;
     });
-}
-
-// FUNCIONES DE CHAT
-
-function sendMessage(user, message)
-{
-	$.ajax({
-		type: "POST",
-		async:false,
-		headers: {
-			'Accept': 'application/json',
-			'Content-type' : 'application/json'	
-		},
-		url: url + "chat",
-		data: JSON.stringify( { user: "-"+user, message: ""+message } ),
-		dataType: "json" 
-	})
-	getMessage();
-}
-
-function getMessage() {
-	for (let i = 0; i < 8; i++) {
-		$.ajax({
-			method: "GET",
-			url: url + "chat/" + i.toString()
-		}).done(function(data){
-			if(data != "")
-				document.getElementById("message"+i.toString()).innerHTML = data;
-		})
-	}
 }
