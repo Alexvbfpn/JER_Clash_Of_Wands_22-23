@@ -243,11 +243,11 @@ En caso de ganar el azul, la victoria se disputaría en una nueva ronda de comba
 
 ## 5. ARTE
 
-En esta sección se expondrá todo el arte realizado para el juego (la mayoría de este concept art y para nada definitivo) que se ha realizado a día 17/9/2022:
+El arte del videojuego ha sido realizado por Javier Crespo:
 
-![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.017.png)
+### 5.1. Personajes
 
-![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/Aspose.Words.96d68aa5-4a20-49d5-8b27-b720ccde844c.018.png)
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/personajes.PNG)
 
 ## 6. Pantallas de juego
 
@@ -273,44 +273,53 @@ En ella se visualizan tres opciones:
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/1.Inicio.png)
 
-### 6.4 Pantalla de Selección de personaje
+### 6.4 Pantalla de Selección de modo
+
+EL jugador deberá elegir entre modo Local u Online.
+
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/seleccion%20local%20online.png)
+
+### 6.5 Pantalla de Selección de personaje
 
 Se observan 4 simbolos que corresponden a los 4 personajes con sus elementos representativos . El Jugador 1 deberá seleccionar primero y a continuación, seleccionará el jugador dos (Se puede repetir personaje).
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/2.Selector%20de%20personajes.png)
 
-### 6.5 Pantalla de Juego
+### 6.6 Pantalla de Juego
 
 Una vez se accede a la pantalla de juego tras la selección de personaje, se observa un ring separado en 6 cuadrados los cuales tienen una cuenta antrás dispar. Al llegar a 0, la trampilla se abrirá y el jugador que se úbice en tal sitio, morirá. A los laterales del ring se úbican 3 personajes que muestran la puntuación de cada jugador.
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/3.Pantalla%20de%20Juego.png)
 
-### 6.6 Pantalla de victoria de ronda
+### 6.7 Pantalla de victoria de ronda
 
 Para ganar la ronda, cada jugador deberá hacer que su rival muera ya sea por los laseres, o haciendo uso de sus poderes para que el otro jugador caiga por alguna de las trampillas abiertas.
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/4.Pantalla%20Victoria.png)
 
-### 6.7 Pantalla de victoria de partida
+### 6.8 Pantalla de victoria de partida
 
 Una vez ganada dos rondas (3 en caso de empate), uno de los jugadores ganará definitivamente mostrandose la pantalla de victoria.
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/5.pantalla%20victoria%20total.png)
 
-### 6.8 Pantalla de créditos
+### 6.9 Pantalla de créditos
 
 Se muestran los desarrolladores y las ramas de los miembros
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/6.%20creditos.png)
 
-### 6.9 Pantalla de controles
+### 6.10 Pantalla de controles
 
 Se muestran los controles para ambos jugadores
 
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/7.%20controles.png)
 
+### 6.11 Pantalla de Espera
 
+En caso de elegir el modo Online, el jugador pasará a la siguiente pantalla a espera de que se conecte otro jugador.
 
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/esperando%20jugador.png)
 
 
 ## 7.Flujo de pantallas
@@ -331,6 +340,20 @@ Tanto los sonidos como la música, han sido sacados de las siguientes fuentes:
 
 https://freesound.org/ -> Sonidos
 https://patrickdearteaga.com/es/index-es/ -> Música
+
+## 10. Insignias
+
+Rey de las redes sociales (Grupo 08): Se ha creado en varias plataformas una cuenta para el desarrollo del juego como equipo.
+
+Jaja, entendí esa referencia (Grupo 09): Al rededor del ring del esenario, se úbican personajes de distintas series y videojuegos siguiendo la temática del juego.
+
+Insignia memera (Grupo 07): Se ha incluido un meme en cada una de las 4 presentaciones realizadas.
+
+Escenarios aleatorios (Grupo 05): El ring dispone de unas casillas cuyo estado es aleatorio.
+
+Escenario dinámico (Grupo 10): El esenario varía por cada segundo que pasa siendo cada casilla un contador.
+
+Banda sonora original (Grupo 03): Se ha implementado un sonido propio al realziar la acción de "Pegar puñetazo"
 
 
 |Equipo 6: Angry Mango||
