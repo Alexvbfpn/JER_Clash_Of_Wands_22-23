@@ -17,6 +17,10 @@ var playerReady = false;
 var rivalReady = false;
 var isSocketOpen = false;
 var timedEventUpdateConnection;
+let rivalOut = false;
+let outCount = 4;
+let alert;
+let username;
 
 export class Lobby extends Phaser.Scene
 {
@@ -33,19 +37,6 @@ export class Lobby extends Phaser.Scene
 
     preload()
     {
-        this.chat.preload();
-        this.load.image('lobby_background', 'assets/img/lobby/background_lobby.png');
-        this.load.image('waitingText', 'assets/img/lobby/waitingText.png');
-        this.load.image('foundText', 'assets/img/lobby/findText.png');
-        this.load.image('confirm_button', 'assets/img/characterSelector/confirm_button.png');
-        this.load.spritesheet('player_texts', 'assets/img/lobby/player_text.png', {
-            frameWidth: 512,
-            frameHeight: 80
-        })
-        this.load.spritesheet('states_texts','assets/img/lobby/spritesheet_lobby.png' , {
-            frameWidth: 1304,
-            frameHeight: 248
-        })
 
     }
 
@@ -61,7 +52,7 @@ export class Lobby extends Phaser.Scene
         activePrevUsersNumber = 0;
 
         countdown = 5;
-        let username = this.username;
+        username = this.username;
 
         //Fondo
         this.add.image(960, 540, 'lobby_background');
@@ -202,6 +193,10 @@ export class Lobby extends Phaser.Scene
             callbackScope: this,
             loop: true });
 
+        this.outEvent = this.time.addEvent({delay: 1000, callback: rivalDisconnect, callbackScope: this, loop: true});
+        alert = this.add.image(0, 0, 'outWindow').setOrigin(0, 0);
+        alert.setVisible(false);
+
     }
 
     update(){
@@ -253,6 +248,11 @@ export class Lobby extends Phaser.Scene
             console.log("ID: " + id);
             this.scene.start("onlineCharacterSelector", this.dataObj);
         }
+
+        if(outCount <= 0)
+        {
+            this.scene.start('mainMenu');
+        }
     }
 
     sendCharacterInfo()
@@ -270,6 +270,20 @@ export class Lobby extends Phaser.Scene
             //console.log("Sending");
             connection.send(JSON.stringify(message))
         }
+    }
+
+}
+
+function rivalDisconnect()
+{
+    if(rivalOut)
+    {
+        outCount--;
+    }
+    if(outCount === 3)
+    {
+        deleteActiveUser(username);
+        alert.setVisible(true);
     }
 
 }
@@ -300,6 +314,7 @@ function updateActiveUsers(){
             //sendMessage('Alguien', 'se ha conectado, ¡viene con ganas de pelea!');
         }else if(activePrevUsersNumber > activeUsersNumber){
             //sendMessage('Alguien', 'se ha desconectado, un cobarde menos');
+            rivalOut = true;
             console.log("Alguien se ha desconectado. El número actual de usuarios es: " + activeUsersNumber);
         }
 

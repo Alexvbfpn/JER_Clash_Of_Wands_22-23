@@ -59,12 +59,24 @@ export class LoadingScreen extends Phaser.Scene
         this.load.image('exitButton', 'assets/img/pauseScreen/exit_button.png');
         this.load.image('pause_background', 'assets/img/pauseScreen/pause_background.png');
         this.load.image('pauseText', 'assets/img/pauseScreen/pause_text.png');
-
+        this.load.image('outWindow', 'assets/img/alert.png')
         // CONTROLES
         this.load.image('controls_Background', 'assets/img/controls/controls_background.png');
         // CREDITOS
         this.load.image('credits_Background', 'assets/img/credits/credits_background.png');
-
+        // LOBBY
+        this.load.image('lobby_background', 'assets/img/lobby/background_lobby.png');
+        this.load.image('waitingText', 'assets/img/lobby/waitingText.png');
+        this.load.image('foundText', 'assets/img/lobby/findText.png');
+        this.load.image('confirm_button', 'assets/img/characterSelector/confirm_button.png');
+        this.load.spritesheet('player_texts', 'assets/img/lobby/player_text.png', {
+            frameWidth: 512,
+            frameHeight: 80
+        })
+        this.load.spritesheet('states_texts','assets/img/lobby/spritesheet_lobby.png' , {
+            frameWidth: 1304,
+            frameHeight: 248
+        })
         // Selector de personajes
         this.load.image('characterSelector_Background', 'assets/img/characterSelector/background_characterSelector.png');
         this.load.image('confirm_button', 'assets/img/characterSelector/confirm_button.png');
@@ -191,7 +203,7 @@ export class LoadingScreen extends Phaser.Scene
             frameWidth: 1686,
             frameHeight: 448
         });
-
+        this.load.image('waiting', 'assets/img/midScreen/waitingText.PNG')
         //FINAL SCENE
         this.load.audio("winSound", 'assets/sound/winSound.wav');
         this.load.spritesheet('finalScene_Background', 'assets/img/finalScreen/background_finalSheet.PNG', {

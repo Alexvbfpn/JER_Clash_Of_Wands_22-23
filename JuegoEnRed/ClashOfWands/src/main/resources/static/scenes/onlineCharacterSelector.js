@@ -2,11 +2,10 @@ import {Selector} from "../components/selector.js";
 import {OnlineRuneManager} from "../components/onlineRuneManager.js";
 import {Button} from "../components/button.js";
 import {Chat} from "../components/chat.js";
-
+var username;
 var runes;
 
 let url;
-
 let activeUsersNumber;
 let activePrevUsersNumber;
 
@@ -27,6 +26,9 @@ var generalData;
 var countdown = 5;
 var countdownText;
 var countdownText2;
+var rivalOut = false;
+let outCount = 4;
+let alert;
 
 
 export class OnlineCharacterSelector extends Phaser.Scene
@@ -74,7 +76,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
         url = this.dataObj.url;
         activeUsersNumber = 0;
         activePrevUsersNumber = 0;
-
+        username = this.dataObj.username;
         //Fondo
         this.add.image(960, 540, 'characterSelector_Background');
         scene = this.scene;
@@ -232,6 +234,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
             font: (200).toString() + "px tilesFont",
             color: 'black'});
         this.countdownEvent = this.time.addEvent({delay: 1000, callback: countdownFunction, callbackScope: this, loop: true});
+        this.outEvent = this.time.addEvent({delay: 1000, callback: rivalDisconnect, callbackScope: this, loop: true});
         // ------------CHAT-----------------
         this.chat.dataObj = this.dataObj;
         this.chat.create();
@@ -260,6 +263,9 @@ export class OnlineCharacterSelector extends Phaser.Scene
             callback: this.sendCharacterInfo,
             callbackScope: this,
             loop: true });
+
+        alert = this.add.image(0, 0, 'outWindow').setOrigin(0, 0);
+        alert.setVisible(false);
     }
     update()
     {
@@ -282,14 +288,14 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
         if(countdown <= 0)
         {
-            //console.log("Type player 1: " + this.dataObj.player1Data.type);
-            //console.log("Type player 2: " + this.dataObj.player2Data.type);
             bothReady = true;
             this.scene.start('MatchOnline', this.dataObj);
         }
-        //console.log("BothReady: " + bothReady);
-        //if(id == 1)
-        //this.sendCharacterInfo();
+
+        if(outCount <= 0)
+        {
+            this.scene.start('mainMenu');
+        }
 
     }
 
@@ -299,7 +305,6 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
         if(id == "0")
         {
-            //runes[0].currentCharacter = characters1
             message = {
                 id: id,
                 Lready: true,
@@ -324,12 +329,25 @@ export class OnlineCharacterSelector extends Phaser.Scene
                 type: this.dataObj.player2Data.type,
             }
         }
-        //console.log(message);
         if(isSocketOpen)
         {
-            //console.log("Sending");
+
             connection.send(JSON.stringify(message))
         }
+    }
+
+}
+
+function rivalDisconnect()
+{
+    if(rivalOut)
+    {
+        outCount--;
+    }
+    if(outCount === 3)
+    {
+        deleteActiveUser(username);
+        alert.setVisible(true);
     }
 
 }
@@ -349,29 +367,18 @@ function updatePlayerInfo(data)
 {
     if (id == "0")
     {
-        //console.log("Frame Character: "+ data.frameCharacter);
-        //console.log("Frame Text: "+ data.text);
-
         characters2.setFrame(data.frameCharacter);
         characters2.setVisible(data.visibleCharacter);
         textP2.setFrame(data.text);
         generalData.player2Data.type = data.type;
         rivalReady = data.ready;
-
-
     } else if (id == "1")
     {
-
-
-        //console.log("Frame Character: "+ data.frameCharacter);
-
         characters1.setFrame(data.frameCharacter);
         characters1.setVisible(data.visibleCharacter);
-        //console.log("Frame Text: "+ data.text);
         textP1.setFrame(data.text);
         generalData.player1Data.type = data.type;
         rivalReady = data.ready;
-
     }
 }
 
@@ -383,7 +390,8 @@ function updateActiveUsers(){
             console.log("Se ha conectado alguien. El número actual de usuarios es: " + activeUsersNumber);
             //sendMessage('Alguien', 'se ha conectado, ¡viene con ganas de pelea!');
         }else if(activePrevUsersNumber > activeUsersNumber){
-            scene.start('mainMenu');
+            rivalOut = true;
+            //scene.start('mainMenu');
             console.log("Alguien se ha desconectado. El número actual de usuarios es: " + activeUsersNumber);
         }
 

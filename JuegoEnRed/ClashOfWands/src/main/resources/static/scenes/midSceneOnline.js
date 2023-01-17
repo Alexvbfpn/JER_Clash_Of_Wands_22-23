@@ -20,7 +20,11 @@ var playerReady = false;
 var rivalReady = false;
 var isSocketOpen = false;
 var timedEventUpdateConnection;
-
+let rivalOut = false;
+let outCount = 4;
+let alert;
+let username;
+let waitingText;
 
 export class MidSceneOnline extends Phaser.Scene
 {
@@ -50,6 +54,7 @@ export class MidSceneOnline extends Phaser.Scene
         playerReady = false;
         rivalReady = false;
         this.username = this.dataObj.username;
+        username = this.username;
         url = this.dataObj.url;
         activeUsersNumber = 0;
         activePrevUsersNumber = 0;
@@ -68,15 +73,17 @@ export class MidSceneOnline extends Phaser.Scene
         this.display.winner = winner.id;
 
         this.display.create();
-        let continueButton = this.add.image(697, 858, 'continueButton').setOrigin(0,0);
+        let continueButton = this.add.image(690, 818, 'continueButton').setOrigin(0,0);
         continueButton.setScale(1.15);
         continueButton.setInteractive();
-
+        waitingText = this.add.image(725, 855, 'waiting').setOrigin(0, 0);
+        waitingText.setVisible(false);
         continueButton.on('pointerdown', function ()
         {
 
             continueButton.setVisible(false);
             playerReady = true;
+            waitingText.setVisible(true);
             //console.log("PlayerReady: " + playerReady);
             //console.log("RivalReady: " + rivalReady);
             if(playerReady && rivalReady)
@@ -147,6 +154,10 @@ export class MidSceneOnline extends Phaser.Scene
             callback: this.sendCharacterInfo,
             callbackScope: this,
             loop: true });
+
+        this.outEvent = this.time.addEvent({delay: 1000, callback: rivalDisconnect, callbackScope: this, loop: true});
+        alert = this.add.image(0, 0, 'outWindow').setOrigin(0, 0);
+        alert.setVisible(false);
     }
     update()
     {
@@ -158,6 +169,14 @@ export class MidSceneOnline extends Phaser.Scene
             this.dataObj.playerId = id;
             //console.log("ID: " + id);
             this.scene.start("MatchOnline", this.dataObj);
+        }
+        if(outCount <= 0)
+        {
+            this.scene.start('mainMenu');
+        }
+        if(playerReady && rivalReady)
+        {
+            waitingText.setVisible(false);
         }
     }
 
@@ -184,6 +203,20 @@ export class MidSceneOnline extends Phaser.Scene
     }
 }
 
+function rivalDisconnect()
+{
+    if(rivalOut)
+    {
+        outCount--;
+    }
+    if(outCount === 3)
+    {
+        deleteActiveUser(username);
+        alert.setVisible(true);
+    }
+
+}
+
 function updatePlayerInfo(data)
 {
     //console.log("Rival listo: " + data.Lready);
@@ -207,7 +240,7 @@ function updateActiveUsers(){
         if(activePrevUsersNumber < activeUsersNumber){
             console.log("Se ha conectado alguien. El número actual de usuarios es: " + activeUsersNumber);
         }else if(activePrevUsersNumber > activeUsersNumber){
-            scene.start('mainMenu');
+            rivalOut = true;
             console.log("Alguien se ha desconectado. El número actual de usuarios es: " + activeUsersNumber);
         }
 

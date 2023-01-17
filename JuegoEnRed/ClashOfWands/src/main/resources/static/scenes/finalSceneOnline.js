@@ -62,7 +62,6 @@ export class OnlineFinalScene extends Phaser.Scene
         let chat = this.chat;
         exitButton.on('pointerdown', function ()
         {
-            chat.destroy();
             exitButton.setVisible(false);
             deleteActiveUser(username);
 
@@ -107,6 +106,7 @@ export class OnlineFinalScene extends Phaser.Scene
         textActiveUsers.setText('Usuarios activos: ' + activeUsersNumber);
     }
 }
+
 function updateActiveUsers(){
 
     if(activePrevUsersNumber != activeUsersNumber)
