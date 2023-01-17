@@ -8,7 +8,7 @@ export class BallObs {
 
     preload() {
         //Se precarga la imagen en escena
-        this.relatedScene.load.image('bola', 'assets/img/bola.png');
+
         this.laserComponent.preload();
     }
 

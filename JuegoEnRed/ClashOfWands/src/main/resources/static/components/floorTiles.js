@@ -39,30 +39,7 @@ export class FloorTiles {
 
     preload()
     {
-        this.relatedScene.load.spritesheet("tiles", "assets/img/sprite_PlacaM.PNG", {
-            frameWidth: gameOptions.tileSize,
-            frameHeight: gameOptions.tileSize
-        });
-        this.relatedScene.load.spritesheet("openTiles0", "assets/img/sprite_PlacaN.PNG", {
-            frameWidth: gameOptions.tileSize,
-            frameHeight: gameOptions.tileSize
-        });
-        this.relatedScene.load.spritesheet("openTiles1", "assets/img/match/sprite_placaN1.PNG", {
-            frameWidth: gameOptions.tileSize,
-            frameHeight: gameOptions.tileSize
-        });
-        this.relatedScene.load.spritesheet("openTiles2", "assets/img/match/sprite_placaN2.PNG", {
-            frameWidth: gameOptions.tileSize,
-            frameHeight: gameOptions.tileSize
-        });
-        this.relatedScene.load.spritesheet("openTiles3", "assets/img/match/sprite_placaN3.PNG", {
-            frameWidth: gameOptions.tileSize,
-            frameHeight: gameOptions.tileSize
-        });
-        this.relatedScene.load.spritesheet("openTilesCol", "assets/img/match/sprite_placaTrans.PNG", {
-            frameWidth: gameOptions.tileSize,
-            frameHeight: gameOptions.tileSize
-        });
+
     }
 
     createLevel()

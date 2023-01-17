@@ -12,6 +12,9 @@ import {Lobby} from "./scenes/lobby.js";
 import {OnlineCharacterSelector} from "./scenes/onlineCharacterSelector.js";
 import {LoadingScreen} from "./scenes/loadingScreen.js";
 import {PauseScreen} from "./scenes/pauseScreen.js";
+import {MatchOnline} from "./scenes/matchOnline.js";
+import {MidSceneOnline} from "./scenes/midSceneOnline.js";
+import {OnlineFinalScene} from "./scenes/finalSceneOnline.js";
 
 var scenes = [];
 scenes.push(LoadingScreen);
@@ -28,6 +31,10 @@ scenes.push(Match);
 scenes.push(MidScene);
 scenes.push(FinalScene);
 scenes.push(PauseScreen);
+scenes.push(MatchOnline);
+scenes.push(MidSceneOnline);
+scenes.push(OnlineFinalScene);
+
 var config = {
 
     type: Phaser.AUTO,

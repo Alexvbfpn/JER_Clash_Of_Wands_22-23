@@ -9,7 +9,7 @@ export class Chat
     }
     preload()
     {
-        this.relatedScene.load.html('chat', "./chat.html");
+
     }
     create()
     {

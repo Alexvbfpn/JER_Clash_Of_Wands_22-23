@@ -70,11 +70,11 @@ export class LoadingScreen extends Phaser.Scene
         this.load.image('confirm_button', 'assets/img/characterSelector/confirm_button.png');
         this.load.audio("fightMusic", 'assets/sound/fightTheme.ogg');
         this.load.audio("crowdSound", 'assets/sound/crowdSound.wav');
-        this.load.spritesheet('textP1', 'assets/img/characterSelector/spriteSheet_textP1.png', {
+        this.load.spritesheet('textP1', 'assets/img/characterSelector/spriteSheet_textP1Def.png', {
             frameWidth: 336,
             frameHeight: 428
         });
-        this.load.spritesheet('textP2', 'assets/img/characterSelector/spriteSheet_textP2.png', {
+        this.load.spritesheet('textP2', 'assets/img/characterSelector/spriteSheet_textP2Def.png', {
             frameWidth: 336,
             frameHeight: 428
         });
@@ -105,6 +105,83 @@ export class LoadingScreen extends Phaser.Scene
         this.load.image('match_Background', 'assets/img/match/match_backgroundPublic.png');
         this.load.image('ring', 'assets/img/Ring.png');
 
+        this.load.spritesheet("tiles", "assets/img/sprite_PlacaM.PNG", {
+            frameWidth: 400,
+            frameHeight: 400
+        });
+        this.load.spritesheet("openTiles0", "assets/img/sprite_PlacaN.PNG", {
+            frameWidth: 400,
+            frameHeight: 400
+        });
+        this.load.spritesheet("openTiles1", "assets/img/match/sprite_placaN1.PNG", {
+            frameWidth: 400,
+            frameHeight: 400
+        });
+        this.load.spritesheet("openTiles2", "assets/img/match/sprite_placaN2.PNG", {
+            frameWidth: 400,
+            frameHeight: 400
+        });
+        this.load.spritesheet("openTiles3", "assets/img/match/sprite_placaN3.PNG", {
+            frameWidth: 400,
+            frameHeight: 400
+        });
+        this.load.spritesheet("openTilesCol", "assets/img/match/sprite_placaTrans.PNG", {
+            frameWidth: 400,
+            frameHeight: 400
+        });
+
+        this.load.spritesheet('Azul', "assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG", {
+            frameWidth: 165,
+            frameHeight: 124
+        });
+        this.load.spritesheet('Rojo', "assets/img/PantalladeJuego/Spritesheets/SpritesheetFuego.PNG", {
+            frameWidth: 165,
+            frameHeight: 124
+        });
+        this.load.spritesheet('Amarillo', "assets/img/PantalladeJuego/Spritesheets/SpritesheetRayo.PNG", {
+            frameWidth: 165,
+            frameHeight: 124
+        });
+        this.load.spritesheet('Verde', "assets/img/PantalladeJuego/Spritesheets/SpritesheetViento.PNG", {
+            frameWidth: 165,
+            frameHeight: 124
+        });
+        this.load.spritesheet("Collision", "assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG", {
+            frameWidth: 150,
+            frameHeight: 125
+        });
+
+        this.load.spritesheet('iker', 'assets/img/match/spriteSheet_OnePoint.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
+        this.load.spritesheet('carva', 'assets/img/match/spriteSheet_TwoPoints.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
+        this.load.spritesheet('pepe', 'assets/img/match/spriteSheet_ThreePoints.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
+        //Separamos los scorers del p2
+        this.load.spritesheet('iker2', 'assets/img/match/spriteSheet_OnePoint.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
+        this.load.spritesheet('carva2', 'assets/img/match/spriteSheet_TwoPoints.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
+        this.load.spritesheet('pepe2', 'assets/img/match/spriteSheet_ThreePoints.png', {
+            frameWidth: 102,
+            frameHeight: 105
+        });
+        this.load.html('chat', "./chat.html");
+        this.load.image("varaLaser", 'assets/img/varaLaser.png');
+        this.load.spritesheet("bola", 'assets/img/bolaMagica.png',{ frameWidth: 46, frameHeight: 46 });
+        this.load.audio("laserSound", 'assets/sound/laserSound.wav');
+
+        this.load.image('bola', 'assets/img/bola.png');
         //MIDSCENE
         this.load.spritesheet('midScene_Background', 'assets/img/midScreen/background_midSheet.PNG', {
             frameWidth: 1920,

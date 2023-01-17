@@ -12,7 +12,7 @@ let activePrevUsersNumber;
 
 let textActiveUsers;
 var id;
-
+var scene;
 var characters1;
 var characters2;
 var textP1;
@@ -24,7 +24,7 @@ var bothReady = false;
 var playerReady = false;
 var rivalReady = false;
 var generalData;
-var countdown = 10;
+var countdown = 5;
 var countdownText;
 var countdownText2;
 
@@ -48,8 +48,21 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
     preload()
     {
+        this.load.image('characterSelector_Background', 'assets/img/characterSelector/background_characterSelector.png');
+
         this.water.preload();
         this.backButton.preload();
+        this.load.audio("fightMusic", 'assets/sound/fightTheme.ogg');
+        this.load.spritesheet('textP1', 'assets/img/characterSelector/spriteSheet_textP1Def.png', {
+            frameWidth: 336,
+            frameHeight: 428
+        });
+        this.load.spritesheet('textP2', 'assets/img/characterSelector/spriteSheet_textP2Def.png', {
+            frameWidth: 336,
+            frameHeight: 428
+        });
+        this.load.audio("crowdSound", 'assets/sound/crowdSound.wav');
+        this.chat.preload();
     }
 
     create()
@@ -64,7 +77,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
         //Fondo
         this.add.image(960, 540, 'characterSelector_Background');
-        var scene = this.scene;
+        scene = this.scene;
 
         //Sonido
         this.fightTheme = this.sound.add("fightMusic", {loop: true});
@@ -202,8 +215,6 @@ export class OnlineCharacterSelector extends Phaser.Scene
             color: 'black'
         });
 
-        setInterval (getMessage, 2500); // Recarga los mensajes cada 2 segundos y medio
-
         //Al cerrarse la pestaña se desconecta el usuario
         window.addEventListener('beforeunload', () =>
         {
@@ -228,7 +239,7 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
 
 
-    //FUNCIONES WEBSOCKETS
+        //FUNCIONES WEBSOCKETS
         isSocketOpen = true;
         connection.onopen = function (){
             console.log("Socket abierto")
@@ -271,12 +282,12 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
         if(countdown <= 0)
         {
-            console.log("Type player 1: " + this.dataObj.player1Data.type);
-            console.log("Type player 2: " + this.dataObj.player2Data.type);
+            //console.log("Type player 1: " + this.dataObj.player1Data.type);
+            //console.log("Type player 2: " + this.dataObj.player2Data.type);
             bothReady = true;
-            this.scene.start('match', this.dataObj);
+            this.scene.start('MatchOnline', this.dataObj);
         }
-        console.log("BothReady: " + bothReady);
+        //console.log("BothReady: " + bothReady);
         //if(id == 1)
         //this.sendCharacterInfo();
 
@@ -288,8 +299,10 @@ export class OnlineCharacterSelector extends Phaser.Scene
 
         if(id == "0")
         {
+            //runes[0].currentCharacter = characters1
             message = {
                 id: id,
+                Lready: true,
                 visibleCharacter: runes[0].currentCharacter.visible, //ES PROBABLE QUE SE TENGA QUE USAR RUNES.CURRENTCHARACTER O ALGO ASÍ PARA PASAR CUAL ESTÁ SELECCIONADO Y LUEGO
                 //ASIGNARLO AL CURRENTCHARACTER DEL QUE NO ESTAS SELECCIONANDO. Probar con runes, a modificar runes o guardar runes, compruebalo con un debug saliendo con los datos que se actualizan y así sabras que encesitamos
                 frameCharacter: runes[0].currentCharacter.frame.name,
@@ -300,8 +313,10 @@ export class OnlineCharacterSelector extends Phaser.Scene
         }
         else if (id == "1")
         {
+            //runes[0].currentCharacter = characters2;
             message = {
                 id: id,
+                Lready: true,
                 visibleCharacter: runes[0].currentCharacter.visible,
                 frameCharacter: runes[0].currentCharacter.frame.name,
                 text: runes[0].currentText.frame.name,
@@ -336,23 +351,24 @@ function updatePlayerInfo(data)
     {
         //console.log("Frame Character: "+ data.frameCharacter);
         //console.log("Frame Text: "+ data.text);
+
         characters2.setFrame(data.frameCharacter);
         characters2.setVisible(data.visibleCharacter);
         textP2.setFrame(data.text);
         generalData.player2Data.type = data.type;
         rivalReady = data.ready;
 
+
     } else if (id == "1")
     {
+
+
         //console.log("Frame Character: "+ data.frameCharacter);
-        if(data.frameCharacter != undefined) {
-            characters1.setFrame(data.frameCharacter);
-        }
+
+        characters1.setFrame(data.frameCharacter);
         characters1.setVisible(data.visibleCharacter);
         //console.log("Frame Text: "+ data.text);
-        if(data.text != undefined) { // Este también
-            textP1.setFrame(data.text);
-        }
+        textP1.setFrame(data.text);
         generalData.player1Data.type = data.type;
         rivalReady = data.ready;
 
@@ -367,7 +383,7 @@ function updateActiveUsers(){
             console.log("Se ha conectado alguien. El número actual de usuarios es: " + activeUsersNumber);
             //sendMessage('Alguien', 'se ha conectado, ¡viene con ganas de pelea!');
         }else if(activePrevUsersNumber > activeUsersNumber){
-            sendMessage('Alguien', 'se ha desconectado, un cobarde menos');
+            scene.start('mainMenu');
             console.log("Alguien se ha desconectado. El número actual de usuarios es: " + activeUsersNumber);
         }
 
@@ -401,33 +417,5 @@ function getActiveUsers(){
     });
 }
 
-// FUNCIONES DE CHAT
 
-function sendMessage(user, message)
-{
-    $.ajax({
-        type: "POST",
-        async:false,
-        headers: {
-            'Accept': 'application/json',
-            'Content-type' : 'application/json'
-        },
-        url: url + "chat",
-        data: JSON.stringify( { user: "-"+user, message: ""+message } ),
-        dataType: "json"
-    })
-    getMessage();
-}
 
-function getMessage() {
-    for (let i = 0; i < 8; i++) {
-        $.ajax({
-            method: "GET",
-            url: url + "chat/" + i.toString()
-        }).done(function(data){
-            if(data != "")
-                document.getElementById("message"+i.toString()).innerHTML = data;
-        })
-    }
-
-}
