@@ -1,6 +1,12 @@
 # Clash Of Wands Game Document Design
 |Equipo 6: Angry Mango||
 | :- | -: |
+
+
+##Video Presentación:
+
+https://drive.google.com/file/d/1oIJO63OStxBpF4XkSg-XQrQvQ2F7BciW/view?usp=sharing
+
 ## Resumen ejecutivo:
 
 | Título  | Clash of Wands |
