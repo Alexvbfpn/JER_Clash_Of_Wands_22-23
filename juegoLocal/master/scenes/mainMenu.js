@@ -1,12 +1,10 @@
-import {PlayButton} from "../components/playButton.js";
 import {Button} from "../components/button.js"
-
 export class MainMenu extends Phaser.Scene
 {
     constructor()
     {
         super({key: 'mainMenu'});
-        this.playButton = new Button(this, 'match');
+        this.playButton = new Button(this);
         this.creditsButton = new Button(this);
         this.tutorialButton = new Button(this);
     }
@@ -18,23 +16,41 @@ export class MainMenu extends Phaser.Scene
         this.load.image('play_button', 'assets/img/play_buttonDef.png');
         this.creditsButton.preload();
         this.tutorialButton.preload();
+        this.load.audio("encimaB", 'assets/sound/encimaBoton.wav');
+        this.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
+        this.load.audio('mainMenuMusic', 'assets/sound/mainTheme.ogg');
     }
 
     create()
     {
         //Fondo
         this.add.image(960, 540, 'mainMenu_Background');
+        this.input.setDefaultCursor('url(assets/img/mainMenu/cursor.cur), pointer');
 
         //Creamos la instancia de cada botón
-        this.playButton = new Button(this, 'match', 'playButton', 686, 757, 1.15, 1.40);
-        this.creditsButton = new Button(this, 'match', 'creditsButton', 1301, 757, 0.75, 1);
-        this.tutorialButton = new Button(this, 'match', 'tutorialButton', 73, 757, 0.75, 1);
 
+        this.clickS = this.sound.add("pulsarB");
+        this.encimaS = this.sound.add("encimaB");
+
+        this.mainTheme = this.sound.add("mainMenuMusic", {loop: true});
+        this.mainTheme.play();
+        this.playButton = new Button(this, 'chooseMode', 'playButton', 686, 757, 1.15, 1.40, null, this.mainTheme);
+        this.creditsButton = new Button(this, 'credits', 'creditsButton', 1301, 757, 0.75, 1);
+        this.tutorialButton = new Button(this, 'controls', 'controlsButton', 73, 757, 0.75, 1);
+
+        
         //Llamamos al create de cada uno para que se cree y muestre en la escena
         this.playButton.create();
         this.creditsButton.create();
         this.tutorialButton.create();
 
+
+        let text = this.add.text(-100, -100, '0', {
+            fontFamily: 'tilesFont',
+            font: (1).toString() + "px tilesFont",
+            //fontWeight: "bold",
+            color: '#32023a'
+        });
         /*
         //Animación del texto
         var play_button = this.add.image(0, 0, 'playButton').setScale(1.5, 1.5);
@@ -51,4 +67,5 @@ export class MainMenu extends Phaser.Scene
 
          */
     }
+
 }

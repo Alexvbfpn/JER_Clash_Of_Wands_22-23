@@ -1,5 +1,11 @@
+function dataReset(data)
+{
+    data.player1Data.points = 0;
+    data.player2Data.points = 0;
+}
+
 export class Button {
-    constructor(scene, destination, spriteButtonName, x, y, buttonScale, maxScale) {
+    constructor(scene, destination, spriteButtonName, x, y, buttonScale, maxScale, dataToReset, mainTheme) {
         this.relatedScene = scene;
         this.relatedDestination = destination;
         this.spriteButtonName = spriteButtonName;
@@ -7,19 +13,32 @@ export class Button {
         this.y = y;
         this.buttonScale = buttonScale;
         this.maxScale = maxScale;
+        this.dataToReset = dataToReset;
+        this.mainTheme = mainTheme;
     }
 
     preload() //Cargamos el sprite del botón
     {
         this.relatedScene.load.image('playButton', 'assets/img/play_buttonDef.png');
-        this.relatedScene.load.image('tutorialButton', 'assets/img/tutorial_buttonDef.png');
+        this.relatedScene.load.image('controlsButton', 'assets/img/controls_buttonDef.png');
         this.relatedScene.load.image('creditsButton', 'assets/img/credits_buttonDef.png');
+        this.relatedScene.load.image('continueButton', 'assets/img/midScreen/continue_buttonDef.png');
+        this.relatedScene.load.image('exitButton', 'assets/img/finalScreen/exit_buttonDef.png');
+        this.relatedScene.load.image('backButton', 'assets/img/buttons/backButton.png');
+        this.relatedScene.load.image('backButtonCredits', 'assets/img/buttons/backButton.png');
+        this.relatedScene.load.audio("onB", 'assets/sound/encimaBoton.wav');
+        this.relatedScene.load.audio("pulsarB", 'assets/sound/clickBoton.wav');
     }
+
+
 
     create() //Añadimos el botón en la escena
     {
         var scene = this.relatedScene.scene;
         var dest = this.relatedDestination;
+        var clickS = this.relatedScene.sound.add("pulsarB");
+        var onS = this.relatedScene.sound.add("onB");
+
 
         //creamos el boton para la escena relativa en la que se le meta
         this.button = this.relatedScene.add.image(0, 0, this.spriteButtonName);
@@ -45,22 +64,49 @@ export class Button {
 
         var regularScale = this.buttonScale;
         var maxScale = this.maxScale;
+        var dataToReset = this.dataToReset;
+        var mainTheme = this.mainTheme;
+        var buttonName = this.spriteButtonName;
+        //this.onS.play();
+        onS.volume = 0.1;
 
         container.on('pointerover', function (){
 
             container.setScale(maxScale, maxScale);
             //playButton.setTint(0x44ff44);
+            onS.play();
         });
 
         container.on('pointerout', function (){
 
             container.setScale(regularScale, regularScale);
             //playButton.clearTint();
+
         });
         container.on('pointerdown', function (){
 
-            scene.start(dest);
+            clickS.play();
+
+            if(dataToReset != null)
+            {
+                dataReset(dataToReset);
+            }
+            if(mainTheme != null)
+            {
+                mainTheme.stop();
+            }
+            if(buttonName === 'creditsButton' || buttonName === 'backButtonCredits' || buttonName === 'controlsButton' || buttonName === 'playButton')
+            {
+                scene.switch(dest);
+            }else
+            {
+                scene.start(dest);
+            }
+
+
         });
 
     }
+
+
 }
