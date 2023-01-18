@@ -355,6 +355,38 @@ Escenario dinámico (Grupo 10): El esenario varía por cada segundo que pasa sie
 
 Banda sonora original (Grupo 03): Se ha implementado un sonido propio al realziar la acción de "Pegar puñetazo"
 
+## 11. Mejoras
+
+A continuación se mostraran las distintas mejoras incluidas en la fase final del juego:
+
+### 11.1 Pantalla de Carga
+
+Se ha añadido al principio del videojuego una pantalla de carga para hacer preload de todos los elementos del juego y así poder jugar en caso de no tener conexión.
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/mejora%20pantalla%20carga.png)
+
+### 11.2 Cuentas
+
+Ahora cada jugador podrá tener su propia cuenta para almacenar su progreso.
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/mejora%20cuentas.png)
+
+### 11.3 Desconexión
+Se le avisará a los jugadores y sacará de partida en caso de que su contricante se desconecte. 
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/mejora%20desconeccion.png)
+
+### 11.4 Fondo
+Se le ha añadido al HTML un fondo para decorar los bordes de la página con la estetica del juego.
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/mejora%20fondo.png)
+
+### 11.5 Barra cooldown de ataque 
+Añadida una barra que muestra el tiempo que tarda en reactivarse la capacidad por aprte de los jugadores de atacar.
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/mejora%20barra%20carga.png)
+
+### 11.6 Pantalla de pausa
+Añadida la posibilidad de pausar el juego y acceder a distintas opciones.
+![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/mejora%20pantalla%20pausa.png)
+
+## 12. Links:
+
 
 |Equipo 6: Angry Mango||
 | :- | -: |
