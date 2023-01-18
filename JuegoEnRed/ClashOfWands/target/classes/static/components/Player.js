@@ -3,6 +3,7 @@ import {Controller} from "../components/Controller.js";
 function Cooldown()
 {
     this.attackCooldown=true;
+    this.barCooldown = false;
 }
 function resetSpeed()
 {
@@ -16,9 +17,9 @@ var PlayerC2=1;
 
 export class Player
 {
-    constructor(scene,posX,posY,number,Controller,type)
+    constructor(posX,posY,number,Controller,type)
     {
-        this.relatedScene = scene;
+        this.relatedScene;
         this.posX=posX;
         this.posY=posY;
         this.playerNumber=number;
@@ -28,6 +29,8 @@ export class Player
         this.attackCooldown=true;
         this.canAttack=false;
         this.speed=0.16;
+        this.barCooldown = true;
+		this.bar;
     }
 
 
@@ -35,12 +38,39 @@ export class Player
 
     preload()
     {
+        this.relatedScene.load.spritesheet('Azul', "assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG", {
+            frameWidth: 165,
+            frameHeight: 124
+        });
+        this.relatedScene.load.spritesheet('Rojo', "assets/img/PantalladeJuego/Spritesheets/SpritesheetFuego.PNG", {
+            frameWidth: 165,
+            frameHeight: 124
+        });
+        this.relatedScene.load.spritesheet('Amarillo', "assets/img/PantalladeJuego/Spritesheets/SpritesheetRayo.PNG", {
+            frameWidth: 165,
+            frameHeight: 124
+        });
+        this.relatedScene.load.spritesheet('Verde', "assets/img/PantalladeJuego/Spritesheets/SpritesheetViento.PNG", {
+            frameWidth: 165,
+            frameHeight: 124
+        });
+        this.relatedScene.load.spritesheet("Collision", "assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG", {
+            frameWidth: 150,
+            frameHeight: 125
+        });
+        this.relatedScene.load.spritesheet("bar", "assets/img/barraCooldown/SpritesheetCargaGolpe.PNG", {
+            frameWidth: 148,
+            frameHeight: 34
+        });
 
+        this.relatedScene.load.audio("puñetazoSound", 'assets/sound/puñetazo.m4a');
     }
 
     create()
     {
+		console.log("Se va a crear un jugador del tipo: "+this.type + " en la posicion: " + this.posX + ","+this.posY);
         this.player = this.relatedScene.matter.add.sprite(this.posX, this.posY, this.type);
+        console.log(this.player);
         this.Collision= this.relatedScene.matter.add.sprite(this.player.x+150,this.player.y+150,'Collision',null, {isSensor:true});
 
         this.Collision.visible=false;
@@ -69,18 +99,30 @@ export class Player
             frameRate: 10,
             repeat: 0
         });
+        this.relatedScene.anims.create({
+            key: 'barAnim',
+            frames: this.bar.anims.generateFrameNumbers('bar', { start: 0, end: 5}),
+            frameRate: 2.3,
+            repeat: 0
+        });
+        this.puñetazoS = this.relatedScene.sound.add("puñetazoSound");
+        this.bar = this.relatedScene.matter.add.sprite(this.player.x,this.player.y + 20,'bar',null,{isSensor:true});
+        this.bar.visible = false;
+        this.attackCooldown = true;
 
         this.player.setFrictionAir(0.1);
         this.player.setMass(50);
         this.player.setFixedRotation();
         if(this.playerNumber===1){PlayerC2=this.relatedScene.Player2}
         if(this.playerNumber===2){PlayerC1=this.relatedScene.Player1}
-
+        this.attackCooldown=true;
+        this.player.setPosition(this.posX,this.posY)
     }
+    refresh(){this.player.setTexture(this.type,0);}
 
     update()
     {
-
+		
         this.checkCollision();
 
         this.calculateRotation()
@@ -137,9 +179,15 @@ export class Player
         if(this.Controller.actions.ATTACK.isDown && this.attackCooldown)
         {
             this.attackCooldown=false;
+            this.barCooldown = true;
+            this.puñetazoS.play();
+            
 
             this.relatedScene.time.addEvent({ delay: 3000, callback: Cooldown, callbackScope: this, loop: false});
             this.player.anims.play(this.type + 'walkPunch', true);
+            this.bar.visible = true;
+            this.bar.anims.play('barAnim');
+            
 
             if(this.canAttack)
             {
@@ -148,7 +196,12 @@ export class Player
 
         }
         if(this.player.anims.isPlaying){this.isAttacking=false;}
+        
+		if(!this.barCooldown){
+            this.bar.visible = false;
+        }
 
+        this.bar.setPosition(this.player.x,this.player.y + 80);
     }
 
     Attack()

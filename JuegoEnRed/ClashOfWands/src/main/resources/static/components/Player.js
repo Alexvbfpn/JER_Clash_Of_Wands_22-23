@@ -3,6 +3,7 @@ import {Controller} from "../components/Controller.js";
 function Cooldown()
 {
     this.attackCooldown=true;
+    this.barCooldown = false;
 }
 function resetSpeed()
 {
@@ -28,6 +29,8 @@ export class Player
         this.attackCooldown=true;
         this.canAttack=false;
         this.speed=0.16;
+        this.barCooldown = true;
+		this.bar;
     }
 
 
@@ -55,6 +58,12 @@ export class Player
             frameWidth: 150,
             frameHeight: 125
         });
+        this.relatedScene.load.spritesheet("bar", "assets/img/barraCooldown/SpritesheetCargaGolpe.PNG", {
+            frameWidth: 148,
+            frameHeight: 34
+        });
+
+        this.relatedScene.load.audio("puñetazoSound", 'assets/sound/puñetazo.m4a');
     }
 
     create()
@@ -90,6 +99,16 @@ export class Player
             frameRate: 10,
             repeat: 0
         });
+        this.relatedScene.anims.create({
+            key: 'barAnim',
+            frames: this.bar.anims.generateFrameNumbers('bar', { start: 0, end: 5}),
+            frameRate: 2.3,
+            repeat: 0
+        });
+        this.puñetazoS = this.relatedScene.sound.add("puñetazoSound");
+        this.bar = this.relatedScene.matter.add.sprite(this.player.x,this.player.y + 20,'bar',null,{isSensor:true});
+        this.bar.visible = false;
+        this.attackCooldown = true;
 
         this.player.setFrictionAir(0.1);
         this.player.setMass(50);
@@ -160,9 +179,15 @@ export class Player
         if(this.Controller.actions.ATTACK.isDown && this.attackCooldown)
         {
             this.attackCooldown=false;
+            this.barCooldown = true;
+            this.puñetazoS.play();
+            
 
             this.relatedScene.time.addEvent({ delay: 3000, callback: Cooldown, callbackScope: this, loop: false});
             this.player.anims.play(this.type + 'walkPunch', true);
+            this.bar.visible = true;
+            this.bar.anims.play('barAnim');
+            
 
             if(this.canAttack)
             {
@@ -171,7 +196,12 @@ export class Player
 
         }
         if(this.player.anims.isPlaying){this.isAttacking=false;}
+        
+		if(!this.barCooldown){
+            this.bar.visible = false;
+        }
 
+        this.bar.setPosition(this.player.x,this.player.y + 80);
     }
 
     Attack()
