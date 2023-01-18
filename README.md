@@ -5,7 +5,8 @@
 
 ## Video Presentación:
 
-https://drive.google.com/file/d/1oIJO63OStxBpF4XkSg-XQrQvQ2F7BciW/view?usp=sharing
+[![Watch the video](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/pantallaInicio1.png)](https://drive.google.com/file/d/1oIJO63OStxBpF4XkSg-XQrQvQ2F7BciW/view?usp=sharing)
+
 
 ## Resumen ejecutivo:
 
