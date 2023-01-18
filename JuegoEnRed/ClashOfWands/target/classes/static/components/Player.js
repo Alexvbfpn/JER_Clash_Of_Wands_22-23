@@ -35,26 +35,7 @@ export class Player
 
     preload()
     {
-        this.relatedScene.load.spritesheet('Azul', "assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG", {
-            frameWidth: 165,
-            frameHeight: 124
-        });
-        this.relatedScene.load.spritesheet('Rojo', "assets/img/PantalladeJuego/Spritesheets/SpritesheetFuego.PNG", {
-            frameWidth: 165,
-            frameHeight: 124
-        });
-        this.relatedScene.load.spritesheet('Amarillo', "assets/img/PantalladeJuego/Spritesheets/SpritesheetRayo.PNG", {
-            frameWidth: 165,
-            frameHeight: 124
-        });
-        this.relatedScene.load.spritesheet('Verde', "assets/img/PantalladeJuego/Spritesheets/SpritesheetViento.PNG", {
-            frameWidth: 165,
-            frameHeight: 124
-        });
-        this.relatedScene.load.spritesheet("Collision", "assets/img/PantalladeJuego/Spritesheets/SpritesheetAgua.PNG", {
-            frameWidth: 150,
-            frameHeight: 125
-        });
+
     }
 
     create()

@@ -27,9 +27,7 @@ export class LaserObs {
 
     preload() {
         //Se precarga las imagenes en escena
-        this.relatedScene.load.image("varaLaser", 'assets/img/varaLaser.png');
-        this.relatedScene.load.spritesheet("bola", 'assets/img/bolaMagica.png',{ frameWidth: 46, frameHeight: 46 });
-        this.relatedScene.load.audio("laserSound", 'assets/sound/laserSound.wav');
+
     }
 
     create() {

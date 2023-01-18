@@ -9,14 +9,7 @@ export class FinalDisplay
 
     preload()
     {
-        this.relatedScene.load.spritesheet('finalScene_Background', 'assets/img/finalScreen/background_finalSheet.PNG', {
-            frameWidth: 1920,
-            frameHeight: 1080
-        });
-        this.relatedScene.load.spritesheet('finalScene_Text', 'assets/img/finalScreen/text_finalScene.PNG', {
-            frameWidth: 1067,
-            frameHeight: 288
-        });
+
     }
 
     create()

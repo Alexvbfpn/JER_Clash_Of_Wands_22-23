@@ -18,31 +18,7 @@ export class PointsPerson
 
     preload()
     {
-        this.relatedScene.load.spritesheet('iker', 'assets/img/match/spriteSheet_OnePoint.png', {
-            frameWidth: 102,
-            frameHeight: 105
-        });
-        this.relatedScene.load.spritesheet('carva', 'assets/img/match/spriteSheet_TwoPoints.png', {
-            frameWidth: 102,
-            frameHeight: 105
-        });
-        this.relatedScene.load.spritesheet('pepe', 'assets/img/match/spriteSheet_ThreePoints.png', {
-            frameWidth: 102,
-            frameHeight: 105
-        });
-        //Separamos los scorers del p2
-        this.relatedScene.load.spritesheet('iker2', 'assets/img/match/spriteSheet_OnePoint.png', {
-            frameWidth: 102,
-            frameHeight: 105
-        });
-        this.relatedScene.load.spritesheet('carva2', 'assets/img/match/spriteSheet_TwoPoints.png', {
-            frameWidth: 102,
-            frameHeight: 105
-        });
-        this.relatedScene.load.spritesheet('pepe2', 'assets/img/match/spriteSheet_ThreePoints.png', {
-            frameWidth: 102,
-            frameHeight: 105
-        });
+
 
     }
 

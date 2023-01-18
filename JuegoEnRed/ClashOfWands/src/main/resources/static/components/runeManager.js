@@ -13,7 +13,7 @@ export class RuneManager {
 
     preload()
     {
-        this.relatedScene.load.audio("onB", 'assets/sound/encimaBoton.wav');
+        //this.relatedScene.load.audio("onB", 'assets/sound/encimaBoton.wav');
     }
 
     create()
@@ -111,6 +111,8 @@ export class RuneManager {
                     selector.currentCharacter.setFrame(currentSelected);
                     selector.currentText.setFrame(textSelected);
                     selector.currentCharacter.visible = true;
+                    selector.currentCharacter.frame;
+                    console.log(selector.currentCharacter.frame.name);
                 }
 
                 lightAgain = true;

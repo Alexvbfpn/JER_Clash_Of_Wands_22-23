@@ -9,14 +9,7 @@ export class MidDisplay
 
     preload()
     {
-        this.relatedScene.load.spritesheet('midScene_Background', 'assets/img/midScreen/background_midSheet.PNG', {
-            frameWidth: 1920,
-            frameHeight: 1080
-        });
-        this.relatedScene.load.spritesheet('midScene_Text', 'assets/img/midScreen/text_midScene.PNG', {
-            frameWidth: 1686,
-            frameHeight: 448
-        });
+
     }
 
     create()

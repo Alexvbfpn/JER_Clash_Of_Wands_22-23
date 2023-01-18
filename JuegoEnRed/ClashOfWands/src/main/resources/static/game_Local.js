@@ -8,18 +8,32 @@ import {Controls} from "./scenes/controls.js";
 import {StartScene} from "./scenes/startScene.js";
 import {ChooseMode} from "./scenes/chooseMode.js";
 import {Login} from "./scenes/login.js";
+import {Lobby} from "./scenes/lobby.js";
+import {OnlineCharacterSelector} from "./scenes/onlineCharacterSelector.js";
+import {LoadingScreen} from "./scenes/loadingScreen.js";
+import {PauseScreen} from "./scenes/pauseScreen.js";
+import {MatchOnline} from "./scenes/matchOnline.js";
+import {MidSceneOnline} from "./scenes/midSceneOnline.js";
+import {OnlineFinalScene} from "./scenes/finalSceneOnline.js";
 
 var scenes = [];
+scenes.push(LoadingScreen);
 scenes.push(StartScene);
 scenes.push(MainMenu);
 scenes.push(Login);
 scenes.push(ChooseMode);
+scenes.push(Lobby);
+scenes.push(OnlineCharacterSelector);
 scenes.push(Credits);
 scenes.push(Controls);
 scenes.push(CharacterSelector);
 scenes.push(Match);
 scenes.push(MidScene);
 scenes.push(FinalScene);
+scenes.push(PauseScreen);
+scenes.push(MatchOnline);
+scenes.push(MidSceneOnline);
+scenes.push(OnlineFinalScene);
 
 var config = {
 
@@ -45,7 +59,6 @@ var config = {
 
                 }
             }
-
         },
     dom:
     {

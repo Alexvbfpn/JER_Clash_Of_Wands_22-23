@@ -1,4 +1,9 @@
 import {Button} from "../components/button.js"
+let url;
+
+let activeUsersNumber;
+let activePrevUsersNumber;
+
 export class ChooseMode extends Phaser.Scene
 {
     constructor()
@@ -10,13 +15,16 @@ export class ChooseMode extends Phaser.Scene
 
     preload()
     {
-        //this.load.image('mainMenu_Background', 'assets/img/background_mainMenu.png');
         this.localButton.preload();
-        this.load.image('local_button', 'assets/img/buttons/local_buttonDef.png');
-        this.load.image('online_button', 'assets/img/buttons/onlineBlock_buttonDef.png');
+
         this.onlineButton.preload();
     }
-
+	
+	init(data)
+    {
+        this.dataObj = data;
+    }
+	
     create()
     {
         //Fondo
@@ -27,29 +35,22 @@ export class ChooseMode extends Phaser.Scene
         this.clickS = this.sound.add("pulsarB");
         this.encimaS = this.sound.add("encimaB");
 
-        this.localButton = new Button(this, 'characterSelector', 'local_button', 286, 757, 1.15, 1.40, null, this.mainTheme);
-        this.onlineButton = new Button(this, 'credits', 'online_button', 1101, 757, 1.15, 1.40);
+        this.localButton = new Button(this, 'characterSelector', 'local_button', 286, 757, 1.15, 1.40, null, null, this.dataObj);
+        this.onlineButton = new Button(this, 'login', 'online_button', 1101, 757, 1.15, 1.40, null, null, this.dataObj);
 
 
         //Llamamos al create de cada uno para que se cree y muestre en la escena
         this.localButton.create();
         this.onlineButton.create();
         this.backButton.create();
-        /*
-        //Animación del texto
-        var play_button = this.add.image(0, 0, 'playButton').setScale(1.5, 1.5);
-        var text_play_button = this.add.image(0, 0, 'textPlayButton').setScale(1.5, 1.5);
 
-        this.tweens.add({
-            targets: text_play_button,
-            alpha: 0.5,
-            duration: 750,
-            ease: 'Sine.easeOut',
-            yoyo: true,
-            repeat: -1
-        });
 
-         */
+        console.log(this.dataObj);
+        this.username = this.dataObj.username;
+        url = this.dataObj.url;
+
     }
+    update(){
 
+    }
 }

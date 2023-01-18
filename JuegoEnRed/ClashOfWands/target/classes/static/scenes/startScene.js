@@ -3,15 +3,13 @@ export class StartScene extends Phaser.Scene
 {
     constructor()
     {
-        super({key: 'start'});
+        super({key: 'startScene'});
 
     }
 
     preload()
     {
-        this.load.image('start_Background', 'assets/img/background_start.png');
 
-        this.load.image('start_text', 'assets/img/start_text.png');
 
     }
 
@@ -26,10 +24,17 @@ export class StartScene extends Phaser.Scene
         let scene = this.scene;
         this.back.on('pointerdown', function (){
 
-            scene.start('login');
+            scene.start('mainMenu');
 
 
 
+        });
+
+        let text111 = this.add.text(-100, -100, '0', {
+            fontFamily: 'loadingFont',
+            font: (1).toString() + "px loadingFont",
+            //fontWeight: "bold",
+            color: '#32023a'
         });
 
         this.tweens.add({
