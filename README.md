@@ -399,7 +399,7 @@ Añadida la posibilidad de pausar el juego y acceder a distintas opciones.
 ![](https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/images/mejora%20pantalla%20pausa.png)
 
 ## 12. Links:
-Itchio: https://angrymangostudio.itch.io/clash-of-wands
+Itchio: https://angrymangostudio.itch.io/clash-of-wands .
 Newgrounds: https://www.newgrounds.com/portal/view/871104
 GameJolt: https://gamejolt.com/games/ClashOfWands/780088
 Indiexpo: https://www.indiexpo.net/es/games/clash-of-wands
