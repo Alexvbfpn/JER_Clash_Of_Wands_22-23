@@ -400,14 +400,23 @@ Añadida la posibilidad de pausar el juego y acceder a distintas opciones.
 
 ## 12. Links:
 -**Itchio:** https://angrymangostudio.itch.io/clash-of-wands 
+
 -**Newgrounds:** https://www.newgrounds.com/portal/view/871104 
+
 -**GameJolt:** https://gamejolt.com/games/ClashOfWands/780088 
+
 -**Indiexpo:** https://www.indiexpo.net/es/games/clash-of-wands 
 
+
+
 -**Twitter:** https://twitter.com/AngryMangoGames 
+
 -**Instagram:** https://www.instagram.com/angrymangostudio/ 
+
 -**TikTok:** https://www.tiktok.com/@angrymangostudio?_t=8ZH5Mn55SZK&_r=1 
+
 -**Portfolio:** https://htmlpreview.github.io/?https://github.com/Alexvbfpn/JER_Clash_Of_Wands_22-23/blob/main/Portfolio/index.html 
+
 
 |Equipo 6: Angry Mango||
 | :- | -: |
